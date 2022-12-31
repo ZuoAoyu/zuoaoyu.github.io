@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on o5o</title><link>https://o5o.me/post/</link><description>Recent content in Posts on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 30 Dec 2022 12:23:10 +0800</lastBuildDate><atom:link href="https://o5o.me/post/index.xml" rel="self" type="application/rss+xml"/><item><title>游戏手柄用于SuperMemo复习</title><link>https://o5o.me/post/supermemo-gamepad/</link><pubDate>Fri, 30 Dec 2022 12:23:10 +0800</pubDate><guid>https://o5o.me/post/supermemo-gamepad/</guid><description>在用SuperMemo复习时，一边要移动鼠标，浏览卡片内容，一边要用键盘评分、修改卡片内容，容易手忙脚乱。把评分常用的按键和其他一些按键映射到游戏手柄上可以稍微方便一点。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on o5o</title><link>https://o5o.me/post/</link><description>Recent content in Posts on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 18:28:02 +0800</lastBuildDate><atom:link href="https://o5o.me/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Think Python Exercise 10.6</title><link>https://o5o.me/post/think_python_exercise_10.6/</link><pubDate>Sat, 31 Dec 2022 18:28:02 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.6/</guid><description>如果可以通过重排一个单词中字母的顺序，得到另外一个单词，那么称这两个单词是变位词。编写一个叫做 is_anagram 的函数，接受两个字符串作为参数， 如果它们是变位词则返回 True 。
+解答：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 def is_anagram(s1,s2): t1 = list(s1) t2 = list(s2) #先把字符串转换成列表 if len(t1) == len(t2): #如果两个字符串长度都不一样，那么肯定不是变位词了 t1.sort() t2.sort() #按照同样的方式重新排序后，如果二者元素对应相等，那么它们就是变位词了 for i in range(len(t1)): if t1[i] == t2[i]: pass else: return False return True else: return False is_anagram(&amp;#39;abc&amp;#39;,&amp;#39;bac&amp;#39;)</description></item><item><title>Think Python Exercise 10.5</title><link>https://o5o.me/post/think_python_exercise_10.5/</link><pubDate>Sat, 31 Dec 2022 17:50:04 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.5/</guid><description>编写一个叫做is_sorted的函数，接受一个列表作为参数，如果列表是递增排列的则返回 True ，否则返回False。 例如：
+&amp;gt;&amp;gt;&amp;gt; is_sorted([1, 2, 2]) True &amp;gt;&amp;gt;&amp;gt; is_sorted([&amp;#39;b&amp;#39;, &amp;#39;a&amp;#39;]) False 分析：
+可以先对列表用.sort()方法进行递增排列，如果递增排列后的列表和原列表的元素都对应相同，说明原列表本身就是递增排列的。
+一个错误的写法：
+1 2 3 4 5 6 7 8 9 def is_sorted(t): t_copy = t[:] print(t_copy) if t_copy == t.sort(): return True else: return False is_sorted([1, 2, 2]) 程序没有报错，但它仍是错的，因为，我们要比较的是两个列表里的元素对应相同，而不是看这两个变量是不是指向同一个列表。t_copy和t.sort()肯定不指向同一个列表，但它们的元素对应相同。因此我们不能用t_copy == t.sort()这样的方法来比较。可以这样做：
+1 2 3 4 5 6 7 8 9 10 11 def is_sorted(t): t_copy = t[:] for i in range(len(t)): if t_copy[i] == t[i]: #如果递增排列后的列表和原列表的元素都对应相同，说明原列表本身就是递增排列的 pass else: return False return True is_sorted([1, 2, 2]) 还可以用另一种方法实现：</description></item><item><title>Think Python Exercise 10.4</title><link>https://o5o.me/post/think_python_exercise_10.4/</link><pubDate>Sat, 31 Dec 2022 17:29:11 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.4/</guid><description>编写一个叫做 chop 的函数，接受一个列表作为参数，移除第一个和最后一个元素，并返回None。例如：
+&amp;gt;&amp;gt;&amp;gt; t = [1, 2, 3, 4] &amp;gt;&amp;gt;&amp;gt; chop(t) &amp;gt;&amp;gt;&amp;gt; t [2, 3] 分析：
+一顿操作猛如虎：（错的）
+1 2 3 4 5 6 7 8 def chop(t): t = t[1:-1] t1 = [1, 2, 3, 4] chop(t1) t1 为什么t1没变化？是我列表切片用错了吗，再试试：（还是错的）
+1 2 3 4 5 6 7 8 def chop(t): t = t[1:len(t)-2] t1 = [1, 2, 3, 4] chop(t1) t1 可以看到，t1还是没变化，为什么？为什么这样是错的？
+不要被迷惑了，当一个列表t1传递给一个函数时，t1和形参t共同指向同一个列表，但当函数内部t重新赋值后，t指向了一个新的列表，而t1依然指向原来的列表，那么当函数运行结束后，t1的值当然还是原来的啦。
+由于题目要求函数不能有返回值，可以使用下面的做法：
+1 2 3 4 5 6 7 8 9 def chop(t): del t[0] del t[-1] t1 = [1, 2, 3, 4] chop(t1) t1 如果函数可以有返回值，可以这样写：</description></item><item><title>Think Python Exercise 10.3</title><link>https://o5o.me/post/think_python_exercise_10.3/</link><pubDate>Sat, 31 Dec 2022 16:59:00 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.3/</guid><description>编写一个函数，读取文件 words.txt ，建立一个列表,其中每个单词为一个元素。
+编写两个版本，一个使用 append 方法，另一个使用 t = t + [x] 。那个版本运行得慢？为什么？
+解答：
+在 jupyter 中的一个代码单元（cell）中，代码第一行写上%%time或%%timeit，即可计算代码的运行时间。
+版本1：
+1 2 3 4 5 6 7 8 9 10 11 12 %%time def read_word1(file_in): word_list = [] for line in file_in: word = line.strip() word_list.append(word) return word_list fin = open(&amp;#39;words.txt&amp;#39;) a = read_word1(fin) 运行结果：
+CPU times: user 85.3 ms, sys: 0 ns, total: 85.3 ms Wall time: 88.4 ms
+版本2：
+1 2 3 4 5 6 7 8 9 10 11 12 %%time def read_word2(file_in): word_list = [] for line in file_in: word = line.</description></item><item><title>Think Python Exercise 10.2</title><link>https://o5o.me/post/think_python_exercise_10.2/</link><pubDate>Sat, 31 Dec 2022 16:42:52 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.2/</guid><description>编写一个叫做 cumsum 的函数，接受一个由数值组成的列表，并返回累加和；即一个新列表，其中第i个元素是原列表中前i+1个元素的和（注意i是从0开始的）。 例如：
+&amp;gt;&amp;gt;&amp;gt; t = [1, 2, 3] &amp;gt;&amp;gt;&amp;gt; cumsum(t) [1, 3, 6] 解答：
+1 2 3 4 5 6 7 8 9 10 11 12 def cumsum(t): numsum = [] for i in range(len(t)): numsum.append(sum(t[:i+1])) #对t的前i+1个元素求和（注意i是从0开始，所以第i个元素是第i+1个元素），然后追加到新列表里 return numsum t = [1, 2, 3] print(cumsum(t)) t = [3,3,6,9,10] print(cumsum(t))</description></item><item><title>Think Python Exercise 10.1</title><link>https://o5o.me/post/think_python_exercise_10.1/</link><pubDate>Sat, 31 Dec 2022 16:22:37 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.1/</guid><description>编写一个叫做 nested_sum 的函数，接受一个由一些整数列表构成的列表作为参数，并将所有嵌套列表中的元素相加。例如：
+&amp;gt;&amp;gt;&amp;gt; t = [[1, 2], [3], [4, 5, 6]] &amp;gt;&amp;gt;&amp;gt; nested_sum(t) 21 解答：
+可以分别对每个子列表求和，再对得到的各个和求和。也可以先把各个子列表合并起来，然后对得到的列表求和。
+1 2 3 4 5 6 7 8 9 def nested_sum(t): c = [] for i in t: c = c + i #把t列表里的各个列表合并成一个列表 return sum(c) t = [[1, 2], [3], [4, 5, 6]] nested_sum(t)</description></item><item><title>游戏手柄用于SuperMemo复习</title><link>https://o5o.me/post/supermemo-gamepad/</link><pubDate>Fri, 30 Dec 2022 12:23:10 +0800</pubDate><guid>https://o5o.me/post/supermemo-gamepad/</guid><description>在用SuperMemo复习时，一边要移动鼠标，浏览卡片内容，一边要用键盘评分、修改卡片内容，容易手忙脚乱。把评分常用的按键和其他一些按键映射到游戏手柄上可以稍微方便一点。
 游戏手柄：八位堂Zero2小手柄。 软件：AntiMicroX
 手柄连接计算机 看说明书即可。
 在AntiMicroX中设定快捷键 打开软件后，点手柄上的按键，可以看到有的按键映射是错的，点软件窗口左下角的“游戏控制器映射”，先矫正一遍。
