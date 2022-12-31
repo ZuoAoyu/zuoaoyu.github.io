@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SuperMemo on o5o</title><link>https://o5o.me/tags/supermemo/</link><description>Recent content in SuperMemo on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 22:25:25 +0800</lastBuildDate><atom:link href="https://o5o.me/tags/supermemo/index.xml" rel="self" type="application/rss+xml"/><item><title>正则表达式匹配HTML标签</title><link>https://o5o.me/post/regexps_match_html_tags/</link><pubDate>Sat, 31 Dec 2022 22:25:25 +0800</pubDate><guid>https://o5o.me/post/regexps_match_html_tags/</guid><description>最近在用SuperMemo渐进阅读旋元佑的《英语魔法师之语法俱乐部》这本语法书。我的阅读前流程是这样的：（括号内的是所用工具）
+将epub电子书按章节分割（calibre-EpubSplit） 将需要阅读的章节导入SuperMemo（Quicker、pandoc、AutoHotkey） 在SuperMemo内将该章节分割成更小的卡片（鼠标右键-阅读-分割-分割文章） 统一将所得的所有卡片设为新材料（根卡片鼠标右键-处理选中分支-学习-忘记） 菜单栏-学习-阶段-新学材料（也可等当天复习完后根据提示进入） 问题在于，我所拥有的这本epub电子书，html标签很乱，导致我在导入SM后无法正确根据html标签分割文章，因此在导入SM前需要先整理epub文件的html标签。这也就是这篇文章的由来。
+截取这本书的一个片段：
+1 &amp;lt;p class=&amp;#34;calibre_16&amp;#34;&amp;gt;以上谈的是修饰动词专用的“方法、状态副词”，以及它在句中位置的变化原则。接下来看看其他种类的副词。&amp;lt;/p&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre_5&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre2&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre2&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre2&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre_21&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;calibre1&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;calibre_12&amp;#34;&amp;gt;强调语气的副词（Intensifiers)&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;a id=&amp;#34;filepos295095&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;p class=&amp;#34;calibre_24&amp;#34;&amp;gt;这一类副词有一个特色：它在使用上很有弹性，&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;四种主要词类，包括名词、动词、形容词与副词都可以用它来修饰。&amp;lt;/span&amp;gt;认识这一点，才算真正弄清楚形容词与副词间的分工。这一类的副词又可以细分为以下三种：&amp;lt;/p&amp;gt; 所要做的是把下面这一段变为：&amp;lt;h2&amp;gt;强调语气的副词（Intensifiers)&amp;lt;/h2&amp;gt;，这样我就可以在SM里很方便地按h2标签分割内容。
+1 &amp;lt;blockquote class=&amp;#34;calibre2&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre2&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre2&amp;#34;&amp;gt;&amp;lt;blockquote class=&amp;#34;calibre_21&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;calibre1&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;calibre_12&amp;#34;&amp;gt;强调语气的副词（Intensifiers)&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;/blockquote&amp;gt;&amp;lt;/blockquote&amp;gt; 可以看到，一共是4个blockquote标签，3个span标签，那么我们可以先设法用正则匹配出一个起始blockquote标签，然后重复4次，匹配出一个起始span标签，然后重复3词，就能匹配出所有的起始标签了。
+(&amp;lt;blockquote\s[^&amp;gt;]*&amp;#34;&amp;gt;){4}(&amp;lt;span\s[^&amp;gt;]*&amp;#34;&amp;gt;){3} 同样的道理，匹配所有的闭合标签。
+(&amp;lt;\/span&amp;gt;){3}(&amp;lt;/blockquote&amp;gt;){4} 最后，标题可以用(.*?)匹配，把它们组合在一起，就成功匹配出了这段html代码。
+(&amp;lt;blockquote\s[^&amp;gt;]*&amp;#34;&amp;gt;){4}(&amp;lt;span\s[^&amp;gt;]*&amp;#34;&amp;gt;){3}(.*?)(&amp;lt;\/span&amp;gt;){3}(&amp;lt;/blockquote&amp;gt;){4} 将其用下面的内容替换，内容就整理好了。
+\n&amp;lt;h2&amp;gt;$3&amp;lt;/h2&amp;gt;\n 上面的正则，经过我的实践，是比较经济实惠的。以后如果有更好的方案，本文会继续更新。</description></item><item><title>游戏手柄用于SuperMemo复习</title><link>https://o5o.me/post/supermemo-gamepad/</link><pubDate>Fri, 30 Dec 2022 12:23:10 +0800</pubDate><guid>https://o5o.me/post/supermemo-gamepad/</guid><description>在用SuperMemo复习时，一边要移动鼠标，浏览卡片内容，一边要用键盘评分、修改卡片内容，容易手忙脚乱。把评分常用的按键和其他一些按键映射到游戏手柄上可以稍微方便一点。
+游戏手柄：八位堂Zero2小手柄。 软件：AntiMicroX
+手柄连接计算机 看说明书即可。
+在AntiMicroX中设定快捷键 打开软件后，点手柄上的按键，可以看到有的按键映射是错的，点软件窗口左下角的“游戏控制器映射”，先矫正一遍。
+然后在软件主窗口中找到你想设定快捷键的按键（可以通过按手柄上的对应按键确定它的位置），鼠标点击，设定快捷键即可。
+在我的SuperMemo中，目前是有很多的摘录卡片，以及很少的填空题卡片。我习惯于一边复习一边编辑卡片内容，比如把一段紧凑的话分成一行一行的句子，修改一些措辞。
+在SM中，当我的鼠标点击了卡片，可以看作我进入了“编辑模式”，如果这张卡片看完了，想进入下一张卡片，我需要先退出“编辑模式”（按ESC），再按回车键。可以把这两个键简化为一个键，在游戏手柄上按一次，无论你是不是在“编辑模式”，都可以跳转到下一张卡片。
+在AntiMicroX窗口中鼠标点击按键，在弹出的窗口中点击“高级选项”，又弹出一个窗口，在“分配”栏里点击“小方块”（里面出现&amp;quot;&amp;hellip;&amp;quot;），这时候在键盘上输入想设定的按键。设定两个按键，那么点击游戏手柄上的按键时，这两个按键会依次执行。
+我的按键设定 设定原则是，使用越多的按键放在越容易按的位置。
+使用手柄时我习惯竖着拿。除了十字方向键（我不用），最不方便按的是左肩键，其次是右肩键，然后是开始键和选择键。
+因此，我的设定是：
+左肩键，评分5。一是用的少，二来对一张卡片评分5时需要调整手的握姿，这样就会很慎重、很有仪式感。如果这种情况下还非要把一张卡片评分为5，说明真的掌握的很好了。
+右肩键，评分2。答错时按的。
+A，评分3/ENTER。最容易按的键。因为在评分时，按Enter键的效果和按3是一样的，所以设定为Enter，这样在复习时就不用频繁移动手指了。
+X，评分1。
+B，评分4。
+Y，ESC+Enter，切换到下一张卡片。
+为什么A设定了Enter，这里还要再设定一个ESC+Enter呢？或者能不能都用ESC+Enter呢？你复习的时候亲手去操作一下就明白了。评分时按ESC+Enter没效果；阅读并编辑卡片时，按Enter不会跳转到下一张卡片，而是在卡片里添加一个空行。
+这是一件很主观的事情，怎么舒服怎么来。
+全文完。</description></item></channel></rss>
