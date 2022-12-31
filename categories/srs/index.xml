@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SRS on o5o</title><link>https://o5o.me/categories/srs/</link><description>Recent content in SRS on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 30 Dec 2022 12:23:10 +0800</lastBuildDate><atom:link href="https://o5o.me/categories/srs/index.xml" rel="self" type="application/rss+xml"/><item><title>游戏手柄用于SuperMemo复习</title><link>https://o5o.me/post/supermemo-gamepad/</link><pubDate>Fri, 30 Dec 2022 12:23:10 +0800</pubDate><guid>https://o5o.me/post/supermemo-gamepad/</guid><description>在用SuperMemo复习时，一边要移动鼠标，浏览卡片内容，一边要用键盘评分、修改卡片内容，容易手忙脚乱。把评分常用的按键和其他一些按键映射到游戏手柄上可以稍微方便一点。
+游戏手柄：八位堂Zero2小手柄。 软件：AntiMicroX
+手柄连接计算机 看说明书即可。
+在AntiMicroX中设定快捷键 打开软件后，点手柄上的按键，可以看到有的按键映射是错的，点软件窗口左下角的“游戏控制器映射”，先矫正一遍。
+然后在软件主窗口中找到你想设定快捷键的按键（可以通过按手柄上的对应按键确定它的位置），鼠标点击，设定快捷键即可。
+在我的SuperMemo中，目前是有很多的摘录卡片，以及很少的填空题卡片。我习惯于一边复习一边编辑卡片内容，比如把一段紧凑的话分成一行一行的句子，修改一些措辞。
+在SM中，当我的鼠标点击了卡片，可以看作我进入了“编辑模式”，如果这张卡片看完了，想进入下一张卡片，我需要先退出“编辑模式”（按ESC），再按回车键。可以把这两个键简化为一个键，在游戏手柄上按一次，无论你是不是在“编辑模式”，都可以跳转到下一张卡片。
+在AntiMicroX窗口中鼠标点击按键，在弹出的窗口中点击“高级选项”，又弹出一个窗口，在“分配”栏里点击“小方块”（里面出现&amp;quot;&amp;hellip;&amp;quot;），这时候在键盘上输入想设定的按键。设定两个按键，那么点击游戏手柄上的按键时，这两个按键会依次执行。
+我的按键设定 设定原则是，使用越多的按键放在越容易按的位置。
+使用手柄时我习惯竖着拿。除了十字方向键（我不用），最不方便按的是左肩键，其次是右肩键，然后是开始键和选择键。
+因此，我的设定是：
+左肩键，评分5。一是用的少，二来对一张卡片评分5时需要调整手的握姿，这样就会很慎重、很有仪式感。如果这种情况下还非要把一张卡片评分为5，说明真的掌握的很好了。
+右肩键，评分2。答错时按的。
+A，评分3。最容易按的键。
+X，评分1。
+B，评分4。
+Y，ESC+Enter，切换到下一张卡片。
+这是一件很主观的事情，怎么舒服怎么来。
+全文完。</description></item></channel></rss>

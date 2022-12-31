@@ -14,20 +14,20 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/h3>
 &lt;p>看说明书即可。&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://o5o.me/2022-12-31/2204770020.png"
+src="https://o5o.me/2022-12-31/2436572632.png"
 alt="2022-12-30T03:08:35.png"
+width=1968
+height="3291" />
+&lt;img loading="lazy"
+src="https://o5o.me/2022-12-31/2204770020.png"
+alt="2022-12-30T03:10:13.png"
 width=1629
 height="615" />
 &lt;img loading="lazy"
 src="https://o5o.me/2022-12-31/4115564656.png"
-alt="2022-12-30T03:10:13.png"
-width=1529
-height="343" />
-&lt;img loading="lazy"
-src="https://o5o.me/2022-12-31/1996410503.png"
 alt="2022-12-30T03:10:43.png"
-width=752
-height="721" />&lt;/p>
+width=1529
+height="343" />&lt;/p>
 &lt;h3 id="在antimicrox中设定快捷键">
 &lt;a href="#%e5%9c%a8antimicrox%e4%b8%ad%e8%ae%be%e5%ae%9a%e5%bf%ab%e6%8d%b7%e9%94%ae" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -44,10 +44,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;p>在SM中，当我的鼠标点击了卡片，可以看作我进入了“编辑模式”，如果这张卡片看完了，想进入下一张卡片，我需要先退出“编辑模式”（按ESC），再按回车键。可以把这两个键简化为一个键，在游戏手柄上按一次，无论你是不是在“编辑模式”，都可以跳转到下一张卡片。&lt;/p>
 &lt;p>在AntiMicroX窗口中鼠标点击按键，在弹出的窗口中点击“高级选项”，又弹出一个窗口，在“分配”栏里点击“小方块”（里面出现&amp;quot;&amp;hellip;&amp;quot;），这时候在键盘上输入想设定的按键。设定两个按键，那么点击游戏手柄上的按键时，这两个按键会依次执行。&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://o5o.me/2022-12-31/200961642.png"
+src="https://o5o.me/2022-12-31/1996410503.png"
 alt="2022-12-30T04:07:28.png"
-width=2371
-height="1608" />&lt;/p>
+width=752
+height="721" />&lt;/p>
 &lt;h3 id="我的按键设定">
 &lt;a href="#%e6%88%91%e7%9a%84%e6%8c%89%e9%94%ae%e8%ae%be%e5%ae%9a" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -60,10 +60,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/h3>
 &lt;p>设定原则是，使用越多的按键放在越容易按的位置。&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://o5o.me/2022-12-31/2436572632.png"
+src="https://o5o.me/2022-12-31/200961642.png"
 alt="2022-12-30T03:06:50.png"
-width=1968
-height="3291" />&lt;/p>
+width=2371
+height="1608" />&lt;/p>
 &lt;p>使用手柄时我习惯竖着拿。除了十字方向键（我不用），最不方便按的是左肩键，其次是右肩键，然后是开始键和选择键。&lt;/p>
 &lt;p>因此，我的设定是：&lt;/p>
 &lt;p>左肩键，评分5。一是用的少，二来对一张卡片评分5时需要调整手的握姿，这样就会很慎重、很有仪式感。如果这种情况下还非要把一张卡片评分为5，说明真的掌握的很好了。&lt;/p>
