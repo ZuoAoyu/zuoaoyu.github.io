@@ -17,13 +17,13 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 src="https://o5o.me/2022-12-31/2436572632.png"
 alt="2022-12-30T03:08:35.png"
 width=1968
-height="3291" />
-&lt;img loading="lazy"
+height="3291" />&lt;/p>
+&lt;p>&lt;img loading="lazy"
 src="https://o5o.me/2022-12-31/2204770020.png"
 alt="2022-12-30T03:10:13.png"
 width=1629
-height="615" />
-&lt;img loading="lazy"
+height="615" />&lt;/p>
+&lt;p>&lt;img loading="lazy"
 src="https://o5o.me/2022-12-31/4115564656.png"
 alt="2022-12-30T03:10:43.png"
 width=1529
@@ -68,10 +68,11 @@ height="1608" />&lt;/p>
 &lt;p>因此，我的设定是：&lt;/p>
 &lt;p>左肩键，评分5。一是用的少，二来对一张卡片评分5时需要调整手的握姿，这样就会很慎重、很有仪式感。如果这种情况下还非要把一张卡片评分为5，说明真的掌握的很好了。&lt;/p>
 &lt;p>右肩键，评分2。答错时按的。&lt;/p>
-&lt;p>A，评分3。最容易按的键。&lt;/p>
+&lt;p>A，评分3/ENTER。最容易按的键。因为在评分时，按Enter键的效果和按3是一样的，所以设定为Enter，这样在复习时就不用频繁移动手指了。&lt;/p>
 &lt;p>X，评分1。&lt;/p>
 &lt;p>B，评分4。&lt;/p>
 &lt;p>Y，ESC+Enter，切换到下一张卡片。&lt;/p>
+&lt;p>为什么A设定了Enter，这里还要再设定一个ESC+Enter呢？或者能不能都用ESC+Enter呢？你复习的时候亲手去操作一下就明白了。评分时按ESC+Enter没效果；阅读并编辑卡片时，按Enter不会跳转到下一张卡片，而是在卡片里添加一个空行。&lt;/p>
 &lt;p>这是一件很主观的事情，怎么舒服怎么来。&lt;/p>
 &lt;p>全文完。&lt;/p></description></item><item><title>Think Python Exercise 9.6</title><link>https://o5o.me/post/think_python_exercise_9.6/</link><pubDate>Thu, 29 Dec 2022 17:45:12 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_9.6/</guid><description>
 &lt;p>编写一个名为is_abecedarian 的函数, 如果单词中的字符以字符表的顺序出现 (允许重复字符),则返回True。有多少个具备这种特征的单词?&lt;/p>
