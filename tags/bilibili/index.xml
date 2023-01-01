@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bilibili on o5o</title><link>https://o5o.me/tags/bilibili/</link><description>Recent content in bilibili on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 02 Jan 2023 01:07:10 +0800</lastBuildDate><atom:link href="https://o5o.me/tags/bilibili/index.xml" rel="self" type="application/rss+xml"/><item><title>Roam Research和Anki联用：动作配置</title><link>https://o5o.me/post/rr_km_anki_configuration_tutorial/</link><pubDate>Mon, 02 Jan 2023 01:07:10 +0800</pubDate><guid>https://o5o.me/post/rr_km_anki_configuration_tutorial/</guid><description>Roam Research是一个笔记软件，Anki是一个间隔重复软件。我在RR里写的笔记有复习需求，在Anki里的卡片有编辑、整理需求，所以以前的我就用Keyboard Maestro这个工具写了一个动作（Macro）来帮我将二者联系起来。
+RR的笔记可以导出为Anki卡片（卡片仅用于复习、展示，所有的编辑都在笔记上完成），笔记更新，卡片能同步更新，笔记和卡片能相互跳转。
+可以按下面的顺序进行配置（所需文件在文章最后），手把手教学请看视频：
+【详细配置】Keyboard Maestro动作实现Roam Research笔记和Anki卡片的双向链接、跳转和同步更新，配置指南
+Anki模板导入、修改 要改的地方就一处：修改模板里的RR graph名称。不改的话就没办法从Anki跳转回RR了。
+KM动作导入、修改 要改的地方也就只有一处：把你的Anki牌组的名字填进去。
+Anki插件安装 anki connect，插件代码：2055492159
+禁用App Nap 从Mac OS X Mavericks开始，操作系统中引入了名为App Nap的功能。此功能导致某些打开（但不可见）的应用程序处于挂起状态。由于此行为会导致Anki Connect在前台有另一个窗口时停止工作，因此应禁用Anki的App Nap1。
+在终端运行下面的命令即可。
+1 2 3 defaults write net.ankiweb.dtop NSAppSleepDisabled -bool true defaults write net.ichi2.anki NSAppSleepDisabled -bool true defaults write org.qt-project.Qt.QtWebEngineCore NSAppSleepDisabled -bool true 最后 这就配置完成了，是不是很简单？quicker版的动作配置更简单，除了下载插件，啥都不用配置，自动配置。想想以前真的傻，我给quicker版的这个动作加了批量导入、多种挖空标记、多种方式排列的笔记导入、自动从Anki获取牌组列表、自动添加Anki模板等等功能，有啥用呢，浪费那么多时间在完全没必要的事情上。
+模板、动作下载链接: https://pan.baidu.com/s/11IW50sMMJkEE4XJD7s0QnQ?pwd=3tvu 提取码: 3tvu
+希望能给看到这里的你带来一些帮助。
+Notes for MacOS Users&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item></channel></rss>
