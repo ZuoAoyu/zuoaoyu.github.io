@@ -11,5 +11,7 @@ o5o</a></div><div class=flex><a href=/articles/>Articles</a>
 </code></pre><p>最后，标题可以用<code>(.*?)</code>匹配，把它们组合在一起，就成功匹配出了这段html代码。</p><pre tabindex=0><code>(&lt;blockquote\s[^&gt;]*&#34;&gt;){4}(&lt;span\s[^&gt;]*&#34;&gt;){3}(.*?)(&lt;\/span&gt;){3}(&lt;/blockquote&gt;){4}
 </code></pre><p>将其用下面的内容替换，内容就整理好了。</p><pre tabindex=0><code>\n&lt;h2&gt;$3&lt;/h2&gt;\n
 </code></pre><p>上面的正则，经过我的实践，是比较经济实惠的。以后如果有更好的方案，本文会继续更新。</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/think_python_exercise_10.6/ title="Previous post (older)"><span>Previous</span>
-Think Python Exercise 10.6</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+Think Python Exercise 10.6</a>
+<a rel=next href=/post/think_python_exercise_5.4/ title="Next post (newer)"><span>Next</span>
+Think Python Exercise 5.4</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
 <script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.dd8e5b18a6dda91367e396fd8dc9b9f83a1993065f709a53e056e0f2e9096ea1.js data-enable-footnotes=true></script></footer></body></html>
