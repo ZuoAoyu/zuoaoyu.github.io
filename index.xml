@@ -1,4 +1,59 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 02 Jan 2023 01:07:10 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Roam Research和Anki联用：动作配置</title><link>https://o5o.me/post/rr_km_anki_configuration_tutorial/</link><pubDate>Mon, 02 Jan 2023 01:07:10 +0800</pubDate><guid>https://o5o.me/post/rr_km_anki_configuration_tutorial/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 02 Jan 2023 21:22:48 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Think Python Exercise 10.3</title><link>https://o5o.me/post/think_python_exercise_10.3/</link><pubDate>Mon, 02 Jan 2023 21:22:48 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.3/</guid><description>
+&lt;p>编写一个叫做&lt;code>middle&lt;/code>的函数,接受一个列表作为参数,并返回一个除了第一个和最后一个元素的列表。例如:&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;gt;&amp;gt;&amp;gt; t = [1, 2, 3, 4]
+&amp;gt;&amp;gt;&amp;gt; middle(t)
+[2, 3]
+&lt;/code>&lt;/pre>&lt;p>解答：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">middle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">t&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">t1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">middle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Think Python Exercise 10.7</title><link>https://o5o.me/post/think_python_exercise_10.7/</link><pubDate>Mon, 02 Jan 2023 20:31:00 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.7/</guid><description>
+&lt;p>编写一个叫做 &lt;code>has_duplicates&lt;/code> 的函数，接受一个列表作为参数，如果一个元素在列表中出现了不止一次，则返回 &lt;code>True&lt;/code> 。这个函数不能改变原列表。&lt;/p>
+&lt;p>解答：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">has_duplicates&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">t&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">False&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">t1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">has_duplicates&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Roam Research和Anki联用：动作配置</title><link>https://o5o.me/post/rr_km_anki_configuration_tutorial/</link><pubDate>Mon, 02 Jan 2023 01:07:10 +0800</pubDate><guid>https://o5o.me/post/rr_km_anki_configuration_tutorial/</guid><description>
 &lt;p>Roam Research是一个笔记软件，Anki是一个间隔重复软件。我在RR里写的笔记有复习需求，在Anki里的卡片有编辑、整理需求，所以以前的我就用Keyboard Maestro这个工具写了一个动作（Macro）来帮我将二者联系起来。&lt;/p>
 &lt;p>RR的笔记可以导出为Anki卡片（卡片仅用于复习、展示，所有的编辑都在笔记上完成），笔记更新，卡片能同步更新，笔记和卡片能相互跳转。&lt;/p>
 &lt;p>可以按下面的顺序进行配置（所需文件在文章最后），手把手教学请看视频：&lt;/p>
@@ -1084,7 +1139,7 @@ False
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">t1&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Think Python Exercise 10.3</title><link>https://o5o.me/post/think_python_exercise_10.3/</link><pubDate>Sat, 31 Dec 2022 16:59:00 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.3/</guid><description>
+&lt;/div></description></item><item><title>Think Python Exercise 10.9</title><link>https://o5o.me/post/think_python_exercise_10.9/</link><pubDate>Sat, 31 Dec 2022 16:59:00 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_10.9/</guid><description>
 &lt;p>编写一个函数，读取文件 &lt;code>words.txt&lt;/code> ，建立一个列表,其中每个单词为一个元素。&lt;/p>
 &lt;p>编写两个版本，一个使用 &lt;code>append&lt;/code> 方法，另一个使用 &lt;code>t&lt;/code> &lt;code>=&lt;/code> &lt;code>t&lt;/code> &lt;code>+&lt;/code> &lt;code>[x]&lt;/code> 。那个版本运行得慢？为什么？&lt;/p>
 &lt;p>解答：&lt;/p>
