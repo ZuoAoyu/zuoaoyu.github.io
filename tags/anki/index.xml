@@ -7,7 +7,7 @@ KM动作导入、修改 要改的地方也就只有一处：把你的Anki牌组�
 Anki插件安装 anki connect，插件代码：2055492159
 禁用App Nap 从Mac OS X Mavericks开始，操作系统中引入了名为App Nap的功能。此功能导致某些打开（但不可见）的应用程序处于挂起状态。由于此行为会导致Anki Connect在前台有另一个窗口时停止工作，因此应禁用Anki的App Nap1。
 在终端运行下面的命令即可。
-1 2 3 defaults write net.ankiweb.dtop NSAppSleepDisabled -bool true defaults write net.ichi2.anki NSAppSleepDisabled -bool true defaults write org.qt-project.Qt.QtWebEngineCore NSAppSleepDisabled -bool true 最后 这就配置完成了，是不是很简单？quicker版的动作配置更简单，除了下载插件，啥都不用配置，自动配置。想想以前真的傻，我给quicker版的这个动作加了批量导入、多种挖空标记、多种方式排列的笔记导入、自动从Anki获取牌组列表、自动添加Anki模板等等功能，有啥用呢，浪费那么多时间在完全没必要的事情上。
-模板、动作下载链接: https://pan.baidu.com/s/11IW50sMMJkEE4XJD7s0QnQ?pwd=3tvu 提取码: 3tvu
+1 2 3 defaults write net.ankiweb.dtop NSAppSleepDisabled -bool true defaults write net.ichi2.anki NSAppSleepDisabled -bool true defaults write org.qt-project.Qt.QtWebEngineCore NSAppSleepDisabled -bool true 最后 这就配置完成了，是不是很简单？quicker版的动作配置更简单，除了下载插件，啥都不用配置，自动配置。想想以前真的傻，我给quicker版的这个动作加了批量导入、多种挖空标记、多种方式排列的笔记导入、自动从Anki获取牌组列表、自动添加Anki模板等等功能，这些功能在我现在看来用途很小很小，但当时却花了大量时间去改动作、修bug，浪费了很多时间在完全没必要的事情上。
+模板、动作下载链接: 百度网盘，提取码: 3tvu
 希望能给看到这里的你带来一些帮助。
 Notes for MacOS Users&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item></channel></rss>
