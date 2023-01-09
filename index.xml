@@ -1,4 +1,199 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Jan 2023 16:11:59 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Think Python Exercise 15.2</title><link>https://o5o.me/post/think_python_exercise_15.2/</link><pubDate>Mon, 09 Jan 2023 16:11:59 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_15.2/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Jan 2023 16:59:37 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Think Python Exercise 16.1</title><link>https://o5o.me/post/think_python_exercise_16.0/</link><pubDate>Mon, 09 Jan 2023 16:59:37 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_16.0/</guid><description>
+&lt;p>编写一个叫做 &lt;code>print_time&lt;/code> 的函数,接收一个 Time 对象并用 时:分:秒 的格式打印它。提示: 格式化序列 %.2d 可以至少两位数的形式打印一个整数,如果不足则在前面补 0。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Time&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;用于记录时间
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> 属性：hour, minute, second
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">print_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">#记得加括号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">59&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>编写一个叫做 &lt;code>is_after&lt;/code> 的布尔函数,接收两个 Time 对象,t1 和 t2 ,若 t1 的时间在 t2 之后,则返回 True ,否则返回 False。挑战:不要使用 if 语句。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Time&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;用于记录时间
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> 属性：hour, minute, second
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">print_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">#记得加括号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">is_after&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">t2&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">t1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">t1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">t2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">t2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">t2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">59&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">58&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">is_after&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">time2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>我们做个练习,编写一个纯函数版本的 &lt;code>increment &lt;/code>,创建并返回一个 Time 对象,而不是修改参数。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Time&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;用于记录时间
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> 属性：hour, minute, second
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">print_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">%.2d&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ti&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">#记得加括号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">increment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">seconds&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;给一个Time对象增加指定的秒数&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">addedtime&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">minutes&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">addedtime&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">divmod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">t1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">t1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">seconds&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">addedtime&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">addedtime&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">divmod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">minutes&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">addedtime&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">59&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">increment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">90&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>我们再做个练习, 使用 &lt;code>time_to_int&lt;/code> 和 &lt;code>int_to_time&lt;/code> 重写 &lt;code>increment&lt;/code> 函数。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">time_to_int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">minutes&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">seconds&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">minutes&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">seconds&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">int_to_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seconds&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">time&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">minutes&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">divmod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seconds&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">divmod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">minutes&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">add_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">t2&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">seconds&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">time_to_int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">time_to_int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">int_to_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seconds&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">increment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">seconds&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;给一个Time对象增加指定的秒数&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">int_to_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time_to_int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">seconds&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hour&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">minute&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">59&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">time1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print_time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">increment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">90&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Think Python Exercise 15.2</title><link>https://o5o.me/post/think_python_exercise_15.2/</link><pubDate>Mon, 09 Jan 2023 16:11:59 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_15.2/</guid><description>
 &lt;p>编写一个名为 &lt;code>draw_rect&lt;/code> 的函数,该函数接受一个 Turtle 对象和一个 Rectangle 对象,使用Turtle 画出该矩形。参考第 四 章中使用 Turtle 的示例。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
