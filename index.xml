@@ -1,4 +1,20 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 10 Jan 2023 21:42:59 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Think Python Exercise 3.3</title><link>https://o5o.me/post/think_python_exercise_3.3/</link><pubDate>Tue, 10 Jan 2023 21:42:59 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_3.3/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 13 Jan 2023 22:09:41 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Chrome网页源代码自动换行</title><link>https://o5o.me/post/chrome_view_source/</link><pubDate>Fri, 13 Jan 2023 22:09:41 +0800</pubDate><guid>https://o5o.me/post/chrome_view_source/</guid><description>
+&lt;p>我觉得我遇到了 Baader-Meinhof 现象&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;p>今天在写爬虫的时候，突然想到，如果Chrome的网页源代码页面的代码能自动换行就好了。我就去网上搜有没有方法能让源代码自动换行显示。&lt;/p>
+&lt;p>一番搜寻没有结果，然后我就打算放弃，然后我不经意往一个已经打开的网页源代码页面一瞟，赫然有一个“自动换行”复选框静静显示在那里。&lt;/p>
+&lt;p>天地良心，我以前真的是没有注意到过那里还有那么一个按钮，而现在它却那么显眼。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Frequency_illusion">Frequency illusion - Wikipedia&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>爬虫运行报错：UnicodeEncodeError: 'latin-1' codec can't encode characters</title><link>https://o5o.me/post/spider_unicodeencodeerror_latin-1/</link><pubDate>Fri, 13 Jan 2023 13:58:29 +0800</pubDate><guid>https://o5o.me/post/spider_unicodeencodeerror_latin-1/</guid><description>
+&lt;p>写了一个简单的爬虫程序，从&lt;em>百度图片&lt;/em>下载图片，但运行时报错：&lt;code>UnicodeEncodeError: 'latin-1' codec can't encode characters in position 41-44: ordinal not in range(256)&lt;/code>&lt;/p>
+&lt;p>程序反反复复检查了好几遍，最终确定是cookie的问题。&lt;/p>
+&lt;p>我是从自己的 Chrome 浏览器里直接拷贝的cookie值粘贴到程序里的，没注意从Chrome直接复制的cookie会先解码再给你。就是说，程序里需要的cookie是不带中文的（中文先进行编码，比如把&lt;code>古力娜扎&lt;/code>编码为&lt;code>%E5%8F%A4%E5%8A%9B%E5%A8%9C%E6%89%8E&lt;/code>），但从Chrome复制出来的cookie带中文。&lt;/p>
+&lt;p>Chrome这是好心办坏事吗。&lt;/p></description></item><item><title>Think Python Exercise 3.3</title><link>https://o5o.me/post/think_python_exercise_3.3/</link><pubDate>Tue, 10 Jan 2023 21:42:59 +0800</pubDate><guid>https://o5o.me/post/think_python_exercise_3.3/</guid><description>
 &lt;p>注意:请使用我们目前学过的语句和特性来完成本题。&lt;/p>
 &lt;ol>
 &lt;li>编写一个能画出如下网格 (grid) 的函数:&lt;/li>
