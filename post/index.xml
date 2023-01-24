@@ -7,11 +7,15 @@
 修改PyCharm的这一个快捷键：文件-设置-&amp;gt;按键映射-搜索“环绕”-在快捷键那一项上点鼠标右键-移除Ctrl+Alt+T-添加键盘快捷键。
 修改Ubuntu（22.10）的这一个快捷键：设置-&amp;gt;键盘-&amp;gt;键盘快捷键-查看及自定义快捷键-&amp;gt;在搜索框中搜索“ctrl+”找到快捷键“Ctrl+Alt+T”-在那一项上面单击鼠标左键-在键盘上输入以设定新快捷键。
 我的选择是修改Ubuntu的这一个快捷键，因为我截止目前还没养成用快捷键打开终端的习惯。</description></item><item><title>Supermemo学习某分支下的新卡片</title><link>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</link><pubDate>Tue, 24 Jan 2023 00:03:13 +0800</pubDate><guid>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</guid><description>标题中的“新卡片”指的是在SuperMemo的“目录窗口（Contents Window）”中被标记为“浅蓝色”的卡片。
-这个答案（如何在 SuperMemo 中复习/学习指定的folder/branch？ - 叶峻峣的回答 - 知乎），适合“新卡片”比较少的情况。而我是想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，所以叶的方法不再适用。
+我想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，有几万张，包含单词、语法、发音、拼写等等，如果按默认复习队列一锅粥地学，很不系统，因此我才想着先学Grammar语法部分。
+一番尝试及朋友推荐，得到下面几种实现的方法。方法1就不推荐了，方法2和方法3按需取用。我选择的是方法2。
 方法1 一番尝试及在朋友帮助下，目前找到的可行的方法是将“新卡片”（浅蓝色）变为“已记”（问答卡片，深蓝色）。
 操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “处理选中分支（Process branch）” -&amp;gt; “已记（）”。在弹出的新窗口中（Which interval should be chosen in scheduling）选~~“One day interval”，那个分支下的卡片就会在一天内出现~~（我这里的理解可能是错误的）。
+总结：把未学的卡片设置为已学过的卡片，进入复习队列。
 方法2 由于我想要学的AdvEng2018是一个单独的kno文件，我把想要学的部分卡片从里面导出到另一个kno文件（我日常学习用的）里面，那也就实现了本文标题所称的效果。
-操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “导出（export）” -&amp;gt; “Transfer elements Shift+Ctrl+T” -&amp;gt; 在弹出的窗口中选想要导入的那个kno文件 -&amp;gt; 问你 Do you want to transfer elements? 选yes -&amp;gt; 问你 Do you want to integrate all files with the target file system?</description></item><item><title>在Pycharm的代码编辑区显示一条竖线提醒换行</title><link>https://o5o.me/post/pycharm_pep8_code_editor_vertical_line/</link><pubDate>Sun, 22 Jan 2023 17:52:23 +0800</pubDate><guid>https://o5o.me/post/pycharm_pep8_code_editor_vertical_line/</guid><description>在PyCharm的代码编辑区域显示一条竖线，提醒自己每行的代码尽量不要超过80字符。这是PEP8中有关行长的指南。
+操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “导出（export）” -&amp;gt; “Transfer elements Shift+Ctrl+T” -&amp;gt; 在弹出的窗口中选想要导入的那个kno文件 -&amp;gt; 问你 Do you want to transfer elements? 选yes -&amp;gt; 问你 Do you want to integrate all files with the target file system? 选yes。这样就导入成功了。
+总结：把某一个“牌组”下的部分卡片导入到另一个“牌组”当中。
+方法3 思路：SuperMemo的作用是给一张张卡片排序形成“队列”，按排定的顺序将卡片推送给用户进行学习。那么我们只要将某一分支下的卡片的顺序调整到“队列”前面，就达到了学习某一分支下的卡片的目的。</description></item><item><title>在Pycharm的代码编辑区显示一条竖线提醒换行</title><link>https://o5o.me/post/pycharm_pep8_code_editor_vertical_line/</link><pubDate>Sun, 22 Jan 2023 17:52:23 +0800</pubDate><guid>https://o5o.me/post/pycharm_pep8_code_editor_vertical_line/</guid><description>在PyCharm的代码编辑区域显示一条竖线，提醒自己每行的代码尽量不要超过80字符。这是PEP8中有关行长的指南。
 文件-设置-&amp;gt;编辑器-代码样式-&amp;gt;常规-“视觉参考线”，设为80, 120，然后保存。在编辑代码时，右侧就会显示两条竖线，一个在第80个字符的位置，一个在第120个字符的位置。
 可以勾选“强制换行位置”（默认为120字符）后的“键入时换行”，这样，当行长到达120字符时就会强制换行。</description></item><item><title>Python Crash Course 4</title><link>https://o5o.me/post/python_crash_course_4/</link><pubDate>Sun, 22 Jan 2023 16:32:01 +0800</pubDate><guid>https://o5o.me/post/python_crash_course_4/</guid><description>主要是练习列表解析式。以下练习均使用列表解析式完成。
 练习4.3 数到20，使用一个for循环打印数1~20（含）。

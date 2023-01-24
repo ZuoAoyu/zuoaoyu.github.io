@@ -2,11 +2,15 @@
 接下来设定Reference信息中的“Concept group”为正确信息：
 在卡片分支上点鼠标右键，“处理选中分支”，“设置概念分组”，在弹出的窗口中，在窗口左侧给正确的概念组打对钩，在窗口下方那一排按钮中点击“确定”。
 完成。</description></item><item><title>Supermemo学习某分支下的新卡片</title><link>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</link><pubDate>Tue, 24 Jan 2023 00:03:13 +0800</pubDate><guid>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</guid><description>标题中的“新卡片”指的是在SuperMemo的“目录窗口（Contents Window）”中被标记为“浅蓝色”的卡片。
-这个答案（如何在 SuperMemo 中复习/学习指定的folder/branch？ - 叶峻峣的回答 - 知乎），适合“新卡片”比较少的情况。而我是想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，所以叶的方法不再适用。
+我想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，有几万张，包含单词、语法、发音、拼写等等，如果按默认复习队列一锅粥地学，很不系统，因此我才想着先学Grammar语法部分。
+一番尝试及朋友推荐，得到下面几种实现的方法。方法1就不推荐了，方法2和方法3按需取用。我选择的是方法2。
 方法1 一番尝试及在朋友帮助下，目前找到的可行的方法是将“新卡片”（浅蓝色）变为“已记”（问答卡片，深蓝色）。
 操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “处理选中分支（Process branch）” -&amp;gt; “已记（）”。在弹出的新窗口中（Which interval should be chosen in scheduling）选~~“One day interval”，那个分支下的卡片就会在一天内出现~~（我这里的理解可能是错误的）。
+总结：把未学的卡片设置为已学过的卡片，进入复习队列。
 方法2 由于我想要学的AdvEng2018是一个单独的kno文件，我把想要学的部分卡片从里面导出到另一个kno文件（我日常学习用的）里面，那也就实现了本文标题所称的效果。
-操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “导出（export）” -&amp;gt; “Transfer elements Shift+Ctrl+T” -&amp;gt; 在弹出的窗口中选想要导入的那个kno文件 -&amp;gt; 问你 Do you want to transfer elements? 选yes -&amp;gt; 问你 Do you want to integrate all files with the target file system?</description></item><item><title>游戏手柄用于SuperMemo复习</title><link>https://o5o.me/post/supermemo-gamepad/</link><pubDate>Fri, 30 Dec 2022 12:23:10 +0800</pubDate><guid>https://o5o.me/post/supermemo-gamepad/</guid><description>在用SuperMemo复习时，一边要移动鼠标，浏览卡片内容，一边要用键盘评分、修改卡片内容，容易手忙脚乱。把评分常用的按键和其他一些按键映射到游戏手柄上可以稍微方便一点。
+操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “导出（export）” -&amp;gt; “Transfer elements Shift+Ctrl+T” -&amp;gt; 在弹出的窗口中选想要导入的那个kno文件 -&amp;gt; 问你 Do you want to transfer elements? 选yes -&amp;gt; 问你 Do you want to integrate all files with the target file system? 选yes。这样就导入成功了。
+总结：把某一个“牌组”下的部分卡片导入到另一个“牌组”当中。
+方法3 思路：SuperMemo的作用是给一张张卡片排序形成“队列”，按排定的顺序将卡片推送给用户进行学习。那么我们只要将某一分支下的卡片的顺序调整到“队列”前面，就达到了学习某一分支下的卡片的目的。</description></item><item><title>游戏手柄用于SuperMemo复习</title><link>https://o5o.me/post/supermemo-gamepad/</link><pubDate>Fri, 30 Dec 2022 12:23:10 +0800</pubDate><guid>https://o5o.me/post/supermemo-gamepad/</guid><description>在用SuperMemo复习时，一边要移动鼠标，浏览卡片内容，一边要用键盘评分、修改卡片内容，容易手忙脚乱。把评分常用的按键和其他一些按键映射到游戏手柄上可以稍微方便一点。
 游戏手柄：八位堂Zero2小手柄。 软件：AntiMicroX
 手柄连接计算机 看说明书即可。
 在AntiMicroX中设定快捷键 打开软件后，点手柄上的按键，可以看到有的按键映射是错的，点软件窗口左下角的“游戏控制器映射”，先矫正一遍。

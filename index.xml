@@ -10,7 +10,8 @@
 &lt;p>修改Ubuntu（22.10）的这一个快捷键：设置-&amp;gt;键盘-&amp;gt;键盘快捷键-查看及自定义快捷键-&amp;gt;在搜索框中搜索“ctrl+”找到快捷键“Ctrl+Alt+T”-在那一项上面单击鼠标左键-在键盘上输入以设定新快捷键。&lt;/p>
 &lt;p>我的选择是修改Ubuntu的这一个快捷键，因为我截止目前还没养成用快捷键打开终端的习惯。&lt;/p></description></item><item><title>Supermemo学习某分支下的新卡片</title><link>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</link><pubDate>Tue, 24 Jan 2023 00:03:13 +0800</pubDate><guid>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</guid><description>
 &lt;p>标题中的“新卡片”指的是在SuperMemo的“目录窗口（Contents Window）”中被标记为“浅蓝色”的卡片。&lt;/p>
-&lt;p>这个答案（如何在 SuperMemo 中复习/学习指定的folder/branch？ - &lt;a href="https://www.zhihu.com/question/431341009/answer/1945437975">叶峻峣的回答&lt;/a> - 知乎），适合“新卡片”比较少的情况。而我是想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，所以叶的方法不再适用。&lt;/p>
+&lt;p>我想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，有几万张，包含单词、语法、发音、拼写等等，如果按默认复习队列一锅粥地学，很不系统，因此我才想着先学Grammar语法部分。&lt;/p>
+&lt;p>一番尝试及朋友推荐，得到下面几种实现的方法。方法1就不推荐了，方法2和方法3按需取用。我选择的是方法2。&lt;/p>
 &lt;h2 id="方法1">
 &lt;a href="#%e6%96%b9%e6%b3%951" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -23,6 +24,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/h2>
 &lt;p>一番尝试及在朋友帮助下，目前找到的可行的方法是将“新卡片”（浅蓝色）变为“已记”（问答卡片，深蓝色）。&lt;/p>
 &lt;p>操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “处理选中分支（Process branch）” -&amp;gt; “已记（）”。在弹出的新窗口中（Which interval should be chosen in scheduling）选~~“One day interval”，那个分支下的卡片就会在一天内出现~~（我这里的理解可能是错误的）。&lt;/p>
+&lt;p>总结：把未学的卡片设置为已学过的卡片，进入复习队列。&lt;/p>
 &lt;h2 id="方法2">
 &lt;a href="#%e6%96%b9%e6%b3%952" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -35,6 +37,21 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/h2>
 &lt;p>由于我想要学的AdvEng2018是一个单独的kno文件，我把想要学的部分卡片从里面导出到另一个kno文件（我日常学习用的）里面，那也就实现了本文标题所称的效果。&lt;/p>
 &lt;p>操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “导出（export）” -&amp;gt; “Transfer elements Shift+Ctrl+T” -&amp;gt; 在弹出的窗口中选想要导入的那个kno文件 -&amp;gt; 问你 Do you want to transfer elements? 选yes -&amp;gt; 问你 Do you want to integrate all files with the target file system? 选yes。这样就导入成功了。&lt;/p>
+&lt;p>总结：把某一个“牌组”下的部分卡片导入到另一个“牌组”当中。&lt;/p>
+&lt;h2 id="方法3">
+&lt;a href="#%e6%96%b9%e6%b3%953" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+方法3
+&lt;/h2>
+&lt;p>思路：SuperMemo的作用是给一张张卡片排序形成“队列”，按排定的顺序将卡片推送给用户进行学习。那么我们只要将某一分支下的卡片的顺序调整到“队列”前面，就达到了学习某一分支下的卡片的目的。&lt;/p>
+&lt;p>这个答案（如何在 SuperMemo 中复习/学习指定的folder/branch？ - &lt;a href="https://www.zhihu.com/question/431341009/answer/1945437975">叶峻峣的回答&lt;/a> - 知乎）符合上面的思路，但有更好的方法：&lt;/p>
+&lt;p>操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “查看（view）”-“分支元素（Branch）”-&amp;gt;在弹出的窗口中点最上方工具栏第一个按钮 -&amp;gt; 在打开的菜单中点“工具（Tools）” -&amp;gt; “保存未学部分（Save pending）”。这样就调整好了。&lt;/p>
+&lt;p>不信？在SuperMemo主菜单中点“查看（View）”- &amp;ldquo;查看其他（Other）&amp;rdquo; - “尚未学习（Pending）”，在弹出的窗口中可以看到，你选定的那一个分支下的卡片，都跑到了队列的前面（队列第一张可能还是原来的，不过无伤大雅）。&lt;/p>
 &lt;h2 id="其他">
 &lt;a href="#%e5%85%b6%e4%bb%96" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
