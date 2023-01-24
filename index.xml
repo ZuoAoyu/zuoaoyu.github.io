@@ -1,9 +1,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 24 Jan 2023 00:03:13 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Supermemo学习某分支下的新卡片</title><link>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</link><pubDate>Tue, 24 Jan 2023 00:03:13 +0800</pubDate><guid>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</guid><description>
 &lt;p>标题中的“新卡片”指的是在SuperMemo的“目录窗口（Contents Window）”中被标记为“浅蓝色”的卡片。&lt;/p>
 &lt;p>这个答案（如何在 SuperMemo 中复习/学习指定的folder/branch？ - &lt;a href="https://www.zhihu.com/question/431341009/answer/1945437975">叶峻峣的回答&lt;/a> - 知乎），适合“新卡片”比较少的情况。而我是想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，所以叶的方法不再适用。&lt;/p>
+&lt;h2 id="方法1">
+&lt;a href="#%e6%96%b9%e6%b3%951" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+方法1
+&lt;/h2>
 &lt;p>一番尝试及在朋友帮助下，目前找到的可行的方法是将“新卡片”（浅蓝色）变为“已记”（问答卡片，深蓝色）。&lt;/p>
-&lt;p>操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “处理选中分支” -&amp;gt; “已记”。在弹出的新窗口中（Which interval should be chosen in scheduling）选“One day interval”，那个分支下的卡片就会在一天内出现（这里描述的可能不够准确）。&lt;/p>
-&lt;p>&lt;a href="https://super-memory.com/help/faq/ae.htm#301-4873">FAQ: Advanced English with SuperMemo (super-memory.com)&lt;/a>记录了一个官方的操作方法，但经我测试，在我使用的SuperMemo版本（懒人版1.4.0，18.05）上无法实现想要的效果，学了一张新卡片后，后续显示的是仍是正常学习队列的卡片，而不是选定分支下的后续卡片。&lt;/p></description></item><item><title>本地运行hugo server时页面空白</title><link>https://o5o.me/post/hugo_server_localhost_page_empty/</link><pubDate>Wed, 18 Jan 2023 20:16:57 +0800</pubDate><guid>https://o5o.me/post/hugo_server_localhost_page_empty/</guid><description>
+&lt;p>操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “处理选中分支（Process branch）” -&amp;gt; “已记（）”。在弹出的新窗口中（Which interval should be chosen in scheduling）选~~“One day interval”，那个分支下的卡片就会在一天内出现~~（我这里的理解可能是错误的）。&lt;/p>
+&lt;h2 id="方法2">
+&lt;a href="#%e6%96%b9%e6%b3%952" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+方法2
+&lt;/h2>
+&lt;p>由于我想要学的AdvEng2018是一个单独的kno文件，我把想要学的部分卡片从里面导出到另一个kno文件（我日常学习用的）里面，那也就实现了本文标题所称的效果。&lt;/p>
+&lt;p>操作过程：打开“目录窗口”（Alt+C） -&amp;gt; 展开至想要学习的分支 -&amp;gt; 在那个分支标题上点鼠标右键 -&amp;gt; “导出（export）” -&amp;gt; “Transfer elements Shift+Ctrl+T” -&amp;gt; 在弹出的窗口中选想要导入的那个kno文件 -&amp;gt; 问你 Do you want to transfer elements? 选yes -&amp;gt; 问你 Do you want to integrate all files with the target file system? 选yes。这样就导入成功了。&lt;/p>
+&lt;h2 id="其他">
+&lt;a href="#%e5%85%b6%e4%bb%96" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+其他
+&lt;/h2>
+&lt;p>&lt;a href="https://super-memory.com/help/faq/ae.htm#301-4873">FAQ: Advanced English with SuperMemo (super-memory.com)&lt;/a>记录了一个官方的操作方法，但经我测试，在我使用的SuperMemo版本（18.05）上无法实现想要的效果，学了一张新卡片后，后续显示的是仍是正常学习队列的卡片，而不是选定分支下的后续卡片。&lt;/p></description></item><item><title>本地运行hugo server时页面空白</title><link>https://o5o.me/post/hugo_server_localhost_page_empty/</link><pubDate>Wed, 18 Jan 2023 20:16:57 +0800</pubDate><guid>https://o5o.me/post/hugo_server_localhost_page_empty/</guid><description>
 &lt;p>我今天新装了ubuntu，把hugo博客仓库clone到本地，运行&lt;code>hugo server&lt;/code>后，终端李一切正常，但打开&lt;code>http://localhost:1313&lt;/code>却是一片空白。&lt;/p>
 &lt;p>原因是我只把博客内容克隆了下来，但子模块却忘记了克隆。&lt;/p>
 &lt;p>补救措施：在仓库里运行&lt;code>git submodule update --init&lt;/code>即可。&lt;/p>
