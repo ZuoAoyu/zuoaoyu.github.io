@@ -1,4 +1,8 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 24 Jan 2023 18:56:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Pycharm和Ubuntu快捷键冲突解决</title><link>https://o5o.me/post/pycharm_ubuntu_shortcut_conflict/</link><pubDate>Tue, 24 Jan 2023 18:56:00 +0800</pubDate><guid>https://o5o.me/post/pycharm_ubuntu_shortcut_conflict/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 24 Jan 2023 20:35:21 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Supermemo将内容导入到了错误的概念组怎么办</title><link>https://o5o.me/post/supermemo_wrong_branch/</link><pubDate>Tue, 24 Jan 2023 20:35:21 +0800</pubDate><guid>https://o5o.me/post/supermemo_wrong_branch/</guid><description>
+&lt;p>首先在目录树（Alt+C）中移动卡片分支到正确的概念组下面。&lt;/p>
+&lt;p>接下来设定Reference信息中的“Concept group”为正确信息：&lt;/p>
+&lt;p>在卡片分支上点鼠标右键，“处理选中分支”，“设置概念分组”，在弹出的窗口中，在窗口左侧给正确的概念组打对钩，在窗口下方那一排按钮中点击“确定”。&lt;/p>
+&lt;p>完成。&lt;/p></description></item><item><title>Pycharm和Ubuntu快捷键冲突解决</title><link>https://o5o.me/post/pycharm_ubuntu_shortcut_conflict/</link><pubDate>Tue, 24 Jan 2023 18:56:00 +0800</pubDate><guid>https://o5o.me/post/pycharm_ubuntu_shortcut_conflict/</guid><description>
 &lt;p>在PyCharm中，快捷键&lt;code>Ctrl+Alt+T&lt;/code>的作用是“环绕方式&amp;hellip;，使用一些模板代码环绕所选代码段”。&lt;/p>
 &lt;p>而在Ubuntu中，快捷键&lt;code>Ctrl+Alt+T&lt;/code>的作用是“打开终端”。&lt;/p>
 &lt;p>解决冲突的方式是修改二者其中之一的快捷键。&lt;/p>
