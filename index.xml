@@ -1,4 +1,10 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 24 Jan 2023 00:03:13 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Supermemo学习某分支下的新卡片</title><link>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</link><pubDate>Tue, 24 Jan 2023 00:03:13 +0800</pubDate><guid>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 24 Jan 2023 18:56:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Pycharm和Ubuntu快捷键冲突解决</title><link>https://o5o.me/post/pycharm_ubuntu_shortcut_conflict/</link><pubDate>Tue, 24 Jan 2023 18:56:00 +0800</pubDate><guid>https://o5o.me/post/pycharm_ubuntu_shortcut_conflict/</guid><description>
+&lt;p>在PyCharm中，快捷键&lt;code>Ctrl+Alt+T&lt;/code>的作用是“环绕方式&amp;hellip;，使用一些模板代码环绕所选代码段”。&lt;/p>
+&lt;p>而在Ubuntu中，快捷键&lt;code>Ctrl+Alt+T&lt;/code>的作用是“打开终端”。&lt;/p>
+&lt;p>解决冲突的方式是修改二者其中之一的快捷键。&lt;/p>
+&lt;p>修改PyCharm的这一个快捷键：文件-设置-&amp;gt;按键映射-搜索“环绕”-在快捷键那一项上点鼠标右键-移除&lt;code>Ctrl+Alt+T&lt;/code>-添加键盘快捷键。&lt;/p>
+&lt;p>修改Ubuntu（22.10）的这一个快捷键：设置-&amp;gt;键盘-&amp;gt;键盘快捷键-查看及自定义快捷键-&amp;gt;在搜索框中搜索“ctrl+”找到快捷键“Ctrl+Alt+T”-在那一项上面单击鼠标左键-在键盘上输入以设定新快捷键。&lt;/p>
+&lt;p>我的选择是修改Ubuntu的这一个快捷键，因为我截止目前还没养成用快捷键打开终端的习惯。&lt;/p></description></item><item><title>Supermemo学习某分支下的新卡片</title><link>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</link><pubDate>Tue, 24 Jan 2023 00:03:13 +0800</pubDate><guid>https://o5o.me/post/supermemo_learn_new_elements_that_belong_to_a_given_branch/</guid><description>
 &lt;p>标题中的“新卡片”指的是在SuperMemo的“目录窗口（Contents Window）”中被标记为“浅蓝色”的卡片。&lt;/p>
 &lt;p>这个答案（如何在 SuperMemo 中复习/学习指定的folder/branch？ - &lt;a href="https://www.zhihu.com/question/431341009/answer/1945437975">叶峻峣的回答&lt;/a> - 知乎），适合“新卡片”比较少的情况。而我是想要学习 Advanced English 2018 牌组包里的“Grammar”分支下的卡片，这个牌组包里的“新卡片”非常非常多，所以叶的方法不再适用。&lt;/p>
 &lt;h2 id="方法1">
@@ -35,11 +41,174 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 其他
 &lt;/h2>
-&lt;p>&lt;a href="https://super-memory.com/help/faq/ae.htm#301-4873">FAQ: Advanced English with SuperMemo (super-memory.com)&lt;/a>记录了一个官方的操作方法，但经我测试，在我使用的SuperMemo版本（18.05）上无法实现想要的效果，学了一张新卡片后，后续显示的是仍是正常学习队列的卡片，而不是选定分支下的后续卡片。&lt;/p></description></item><item><title>本地运行hugo server时页面空白</title><link>https://o5o.me/post/hugo_server_localhost_page_empty/</link><pubDate>Wed, 18 Jan 2023 20:16:57 +0800</pubDate><guid>https://o5o.me/post/hugo_server_localhost_page_empty/</guid><description>
-&lt;p>我今天新装了ubuntu，把hugo博客仓库clone到本地，运行&lt;code>hugo server&lt;/code>后，终端李一切正常，但打开&lt;code>http://localhost:1313&lt;/code>却是一片空白。&lt;/p>
+&lt;p>&lt;a href="https://super-memory.com/help/faq/ae.htm#301-4873">FAQ: Advanced English with SuperMemo (super-memory.com)&lt;/a>记录了一个官方的操作方法，但经我测试，在我使用的SuperMemo版本（18.05）上无法实现想要的效果，学了一张新卡片后，后续显示的是仍是正常学习队列的卡片，而不是选定分支下的后续卡片。&lt;/p></description></item><item><title>在Pycharm的代码编辑区显示一条竖线提醒换行</title><link>https://o5o.me/post/pycharm_pep8_code_editor_vertical_line/</link><pubDate>Sun, 22 Jan 2023 17:52:23 +0800</pubDate><guid>https://o5o.me/post/pycharm_pep8_code_editor_vertical_line/</guid><description>
+&lt;p>在PyCharm的代码编辑区域显示一条竖线，提醒自己每行的代码尽量不要超过80字符。这是PEP8中有关行长的指南。&lt;/p>
+&lt;p>文件-设置-&amp;gt;编辑器-代码样式-&amp;gt;常规-“视觉参考线”，设为&lt;code>80, 120&lt;/code>，然后保存。在编辑代码时，右侧就会显示两条竖线，一个在第80个字符的位置，一个在第120个字符的位置。&lt;/p>
+&lt;p>可以勾选“强制换行位置”（默认为120字符）后的“键入时换行”，这样，当行长到达120字符时就会强制换行。&lt;/p></description></item><item><title>Python Crash Course 4</title><link>https://o5o.me/post/python_crash_course_4/</link><pubDate>Sun, 22 Jan 2023 16:32:01 +0800</pubDate><guid>https://o5o.me/post/python_crash_course_4/</guid><description>
+&lt;p>主要是练习列表解析式。以下练习均使用列表解析式完成。&lt;/p>
+&lt;h2 id="练习43">
+&lt;a href="#%e7%bb%83%e4%b9%a043" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.3
+&lt;/h2>
+&lt;p>数到20，使用一个for循环打印数1~20（含）。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">value&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">21&lt;/span>&lt;span class="p">)])&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="练习44">
+&lt;a href="#%e7%bb%83%e4%b9%a044" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.4
+&lt;/h2>
+&lt;p>一百万&lt;/p>
+&lt;p>创建一个包含数 1～1 000 000 的列表，再使用一个 for 循环将这些数打印出来。（如果输出的时间太长，按 Ctrl + C 停止输出或关闭输出窗口。）&lt;/p>
+&lt;pre tabindex="0">&lt;code>print([value for value in range(1,1_000_001)])
+&lt;/code>&lt;/pre>&lt;p>不要尝试去运行上面的代码，能理解即可。&lt;/p>
+&lt;h2 id="练习45">
+&lt;a href="#%e7%bb%83%e4%b9%a045" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.5
+&lt;/h2>
+&lt;p>一百万求和&lt;/p>
+&lt;p>创建一个包含数 1～1 000 000的列表，再使用 min()和 max() 核实该列表确实是从 1 开始、到 1 000 000 结束的。另外，对这个列表调用函数 sum()， 看看 Python 将一百万个数相加需要多长时间。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">list1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">1_000_001&lt;/span>&lt;span class="p">)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">min&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">list1&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">list1&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">list1&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="练习46">
+&lt;a href="#%e7%bb%83%e4%b9%a046" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.6
+&lt;/h2>
+&lt;p>奇数&lt;/p>
+&lt;p>通过给函数 range() 指定第三个参数来创建一个列表，其中包含 1～20 的奇数，再使用一个 for 循环将这些数打印出来。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">list1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">list1&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="练习47">
+&lt;a href="#%e7%bb%83%e4%b9%a047" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.7
+&lt;/h2>
+&lt;p>3 的倍数&lt;/p>
+&lt;p>创建一个列表，其中包含 3～30 能被 3 整除的数，再使用一 个 for 循环将这个列表中的数打印出来。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">list1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">31&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">list1&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="练习48">
+&lt;a href="#%e7%bb%83%e4%b9%a048" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.8
+&lt;/h2>
+&lt;p>立方&lt;/p>
+&lt;p>将同一个数乘三次称为立方。例如，在 Python 中，2 的立方用 &lt;code>2**3&lt;/code> 表示。请创建一个列表，其中包含前 10 个整数（1～10）的立方，再使用一个 for 循环将这些立方数打印出来。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">list1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">value&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">3&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">11&lt;/span>&lt;span class="p">)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">list1&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="练习49">
+&lt;a href="#%e7%bb%83%e4%b9%a049" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+练习4.9
+&lt;/h2>
+&lt;p>立方解析&lt;/p>
+&lt;p>使用列表解析生成一个列表，其中包含前 10 个整数的立方。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">list1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">value&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">3&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">11&lt;/span>&lt;span class="p">)]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>和&lt;code>练习4.8&lt;/code>相同。&lt;/p></description></item><item><title>本地运行hugo server时页面空白</title><link>https://o5o.me/post/hugo_server_localhost_page_empty/</link><pubDate>Wed, 18 Jan 2023 20:16:57 +0800</pubDate><guid>https://o5o.me/post/hugo_server_localhost_page_empty/</guid><description>
+&lt;p>我今天新装了ubuntu，把hugo博客仓库clone到本地，运行&lt;code>hugo server&lt;/code>后，终端里显示貌似一切正常，但打开&lt;code>http://localhost:1313&lt;/code>却是一片空白。&lt;/p>
 &lt;p>原因是我只把博客内容克隆了下来，但子模块却忘记了克隆。&lt;/p>
 &lt;p>补救措施：在仓库里运行&lt;code>git submodule update --init&lt;/code>即可。&lt;/p>
-&lt;p>由于我本地的public目录还是空的，所以我需要运行&lt;code>hugo server --disableFastRender&lt;/code>，然后就一切正常了。&lt;/p></description></item><item><title>PyCharm创建conda项目时提示CondaError: Unable to create prefix directory</title><link>https://o5o.me/post/pycharm_condaerror_anaconda/</link><pubDate>Wed, 18 Jan 2023 20:00:35 +0800</pubDate><guid>https://o5o.me/post/pycharm_condaerror_anaconda/</guid><description>
+&lt;p>由于我本地的public目录还是空的，所以我需要运行&lt;code>hugo server --disableFastRender&lt;/code>，然后就一切正常了。&lt;/p>
+&lt;p>参考：&lt;a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97">Git 工具 - 子模块&lt;/a>&lt;/p></description></item><item><title>PyCharm创建conda项目时提示CondaError: Unable to create prefix directory</title><link>https://o5o.me/post/pycharm_condaerror_anaconda/</link><pubDate>Wed, 18 Jan 2023 20:00:35 +0800</pubDate><guid>https://o5o.me/post/pycharm_condaerror_anaconda/</guid><description>
 &lt;p>原因是我没有把anaconda安装在默认位置（/home目录里），而是装在了/opt目录里，我以普通用户的身份运行PyCharm，没有权限访问/opt目录，所以有了这个错误提示。&lt;/p>
 &lt;p>解决办法：在&lt;code>/home/用户&lt;/code>目录里我建了一个文件夹来放conda环境。&lt;/p></description></item><item><title>AttributeError: object has no attribute</title><link>https://o5o.me/post/attributeerror_object_has_no_attribute/</link><pubDate>Tue, 17 Jan 2023 13:50:22 +0800</pubDate><guid>https://o5o.me/post/attributeerror_object_has_no_attribute/</guid><description>
 &lt;p>今天写的程序运行时提示：&lt;code>AttributeError: 'BaiduImageSpider' object has no attribute 'url'&lt;/code>，让我百思不得其解。&lt;/p>
