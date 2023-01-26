@@ -1,0 +1,255 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>Python报错libGL error: failed to load driver | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="Python报错libGL error: failed to load driver | o5o"><meta itemprop=name content="Python报错libGL error: failed to load driver | o5o"><meta name=twitter:title content="Python报错libGL error: failed to load driver | o5o"><meta name=application-name content="Python报错libGL error: failed to load driver | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2023-01-26T17:34:57+0800"><meta property="article:published_time" content="2023-01-26T17:34:57+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"Python报错libGL error: failed to load driver","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2023-01-26","description":"","wordCount":559,"mainEntityOfPage":"True","dateModified":"2023-01-26","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>Python报错libGL error: failed to load driver</h1><div class=post-meta><div>By Guanghao Zuo | <time>January 26, 2023</time>
+| 3 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>运行下述代码后报错：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Python data-lang=Python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pygame</span>
+</span></span><span class=line><span class=cl><span class=n>pygame</span><span class=o>.</span><span class=n>init</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>完整报错：</p><pre tabindex=0><code>libGL error: MESA-LOADER: failed to open iris: /usr/lib/dri/iris_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+libGL error: failed to load driver: iris
+libGL error: MESA-LOADER: failed to open swrast: /usr/lib/dri/swrast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+libGL error: failed to load driver: swrast
+X Error of failed request:  BadValue (integer parameter out of range for operation)
+  Major opcode of failed request:  149 (GLX)
+  Minor opcode of failed request:  3 (X_GLXCreateContext)
+  Value in failed request:  0x0
+  Serial number of failed request:  101
+  Current serial number in output stream:  102
+</code></pre><p>提示在<code>/usr/lib/dri/</code>找不到iris和swrast驱动。而在<code>/usr/lib/x86_64-linux-gnu/dri</code>这个目录下，两个驱动都有。</p><p>解决办法：在上面第一个目录中建立到第二个目录中文件的软链接。</p><pre tabindex=0><code>aoyu@aoyuSurface:~$ sudo mkdir /usr/lib/dri
+aoyu@aoyuSurface:~$ cd /usr/lib/dri
+aoyu@aoyuSurface:/usr/lib/dri$ sudo ln -s /usr/lib/x86_64-linux-gnu/dri/iris_dri.so iris_dri.so
+sudo ln -s /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so swrast_dri.so
+</code></pre><p>运行程序，再次报错：</p><pre tabindex=0><code>libGL error: MESA-LOADER: failed to open iris: /home/aoyu/AoyuCondaEnv/alien_invasion/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.30&#39; not found (required by /lib/x86_64-linux-gnu/libLLVM-15.so.1) (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+libGL error: failed to load driver: iris
+libGL error: MESA-LOADER: failed to open swrast: /home/aoyu/AoyuCondaEnv/alien_invasion/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.30&#39; not found (required by /lib/x86_64-linux-gnu/libLLVM-15.so.1) (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+libGL error: failed to load driver: swrast
+X Error of failed request:  BadValue (integer parameter out of range for operation)
+  Major opcode of failed request:  149 (GLX)
+  Minor opcode of failed request:  3 (X_GLXCreateContext)
+  Value in failed request:  0x0
+  Serial number of failed request:  101
+  Current serial number in output stream:  102
+</code></pre><p>其中<code>/home/aoyu/AoyuCondaEnv/alien_invasion/</code>是我的Python解释器所在位置。</p><p>报错的原因是<code>GLIBCXX_3.4.30' not found</code>。在<code>libstdc++.so.6</code>中看一看所有有关<code>GLIBCXX</code>的信息<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup><sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>：</p><pre tabindex=0><code>aoyu@aoyuSurface:~$ strings /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6 | grep GLIBCXX
+GLIBCXX_3.4
+GLIBCXX_3.4.1
+GLIBCXX_3.4.2
+GLIBCXX_3.4.3
+GLIBCXX_3.4.4
+GLIBCXX_3.4.5
+GLIBCXX_3.4.6
+GLIBCXX_3.4.7
+GLIBCXX_3.4.8
+GLIBCXX_3.4.9
+GLIBCXX_3.4.10
+GLIBCXX_3.4.11
+GLIBCXX_3.4.12
+GLIBCXX_3.4.13
+GLIBCXX_3.4.14
+GLIBCXX_3.4.15
+GLIBCXX_3.4.16
+GLIBCXX_3.4.17
+GLIBCXX_3.4.18
+GLIBCXX_3.4.19
+GLIBCXX_3.4.20
+GLIBCXX_3.4.21
+GLIBCXX_3.4.22
+GLIBCXX_3.4.23
+GLIBCXX_3.4.24
+GLIBCXX_3.4.25
+GLIBCXX_3.4.26
+GLIBCXX_3.4.27
+GLIBCXX_3.4.28
+GLIBCXX_3.4.29
+GLIBCXX_DEBUG_MESSAGE_LENGTH
+_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv@GLIBCXX_3.4
+_ZNSt13basic_istreamIwSt11char_traitsIwEE6ignoreEv@@GLIBCXX_3.4.5
+_ZNKSbIwSt11char_traitsIwESaIwEE11_M_disjunctEPKw@GLIBCXX_3.4
+_ZNKSt14basic_ifstreamIwSt11char_traitsIwEE7is_openEv@@GLIBCXX_3.4.5
+GLIBCXX_3.4.21
+GLIBCXX_3.4.9
+_ZSt10adopt_lock@@GLIBCXX_3.4.11
+GLIBCXX_3.4.10
+GLIBCXX_3.4.16
+GLIBCXX_3.4.1
+_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv@GLIBCXX_3.4
+GLIBCXX_3.4.28
+_ZNSs7_M_copyEPcPKcm@GLIBCXX_3.4
+GLIBCXX_3.4.25
+_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv@@GLIBCXX_3.4.5
+_ZNSs7_M_moveEPcPKcm@@GLIBCXX_3.4.5
+_ZNKSt13basic_fstreamIwSt11char_traitsIwEE7is_openEv@GLIBCXX_3.4
+_ZNKSt13basic_fstreamIcSt11char_traitsIcEE7is_openEv@GLIBCXX_3.4
+_ZNSbIwSt11char_traitsIwESaIwEE4_Rep26_M_set_length_and_sharableEm@@GLIBCXX_3.4.5
+_ZNSs4_Rep26_M_set_length_and_sharableEm@GLIBCXX_3.4
+_ZSt10defer_lock@@GLIBCXX_3.4.11
+_ZN10__gnu_norm15_List_node_base4swapERS0_S1_@@GLIBCXX_3.4
+_ZNSs9_M_assignEPcmc@@GLIBCXX_3.4.5
+_ZNKSbIwSt11char_traitsIwESaIwEE15_M_check_lengthEmmPKc@@GLIBCXX_3.4.5
+_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv@@GLIBCXX_3.4.5
+_ZNSbIwSt11char_traitsIwESaIwEE7_M_moveEPwPKwm@GLIBCXX_3.4
+GLIBCXX_3.4.24
+_ZNVSt9__atomic011atomic_flag12test_and_setESt12memory_order@@GLIBCXX_3.4.11
+GLIBCXX_3.4.20
+_ZNSt11char_traitsIwE2eqERKwS2_@@GLIBCXX_3.4.5
+GLIBCXX_3.4.12
+_ZNSi6ignoreEv@@GLIBCXX_3.4.5
+GLIBCXX_3.4.2
+_ZNSt11char_traitsIcE2eqERKcS2_@@GLIBCXX_3.4.5
+GLIBCXX_3.4.6
+GLIBCXX_3.4.15
+_ZNKSt13basic_fstreamIcSt11char_traitsIcEE7is_openEv@@GLIBCXX_3.4.5
+_ZNSs9_M_assignEPcmc@GLIBCXX_3.4
+GLIBCXX_3.4.19
+_ZNKSt14basic_ofstreamIwSt11char_traitsIwEE7is_openEv@GLIBCXX_3.4
+_ZNSt19istreambuf_iteratorIwSt11char_traitsIwEEppEv@GLIBCXX_3.4
+GLIBCXX_3.4.27
+_ZN10__gnu_norm15_List_node_base7reverseEv@@GLIBCXX_3.4
+_ZN10__gnu_norm15_List_node_base4hookEPS0_@@GLIBCXX_3.4
+_ZNSt11char_traitsIwE2eqERKwS2_@GLIBCXX_3.4
+_ZNSbIwSt11char_traitsIwESaIwEE7_M_copyEPwPKwm@GLIBCXX_3.4
+_ZNSbIwSt11char_traitsIwESaIwEE7_M_copyEPwPKwm@@GLIBCXX_3.4.5
+GLIBCXX_3.4.23
+GLIBCXX_3.4.3
+GLIBCXX_3.4.7
+_ZNSi6ignoreEl@@GLIBCXX_3.4.5
+_ZNKSbIwSt11char_traitsIwESaIwEE11_M_disjunctEPKw@@GLIBCXX_3.4.5
+_ZNSt13basic_istreamIwSt11char_traitsIwEE6ignoreEv@GLIBCXX_3.4
+_ZNKSt13basic_fstreamIwSt11char_traitsIwEE7is_openEv@@GLIBCXX_3.4.5
+_ZNSbIwSt11char_traitsIwESaIwEE7_M_moveEPwPKwm@@GLIBCXX_3.4.5
+GLIBCXX_3.4.18
+_ZNSbIwSt11char_traitsIwESaIwEE4_Rep26_M_set_length_and_sharableEm@GLIBCXX_3.4
+_ZNSt13basic_istreamIwSt11char_traitsIwEE6ignoreEl@@GLIBCXX_3.4.5
+_ZSt15future_category@@GLIBCXX_3.4.14
+_ZNSi6ignoreEl@GLIBCXX_3.4
+GLIBCXX_3.4.29
+_ZNSt11char_traitsIcE2eqERKcS2_@GLIBCXX_3.4
+_ZNKSs15_M_check_lengthEmmPKc@GLIBCXX_3.4
+_ZN10__gnu_norm15_List_node_base8transferEPS0_S1_@@GLIBCXX_3.4
+_ZNSbIwSt11char_traitsIwESaIwEE9_M_assignEPwmw@GLIBCXX_3.4
+_ZNVSt9__atomic011atomic_flag5clearESt12memory_order@@GLIBCXX_3.4.11
+_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv@@GLIBCXX_3.4.5
+_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv@GLIBCXX_3.4
+_ZNSs7_M_moveEPcPKcm@GLIBCXX_3.4
+_ZNSt13basic_istreamIwSt11char_traitsIwEE6ignoreEl@GLIBCXX_3.4
+_ZNSbIwSt11char_traitsIwESaIwEE9_M_assignEPwmw@@GLIBCXX_3.4.5
+_ZNKSbIwSt11char_traitsIwESaIwEE15_M_check_lengthEmmPKc@GLIBCXX_3.4
+_ZNKSs11_M_disjunctEPKc@@GLIBCXX_3.4.5
+_ZN10__gnu_norm15_List_node_base6unhookEv@@GLIBCXX_3.4
+GLIBCXX_3.4.22
+_ZNSt19istreambuf_iteratorIwSt11char_traitsIwEEppEv@@GLIBCXX_3.4.5
+_ZNSi6ignoreEv@GLIBCXX_3.4
+_ZNSs7_M_copyEPcPKcm@@GLIBCXX_3.4.5
+GLIBCXX_3.4.8
+GLIBCXX_3.4.13
+_ZSt11try_to_lock@@GLIBCXX_3.4.11
+_ZNKSt14basic_ofstreamIwSt11char_traitsIwEE7is_openEv@@GLIBCXX_3.4.5
+GLIBCXX_3.4.17
+GLIBCXX_3.4.4
+_ZNKSs15_M_check_lengthEmmPKc@@GLIBCXX_3.4.5
+_ZNKSt14basic_ifstreamIwSt11char_traitsIwEE7is_openEv@GLIBCXX_3.4
+_ZNSs4_Rep26_M_set_length_and_sharableEm@@GLIBCXX_3.4.5
+GLIBCXX_3.4.26
+_ZNKSs11_M_disjunctEPKc@GLIBCXX_3.4
+</code></pre><p>确实，最高版本是<code>GLIBCXX_3.4.29</code>。</p><p>（这里为了方便，我用<code>sudo su -</code>切换为了root）</p><p>看一下<code>libstdc++.so.6</code>这个文件的信息：</p><pre tabindex=0><code>(base) root@aoyuSurface:~# ls -l /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6
+lrwxrwxrwx 1 aoyu aoyu 19  1月 26 13:25 /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6 -&gt; libstdc++.so.6.0.29
+(base) root@aoyuSurface:~# ls -l /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6.0.29
+-rwxrwxr-x 3 aoyu aoyu 17981480  6月  1  2022 /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6.0.29
+</code></pre><p>是一个指向<code>libstdc++.so.6.0.29</code>的链接。</p><p>找找电脑里有没有<code>libstdc++.so</code>新一点的版本：</p><pre tabindex=0><code>(base) root@aoyuSurface:~# find / -name &#34;libstdc++.so*&#34;
+/opt/anaconda3/lib/libstdc++.so
+/opt/anaconda3/lib/libstdc++.so.6.0.29
+/opt/anaconda3/lib/libstdc++.so.6
+/opt/anaconda3/pkgs/libstdcxx-ng-11.2.0-h1234567_1/lib/libstdc++.so
+/opt/anaconda3/pkgs/libstdcxx-ng-11.2.0-h1234567_1/lib/libstdc++.so.6.0.29
+/opt/anaconda3/pkgs/libstdcxx-ng-11.2.0-h1234567_1/lib/libstdc++.so.6
+/home/aoyu/.conda/pkgs/libstdcxx-ng-11.2.0-h1234567_1/lib/libstdc++.so
+/home/aoyu/.conda/pkgs/libstdcxx-ng-11.2.0-h1234567_1/lib/libstdc++.so.6.0.29
+/home/aoyu/.conda/pkgs/libstdcxx-ng-11.2.0-h1234567_1/lib/libstdc++.so.6
+/home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so
+/home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6.0.29
+/home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6
+find: ‘/run/user/1000/doc’: 权限不够
+find: ‘/run/user/1000/gvfs’: 权限不够
+/usr/lib/gcc/x86_64-linux-gnu/12/libstdc++.so
+/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+/usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30-gdb.py
+/snap/core20/1778/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+/snap/core20/1778/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+/snap/core20/1778/usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28-gdb.py
+/snap/core20/1623/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+/snap/core20/1623/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+/snap/core20/1623/usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28-gdb.py
+(base) root@aoyuSurface:~# 
+</code></pre><p>看到最新的版本是<code>/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30</code>。</p><p>看一下里面有没有<code>GLIBCXX_3.4.30</code>：</p><pre tabindex=0><code>(base) root@aoyuSurface:~# strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 | grep GLIBCXX
+GLIBCXX_3.4
+GLIBCXX_3.4.1
+GLIBCXX_3.4.2
+GLIBCXX_3.4.3
+GLIBCXX_3.4.4
+GLIBCXX_3.4.5
+GLIBCXX_3.4.6
+GLIBCXX_3.4.7
+GLIBCXX_3.4.8
+GLIBCXX_3.4.9
+GLIBCXX_3.4.10
+GLIBCXX_3.4.11
+GLIBCXX_3.4.12
+GLIBCXX_3.4.13
+GLIBCXX_3.4.14
+GLIBCXX_3.4.15
+GLIBCXX_3.4.16
+GLIBCXX_3.4.17
+GLIBCXX_3.4.18
+GLIBCXX_3.4.19
+GLIBCXX_3.4.20
+GLIBCXX_3.4.21
+GLIBCXX_3.4.22
+GLIBCXX_3.4.23
+GLIBCXX_3.4.24
+GLIBCXX_3.4.25
+GLIBCXX_3.4.26
+GLIBCXX_3.4.27
+GLIBCXX_3.4.28
+GLIBCXX_3.4.29
+GLIBCXX_3.4.30
+GLIBCXX_DEBUG_MESSAGE_LENGTH
+</code></pre><p>可以看到里面有<code>GLIBCXX_3.4.30</code>，那接下来就用这个<code>libstdc++.so</code>替换旧的：</p><pre tabindex=0><code>(base) root@aoyuSurface:~# cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 /home/aoyu/AoyuCondaEnv/alien_invasion/lib/
+(base) root@aoyuSurface:~# rm /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6.0.29
+(base) root@aoyuSurface:~# rm /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6
+(base) root@aoyuSurface:~# ln -s /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6.0.30 /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6
+</code></pre><p>来确认一下替换<code>libstdc++.so.6</code>是不是成功了：</p><pre tabindex=0><code>(base) root@aoyuSurface:~# strings /home/aoyu/AoyuCondaEnv/alien_invasion/lib/libstdc++.so.6 | grep GLIBCXX
+GLIBCXX_3.4
+GLIBCXX_3.4.1
+GLIBCXX_3.4.2
+GLIBCXX_3.4.3
+GLIBCXX_3.4.4
+GLIBCXX_3.4.5
+GLIBCXX_3.4.6
+GLIBCXX_3.4.7
+GLIBCXX_3.4.8
+GLIBCXX_3.4.9
+GLIBCXX_3.4.10
+GLIBCXX_3.4.11
+GLIBCXX_3.4.12
+GLIBCXX_3.4.13
+GLIBCXX_3.4.14
+GLIBCXX_3.4.15
+GLIBCXX_3.4.16
+GLIBCXX_3.4.17
+GLIBCXX_3.4.18
+GLIBCXX_3.4.19
+GLIBCXX_3.4.20
+GLIBCXX_3.4.21
+GLIBCXX_3.4.22
+GLIBCXX_3.4.23
+GLIBCXX_3.4.24
+GLIBCXX_3.4.25
+GLIBCXX_3.4.26
+GLIBCXX_3.4.27
+GLIBCXX_3.4.28
+GLIBCXX_3.4.29
+GLIBCXX_3.4.30
+GLIBCXX_DEBUG_MESSAGE_LENGTH
+</code></pre><p>里面含有<code>GLIBCXX_3.4.30</code>，确实成功了。</p><p>运行程序试试，程序成功运行。</p><h2 id=参考资料><a href=#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>参考资料</h2><p><a href=https://zhuanlan.zhihu.com/p/538877347>conda + openai-gym + 核显 报错：libGL error: MESA-LOADER: failed to open iris</a></p><p><a href=https://stackoverflow.com/a/73101774>Anaconda libstdc++.so.6: version `GLIBCXX_3.4.20&rsquo; not found</a></p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://www.cnblogs.com/klb561/p/10765464.html>https://www.cnblogs.com/klb561/p/10765464.html</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://www.runoob.com/linux/linux-comm-grep.html>https://www.runoob.com/linux/linux-comm-grep.html</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/pycharm_fcitx_sogou_not_follow_cursor/ title="Previous post (older)"><span>Previous</span>
+Pycharm内搜狗输入法候选框不跟随光标</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
