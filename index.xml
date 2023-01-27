@@ -1,4 +1,16 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Jan 2023 17:34:57 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Python报错libGL error: failed to load driver</title><link>https://o5o.me/post/python_libgl_error_driver_iris_swrast/</link><pubDate>Thu, 26 Jan 2023 17:34:57 +0800</pubDate><guid>https://o5o.me/post/python_libgl_error_driver_iris_swrast/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Jan 2023 21:56:22 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Supermemo出现弹窗Which interval do you want to use?</title><link>https://o5o.me/post/supermemo_which_interval_do_you_want_to_use/</link><pubDate>Fri, 27 Jan 2023 21:56:22 +0800</pubDate><guid>https://o5o.me/post/supermemo_which_interval_do_you_want_to_use/</guid><description>
+&lt;p>我日常用于复习的 SuperMemo 是中文懒人包版本，前几天打算学 AdvEng2018 牌组，担心合并牌组时导致文件损坏，所以就又用了另一个SM软件来单独学AdvEng2018，同时也想是用用英文SM，汉化版软件里有些翻译的中文选项我不理解，可以对照着看。&lt;/p>
+&lt;p>复习时经常出现一个对话框：Which interval do you want to use?&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://o5o.me/2023-01-27/20230127221112.png"
+alt=""
+width=2227
+height="669" />&lt;/p>
+&lt;p>用SM的懒人包版本复习时则没这个弹窗。&lt;/p>
+&lt;p>出现这个弹窗的原因是，软件想告诉你，按照默认的算法，下次安排这张卡片的复习要到几十天之后了，这个时间间隔太长了，问你要不要换个时间间隔短一点的算法。&lt;/p>
+&lt;p>让它不显示的办法：默认是，如果一张卡片的复习间隔超过14天就会显示这个弹窗，我们把这个天数调大一些就好了。&lt;/p>
+&lt;p>流程：Toolkit - Options -&amp;gt; Learning - Algorithm SM-18 Alerts - Interval [days]，默认是14，改大一点，例如改为3000.&lt;/p>
+&lt;p>参考：&lt;a href="https://supermemopedia.com/wiki/Which_interval_do_you_want_to_use">Which interval do you want to use - SuperMemopedia&lt;/a>&lt;/p></description></item><item><title>Python报错libGL error: failed to load driver</title><link>https://o5o.me/post/python_libgl_error_driver_iris_swrast/</link><pubDate>Thu, 26 Jan 2023 17:34:57 +0800</pubDate><guid>https://o5o.me/post/python_libgl_error_driver_iris_swrast/</guid><description>
 &lt;p>运行下述代码后报错：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
