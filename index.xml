@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 28 Jan 2023 20:51:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Leetcode Sql 175 Combine Two Tables</title><link>https://o5o.me/post/leetcode_177_nth_highest_salary/</link><pubDate>Sat, 28 Jan 2023 20:51:00 +0800</pubDate><guid>https://o5o.me/post/leetcode_177_nth_highest_salary/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 28 Jan 2023 20:51:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Leetcode 177 第N高的薪水</title><link>https://o5o.me/post/leetcode_177_nth_highest_salary/</link><pubDate>Sat, 28 Jan 2023 20:51:00 +0800</pubDate><guid>https://o5o.me/post/leetcode_177_nth_highest_salary/</guid><description>
 &lt;p>题目：&lt;a href="https://leetcode.cn/problems/nth-highest-salary/">177. 第N高的薪水&lt;/a>&lt;/p>
 &lt;h2 id="我的解答">
 &lt;a href="#%e6%88%91%e7%9a%84%e8%a7%a3%e7%ad%94" class="anchor">
@@ -42,7 +42,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/div>
 &lt;/div>&lt;p>在 &lt;code>LIMIT&lt;/code> 和 &lt;code>OFFSET&lt;/code> 内不能进行运算，所以在开头首先让&lt;code>N&lt;/code>减1。&lt;/p>
 &lt;p>注意语句末尾的分号。&lt;/p>
-&lt;p>注意指定别名语句&lt;code>AS getNthHighestSalary&lt;/code>末尾并没有括号。&lt;/p></description></item><item><title>Leetcode Sql 175 Combine Two Tables</title><link>https://o5o.me/post/leetcode_176_second_highest_salary/</link><pubDate>Sat, 28 Jan 2023 20:23:00 +0800</pubDate><guid>https://o5o.me/post/leetcode_176_second_highest_salary/</guid><description>
+&lt;p>注意指定别名语句&lt;code>AS getNthHighestSalary&lt;/code>末尾并没有括号。&lt;/p></description></item><item><title>Leetcode 176 第二高的薪水</title><link>https://o5o.me/post/leetcode_176_second_highest_salary/</link><pubDate>Sat, 28 Jan 2023 20:23:00 +0800</pubDate><guid>https://o5o.me/post/leetcode_176_second_highest_salary/</guid><description>
 &lt;p>题目：&lt;a href="https://leetcode.cn/problems/second-highest-salary/">176. 第二高的薪水&lt;/a>&lt;/p>
 &lt;h2 id="我的解答">
 &lt;a href="#%e6%88%91%e7%9a%84%e8%a7%a3%e7%ad%94" class="anchor">
@@ -95,7 +95,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/div>&lt;p>&lt;code>DISTINCT&lt;/code>参数用于让查询结果中相同的值只出现一次。&lt;/p>
 &lt;p>&lt;code>DESC&lt;/code>关键字用于让查询结果按降序进行排序。&lt;/p>
 &lt;p>&lt;code>IFNULL()&lt;/code>函数用于判断第一个表达式是否为 &lt;code>NULL&lt;/code>，如果为 &lt;code>NULL&lt;/code> 则返回第二个参数的值。&lt;/p>
-&lt;p>&lt;code>LIMIT&lt;/code> 和 &lt;code>OFFSET&lt;/code> 用于对查询结果进行分页，每次返回查询结果的一部分。&lt;/p></description></item><item><title>Leetcode Sql 175 Combine Two Tables</title><link>https://o5o.me/post/leetcode_175_combine_two_tables/</link><pubDate>Sat, 28 Jan 2023 19:48:52 +0800</pubDate><guid>https://o5o.me/post/leetcode_175_combine_two_tables/</guid><description>
+&lt;p>&lt;code>LIMIT&lt;/code> 和 &lt;code>OFFSET&lt;/code> 用于对查询结果进行分页，每次返回查询结果的一部分。&lt;/p></description></item><item><title>Leetcode 175 组合两个表</title><link>https://o5o.me/post/leetcode_175_combine_two_tables/</link><pubDate>Sat, 28 Jan 2023 19:48:52 +0800</pubDate><guid>https://o5o.me/post/leetcode_175_combine_two_tables/</guid><description>
 &lt;p>题目：&lt;a href="https://leetcode.cn/problems/combine-two-tables/">175. 组合两个表&lt;/a>&lt;/p>
 &lt;h2 id="我的解答">
 &lt;a href="#%e6%88%91%e7%9a%84%e8%a7%a3%e7%ad%94" class="anchor">
