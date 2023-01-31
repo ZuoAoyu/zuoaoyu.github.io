@@ -1,4 +1,16 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 28 Jan 2023 20:51:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Leetcode 177 第N高的薪水</title><link>https://o5o.me/post/leetcode_177_nth_highest_salary/</link><pubDate>Sat, 28 Jan 2023 20:51:00 +0800</pubDate><guid>https://o5o.me/post/leetcode_177_nth_highest_salary/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 31 Jan 2023 22:42:21 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu自建Anki同步服务</title><link>https://o5o.me/post/anki_self_hosted_sync_server_ubuntu/</link><pubDate>Tue, 31 Jan 2023 22:42:21 +0800</pubDate><guid>https://o5o.me/post/anki_self_hosted_sync_server_ubuntu/</guid><description>
+&lt;p>Anki更新2.1.57版本后，内置支持自建同步服务。之前都是需要以插件的形式实现，且搭建后往往只适用于旧版本的Anki，选择了自建同步服务就意味着放弃追求新版本和新功能。&lt;/p>
+&lt;p>只需要几行代码就可以搭建自己的Anki同步服务了：&lt;/p>
+&lt;pre tabindex="0">&lt;code>screen -S anki-aoyu
+python3 -m venv ~/syncserver
+~/syncserver/bin/pip install anki
+SYNC_USER1=aoyu:123456 ~/syncserver/bin/python -m anki.syncserver
+&lt;/code>&lt;/pre>&lt;p>我的系统版本是Ubuntu22.04，安装过程是相当顺畅的。很大概率你需要先运行&lt;code>apt install python3.10-venv&lt;/code>，之后才能&lt;code>python3 -m venv ~/syncserver&lt;/code>，不过你不需要提前考虑到这一点，报错后会提醒你安装的。&lt;/p>
+&lt;p>&lt;code>SYNC_USER1&lt;/code>后面跟的是账户名和密码，在Anki里用这个账号登录。&lt;/p>
+&lt;p>你需要在Anki软件设置Self-hosted sync server项里填写&lt;code>http://服务器ip:8080/&lt;/code>，之后就可以使用自己的同步服务了。&lt;/p>
+&lt;p>可以用 Nginx 做一个反代，我能想到的优点有：不让8080端口暴露到网络上；给anki的同步服务绑定一个域名，好记；可以启用https。这里就不写了，懒。&lt;/p>
+&lt;p>screen命令的使用可参考：&lt;a href="https://www.vpser.net/manage/screen.html">SSH远程会话管理工具 - screen使用教程 - VPS侦探 (vpser.net)&lt;/a>&lt;/p>
+&lt;p>安装参考：&lt;a href="https://docs.ankiweb.net/sync-server.html#without-gui-dependencies">Sync Server - Anki Manual (ankiweb.net)&lt;/a>&lt;/p></description></item><item><title>Leetcode 177 第N高的薪水</title><link>https://o5o.me/post/leetcode_177_nth_highest_salary/</link><pubDate>Sat, 28 Jan 2023 20:51:00 +0800</pubDate><guid>https://o5o.me/post/leetcode_177_nth_highest_salary/</guid><description>
 &lt;p>题目：&lt;a href="https://leetcode.cn/problems/nth-highest-salary/">177. 第N高的薪水&lt;/a>&lt;/p>
 &lt;h2 id="我的解答">
 &lt;a href="#%e6%88%91%e7%9a%84%e8%a7%a3%e7%ad%94" class="anchor">
