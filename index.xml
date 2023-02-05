@@ -1,4 +1,24 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 03 Feb 2023 19:25:07 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Python练习题NP47牛牛的绩点</title><link>https://o5o.me/post/python_exercise_nowcoder_np47/</link><pubDate>Fri, 03 Feb 2023 19:25:07 +0800</pubDate><guid>https://o5o.me/post/python_exercise_nowcoder_np47/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 05 Feb 2023 20:50:26 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL分组过滤</title><link>https://o5o.me/post/nowcoder_sql19/</link><pubDate>Sun, 05 Feb 2023 20:50:26 +0800</pubDate><guid>https://o5o.me/post/nowcoder_sql19/</guid><description>
+&lt;p>题目：&lt;a href="https://www.nowcoder.com/practice/ddbcedcd9600403296038ee44a172f2d">SQL19 分组过滤练习题&lt;/a>&lt;/p>
+&lt;p>这一题是将&lt;code>行&lt;/code>（用户、record）根据university进行分组，最后返回的不是用户的数据，而是&lt;code>分组&lt;/code>（university、大学）的数据。&lt;/p>
+&lt;p>因此在过滤的时候，不是过滤行，而是过滤分组，所以要用having操作符，而不是where操作符。&lt;/p>
+&lt;p>返回的结果还应该保留三位小数，所以使用&lt;code>round()&lt;/code>函数。&lt;/p>
+&lt;p>我的解答：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-MySQL" data-lang="MySQL">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">university&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">ROUND&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nf">AVG&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">question_cnt&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">as&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">avg_question_cnt&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">ROUND&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nf">AVG&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">answer_cnt&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">as&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">avg_answer_cnt&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user_profile&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">GROUP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">university&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">HAVING&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">avg_question_cnt&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">or&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">avg_answer_cnt&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Python练习题NP47牛牛的绩点</title><link>https://o5o.me/post/nowcoder_np47/</link><pubDate>Fri, 03 Feb 2023 19:25:07 +0800</pubDate><guid>https://o5o.me/post/nowcoder_np47/</guid><description>
 &lt;h2 id="描述">
 &lt;a href="#%e6%8f%8f%e8%bf%b0" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
