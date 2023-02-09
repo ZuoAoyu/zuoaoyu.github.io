@@ -1,4 +1,152 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Feb 2023 12:54:42 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Django给模型字段重命名</title><link>https://o5o.me/post/django_rename_field/</link><pubDate>Thu, 09 Feb 2023 12:54:42 +0800</pubDate><guid>https://o5o.me/post/django_rename_field/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Feb 2023 20:34:03 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Django添加删除文章功能</title><link>https://o5o.me/post/django_add_function_delete_entry/</link><pubDate>Thu, 09 Feb 2023 20:34:03 +0800</pubDate><guid>https://o5o.me/post/django_add_function_delete_entry/</guid><description>
+&lt;p>在我写的项目里，称类似文章的文本为entry。我想要在entry编辑页面（edit_entry）上添加一个删除按钮，点击后这条entry会被删除。&lt;/p>
+&lt;h3 id="添加视图">
+&lt;a href="#%e6%b7%bb%e5%8a%a0%e8%a7%86%e5%9b%be" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+添加视图
+&lt;/h3>
+&lt;p>文件&lt;code>~/应用/views.py&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">django.shortcuts&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">render&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">redirect&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">django.contrib.auth.decorators&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">login_required&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">django.http&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Http404&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">.models&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Entry&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">--&lt;/span> &lt;span class="n">snip&lt;/span> &lt;span class="o">--&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除entry&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@login_required&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">delete_entry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">entry_id&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;删除既有条目&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 根据id获取需要删除的entry&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">entry&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Entry&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">objects&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">entry_id&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 只有该entry的拥有者可以将其删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">check_entry_owner&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">entry&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 调用.delete()方法删除文章&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">entry&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">delete&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 完成删除后返回entry列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">redirect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;aoyu_blog_logs:topic&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">topic_id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">topic&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>装饰器&lt;code>@login_required&lt;/code>确保只有已登录用户才能删除entry。&lt;/p>
+&lt;p>调用的函数&lt;code>check_entry_owner()&lt;/code>确保只有entry拥有者可以将其删除。代码如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">django.http&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Http404&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">--&lt;/span> &lt;span class="n">snip&lt;/span> &lt;span class="o">--&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">check_entry_owner&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">entry&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;核实entry关联到的用户是否为当前用户&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">entry&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">topic&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">owner&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">request&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">raise&lt;/span> &lt;span class="n">Http404&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="添加url模式">
+&lt;a href="#%e6%b7%bb%e5%8a%a0url%e6%a8%a1%e5%bc%8f" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+添加URL模式
+&lt;/h3>
+&lt;p>文件&lt;code>~/应用/urls.py&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">--&lt;/span>&lt;span class="n">snip&lt;/span>&lt;span class="o">--&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">urlpatterns&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">snip&lt;/span>&lt;span class="o">--&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 用于删除条目的页面&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;delete_entry/&amp;lt;int:entry_id&amp;gt;/&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">views&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">delete_entry&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;delete_entry&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="修改模板">
+&lt;a href="#%e4%bf%ae%e6%94%b9%e6%a8%a1%e6%9d%bf" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+修改模板
+&lt;/h3>
+&lt;p>文件&lt;code>~/应用/templates/应用/edit_entry.html&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">--&lt;/span>&lt;span class="n">snip&lt;/span>&lt;span class="o">--&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">form&lt;/span> &lt;span class="n">action&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;{&lt;/span>&lt;span class="si">% u&lt;/span>&lt;span class="s2">rl &amp;#39;aoyu_blog_logs:delete_entry&amp;#39; entry.id %}&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="o">%&lt;/span> &lt;span class="n">csrf_token&lt;/span> &lt;span class="o">%&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="o">%&lt;/span> &lt;span class="n">buttons&lt;/span> &lt;span class="o">%&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">button&lt;/span> &lt;span class="nb">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;submit&amp;#34;&lt;/span> &lt;span class="n">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;btn btn-outline-danger&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="n">删除该Entry&lt;/span>&lt;span class="o">&amp;lt;/&lt;/span>&lt;span class="n">button&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="o">%&lt;/span> &lt;span class="n">endbuttons&lt;/span> &lt;span class="o">%&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;lt;/&lt;/span>&lt;span class="n">form&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">--&lt;/span>&lt;span class="n">snip&lt;/span>&lt;span class="o">--&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>我没有使用a标签，而是使用了一个表单。由于使用了Bootstrap，我不需要再去调CSS。&lt;/p>
+&lt;p>可以改进的地方是，点击删除按钮后弹出一个“二次提示”信息。现在是点击按钮后entry直接就被删除了。&lt;/p></description></item><item><title>Django给模型字段重命名</title><link>https://o5o.me/post/django_rename_field/</link><pubDate>Thu, 09 Feb 2023 12:54:42 +0800</pubDate><guid>https://o5o.me/post/django_rename_field/</guid><description>
 &lt;p>在Django中，一个模型就是一个&lt;strong>类&lt;/strong>，模型里的字段就是类的&lt;strong>属性&lt;/strong>，因此本文的标题也可以写作：Django重命名类属性。&lt;/p>
 &lt;p>如果模型刚写好，还没在数据库中创建表，把代码里所有的旧字段名改为新字段名即可。&lt;/p>
 &lt;p>如果已经修改了数据库，首先在代码里将旧字段名修改为新字段名；然后需要在数据库里对表列进行重命名。在Django里不用直接操作数据库，在终端里运行命令&lt;code>makemigrations&lt;/code>，Django会识别出来你是想给&lt;code>data_added&lt;/code>重命名，之后再在终端运行命令&lt;code>migrate&lt;/code>即可。&lt;/p>
