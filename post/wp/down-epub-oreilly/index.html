@@ -1,0 +1,111 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>导出EPUB格式的O’Reilly图书及解决导出章节不完整问题 | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="导出EPUB格式的O’Reilly图书及解决导出章节不完整问题 | o5o"><meta itemprop=name content="导出EPUB格式的O’Reilly图书及解决导出章节不完整问题 | o5o"><meta name=twitter:title content="导出EPUB格式的O’Reilly图书及解决导出章节不完整问题 | o5o"><meta name=application-name content="导出EPUB格式的O’Reilly图书及解决导出章节不完整问题 | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2019-12-26T18:29:05+0800"><meta property="article:published_time" content="2019-12-26T18:29:05+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"导出EPUB格式的O’Reilly图书及解决导出章节不完整问题","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2019-12-26","description":"","wordCount":552,"mainEntityOfPage":"True","dateModified":"2019-12-26","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>导出EPUB格式的O’Reilly图书及解决导出章节不完整问题</h1><div class=post-meta><div>By Guanghao Zuo | <time>December 26, 2019</time>
+| 3 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>买了一个ACM会员，可以访问O’Reilly的在线图书资源。我比较喜欢看<em>head first</em>系列的书。由于国内访问速度不佳，体验不是很好。再加上个人的占有欲，我打算把O’Reilly的书下载到本地看。</p><p>Github有一个库<em>safaribooks</em>，恰好满足我的需求。但是我用ACM账号登录时的登录方式为单点登录(SingleSignOn，SSO)，不是直接用的oreilly的账号，所以为了让程序能正常运行，需要首先获取oreilly网站的cookie。下面我完整叙述整个流程。
+安装<em>safaribooks</em></p><pre tabindex=0><code>$ git clone https://github.com/lorenzodifuccia/safaribooks.git
+$ cd safaribooks/
+$ pip3 install -r requirements.txt
+</code></pre><p>获取cookie
+在浏览器中正常登录oreilly learning，按F12，打开控制台（console），输入如下代码获取cookies：</p><pre tabindex=0><code>javascript:(function(){var output = {};document.cookie.split(/\s*;\s*/).forEach(function(pair) {pair = pair.split(/\s*=\s*/);output[pair[0]]=pair.splice(1).join(&#39;=&#39;);});console.log(JSON.stringify(output));})();
+</code></pre><p>把屏幕上输出的内容复制到文件中，文件名设为cookies.json，将文件放置到safaribooks.py所在文件夹中（即safaribooks/）。
+按理说这时直接在终端输入以下命令就能把对应图书导出来了（后面那串数字是图书对应id，可以在浏览器中打开图书页面，从url链接中看到）：</p><pre tabindex=0><code>python3 safaribooks.py 9781491919521
+</code></pre><p>但是我却收到了一个错误。</p><pre tabindex=0><code>[#] Authentication issue: unable to access profile page.                        
+[!] Aborting... 
+</code></pre><p>我在该项目的Issues中寻找到的解决方案如下：</p><pre tabindex=0><code># 修改safaribooks.py文件，
+# 修改这句代码：PROFILE_URL = SAFARI_BASE_URL + &#34;/profile/&#34;
+# 修改为：
+PROFILE_URL = SAFARI_BASE_URL + &#34;/home/?next=%2Fprofile%2F&#34;
+</code></pre><p>再次运行命令，然后我就成功导出了格式为epub的图书文件。终端显示的内容如下：</p><pre tabindex=0><code>aoyu@Guanghaos-MacBook-Pro safaribooks % python3 safaribooks.py 9781491919521
+                                                                                
+       ____     ___         _     
+      / __/__ _/ _/__ _____(_)    
+     _\ \/ _ `/ _/ _ `/ __/ /     
+    /___/\_,_/_/ \_,_/_/ /_/      
+      / _ )___  ___  / /__ ___    
+     / _  / _ \/ _ \/  &#39;_/(_-&lt;    
+    /____/\___/\___/_/\_\/___/    
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[-] Successfully authenticated.                                                 
+[*] Retrieving book info...                                                     
+[-] Title: Head First Python, 2nd Edition                                       
+[-] Authors: Paul Barry                                                         
+[-] Identifier: 9781491919521                                                   
+[-] ISBN: 9781491919538                                                         
+[-] Publishers: O&#39;Reilly Media, Inc.                                            
+[-] Rights: Copyright © 2016 Paul Barry                                         
+[-] Description: Want to learn the Python language without slogging your way through how-to manuals? With Head First Python, you’ll quickly grasp Python’s fundamentals, working with the built-in data structures and functions. Then you’ll move on to building your very own webapp, exploring database management, exception handling, and data wrangling. If you’re intrigued by what you can do with context managers, decorators, comprehensions, and generators, it’s all here. This second edition is a complete learning ex...
+[-] Release Date: 2016-11-23                                                    
+[-] URL: https://learning.oreilly.com/library/view/head-first-python/9781491919521/
+[*] Retrieving book chapters...                                                 
+[*] Output directory:                                                           
+    /Users/aoyu/Desktop/Oreilly/safaribooks/Books/Head First Python 2nd Edition (9781491919521)
+[-] Downloading book contents... (30 chapters)                                  
+    [#####################################################################] 100%
+[-] Downloading book CSSs... (4 files)                                          
+    [#####################################################################] 100%
+[-] Downloading book images... (216 files)                                      
+    [#####################################################################] 100%
+[-] Creating EPUB file...                                                       
+[*] Done: /Users/aoyu/Desktop/Oreilly/safaribooks/Books/Head First Python 2nd Edition (9781491919521)/9781491919521.epub
+
+    If you like it, please * this project on GitHub to make it known:
+        https://github.com/lorenzodifuccia/safaribooks
+    e don&#39;t forget to renew your Safari Books Online subscription:
+        https://learning.oreilly.com
+
+[!] Bye!!
+</code></pre><p>end.</p><hr><p>当然这篇文章我是给自己看的，如果你不小心点了进来，但是还是没看懂该如何用这个程序，建议访问该项目在github的地址，地址我会放在文章最后。
+ACM的会员在发展中国家（包括中国）的价格是8美元，换算成人民币是56块多（以前换算汇率都是按6，现在按7了?），如果能完整读完一本英文书，我认为是很划算的。</p><hr><p>2019年12月29日补充：
+我在阅读的时候发现从第二章开始，每章的内容都只有一部分。我寻找解决方案的过程不再多言。出现这个问题的原因是，我用上面那段代码获取到的cookie是不完整的，缺了几条，导致在导出第一章后面的章节时，身份验证不通过，因此只导出了开头一小部分内容（预览内容）[4]。
+我的解决方案是：把漏掉的cookies手动补上去?。根据我的对比，缺了下面三条cookie：</p><pre tabindex=0><code>kampyle_userid
+
+orm-rt
+
+groot_sessionid
+</code></pre><p>添加到cookies.json文件末尾，重新运行程序就正常了。
+至于说原理，或者说更优雅的解决方案，交给未来的我去考虑吧。现在的我不想关心。</p><pre tabindex=0><code>aoyu@Guanghaos-MacBook-Pro safaribooks % python3 safaribooks.py 9781491919521
+                                                                                
+ ██████╗     ██████╗ ██╗  ██╗   ██╗██████╗ 
+██╔═══██╗    ██╔══██╗██║  ╚██╗ ██╔╝╚════██╗
+██║   ██║    ██████╔╝██║   ╚████╔╝   ▄███╔╝
+██║   ██║    ██╔══██╗██║    ╚██╔╝    ▀▀══╝ 
+╚██████╔╝    ██║  ██║███████╗██║     ██╗   
+ ╚═════╝     ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝                                           
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[-] Successfully authenticated.                                                 
+[*] Retrieving book info...                                                     
+[-] Title: Head First Python, 2nd Edition                                       
+[-] Authors: Paul Barry                                                         
+[-] Identifier: 9781491919521                                                   
+[-] ISBN: 9781491919538                                                         
+[-] Publishers: O&#39;Reilly Media, Inc.                                            
+[-] Rights: Copyright © 2016 Paul Barry                                         
+[-] Description: Want to learn the Python language without slogging your way through how-to manuals? With Head First Python, you’ll quickly grasp Python’s fundamentals, working with the built-in data structures and functions. Then you’ll move on to building your very own webapp, exploring database management, exception handling, and data wrangling. If you’re intrigued by what you can do with context managers, decorators, comprehensions, and generators, it’s all here. This second edition is a complete learning ex...
+[-] Release Date: 2016-11-23                                                    
+[-] URL: https://learning.oreilly.com/library/view/head-first-python/9781491919521/
+[*] Retrieving book chapters...                                                 
+[*] Output directory:                                                           
+    /Users/aoyu/Desktop/Oreilly/safaribooks/Books/Head First Python 2nd Edition (9781491919521)
+[-] Downloading book contents... (30 chapters)                                  
+    [#####################################################################] 100%
+[-] Downloading book CSSs... (4 files)                                          
+    [#####################################################################] 100%
+[-] Downloading book images... (1009 files)                                     
+    [#####################################################################] 100%
+[-] Creating EPUB file...                                                       
+[*] Done: /Users/aoyu/Desktop/Oreilly/safaribooks/Books/Head First Python 2nd Edition (9781491919521)/9781491919521.epub
+
+    If you like it, please * this project on GitHub to make it known:
+        https://github.com/lorenzodifuccia/safaribooks
+    e don&#39;t forget to renew your Safari Books Online subscription:
+        https://learning.oreilly.com
+
+[!] Bye!!
+</code></pre><hr><p>参考资料
+[1] safaribooks项目地址 <a href=https://github.com/lorenzodifuccia/safaribooks>https://github.com/lorenzodifuccia/safaribooks</a><br>[2] Issue#1 <a href=https://github.com/lorenzodifuccia/safaribooks/issues/160>https://github.com/lorenzodifuccia/safaribooks/issues/160</a><br>[3] Issue#2 <a href=https://github.com/lorenzodifuccia/safaribooks/issues/2>https://github.com/lorenzodifuccia/safaribooks/issues/2</a><br>[4] Issue#3 <a href=https://github.com/lorenzodifuccia/safaribooks/issues/150>https://github.com/lorenzodifuccia/safaribooks/issues/150</a></p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/wp/cancel-domain-name-beian/ title="Previous post (older)"><span>Previous</span>
+工信部备案域名注销</a>
+<a rel=next href=/post/wp/new-year-2020/ title="Next post (newer)"><span>Next</span>
+新年第一个证明，舒服。</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>

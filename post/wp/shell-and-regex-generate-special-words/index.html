@@ -1,0 +1,123 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>Shell脚本和正则表达式实现由给定字母生成指定字数单词 | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="Shell脚本和正则表达式实现由给定字母生成指定字数单词 | o5o"><meta itemprop=name content="Shell脚本和正则表达式实现由给定字母生成指定字数单词 | o5o"><meta name=twitter:title content="Shell脚本和正则表达式实现由给定字母生成指定字数单词 | o5o"><meta name=application-name content="Shell脚本和正则表达式实现由给定字母生成指定字数单词 | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2019-02-12T16:50:34+0800"><meta property="article:published_time" content="2019-02-12T16:50:34+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"Shell脚本和正则表达式实现由给定字母生成指定字数单词","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2019-02-12","description":"","wordCount":451,"mainEntityOfPage":"True","dateModified":"2019-02-12","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>Shell脚本和正则表达式实现由给定字母生成指定字数单词</h1><div class=post-meta><div>By Guanghao Zuo | <time>February 12, 2019</time>
+| 3 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>前天早上，我安装了这样一个游戏，“Words Story”，游戏规则是，从所给的字母中选出一些字母，组合成正确的单词，获得金币，帮助监狱里的火柴人逃出监狱。游戏背景好像就是电影《肖申克的救赎》。</p><p>游戏做的很棒，但要将零散的字母组合成单词真的是难为胖虎我了。就在我下载这个游戏的前一天的晚上，我刚刚读完《The Linux Command Line(中英对照)》，恰巧里面“正则表达式”那一章有提到 Linux 系统都自带有一个词库，可以通过正则表达式匹配单词，便产生了写一个能让我更舒服的玩游戏的程序的想法。
+我的思考过程是这样的：
+我的设想(最初的)是，写一个 Shell 脚本，由给定字母生成所有可能的指定字数的字母组合，然后与词典对照，输出所有正确的单词。程序可以像这样运行：</p><pre tabindex=0><code>[root@hostname ~]# genwords 3 e t s q l g o b
+</code></pre><p>其中，3 是最终要生成的单词包含的字母数，后面的是给定的字母。
+那便开始吧。
+要想直接使用脚本文件名运行程序，需要把脚本所在文件夹添加到 PATH 变量中。这里我把脚本放在 ~/bin 文件夹中，这个文件夹路径已经在 PATH 变量中了。如果家目录里没有 bin 文件夹，可以自己新建一个。可以这样将一个路径追加到 PATH 变量值末尾(例如~/bin)：</p><pre tabindex=0><code>PATH=$PATH:~/bin
+</code></pre><p>我接着新建一个空白文件，并给它赋予可执行权限：</p><pre tabindex=0><code>&gt; genwords; chmod 755 genwords; ls -l nice
+</code></pre><p>注意这串命令前的大于号，这里是重定向符，将标准输出重定向到文件 genwords 中，但标准输入为空，所以没有内容可写入到文件中，所以文件为空，这样我们便生成了一个空文件。
+Shell 脚本的第一句都是：</p><pre tabindex=0><code>#!/bin/bash
+</code></pre><p>可以在后面加上 -x 选项，来追踪脚本的运行，就像这样：</p><pre tabindex=0><code>#!/bin/bash -x
+</code></pre><p>我要从命令行参数中获得“要生成的单词的字数”和“所有备选字母”，我使用了下面两句代码：</p><pre tabindex=0><code>numletters=$1 #要生成的单词所包含的字母个数
+numaltletter=$(($#-1)) #所有给定的字母的个数
+</code></pre><p>$1 是在位置1处的变量的值，也就是命令中的那个数字；$# 是所有命令行参数的个数，减去1，就是备选字母的个数。
+然后，我把备选字母储存到一个数组中，我使用了如下代码：</p><pre tabindex=0><code>for ((i=0; i
+</code></pre><p>运行一次 shift 命令，就会使所有命令行参数向左移动一位，这让我想到了高中生物里学过的蛋白质的合成。
+我用 echo ${someletters[i]} 这句代码测试代码有没有正常工作。在程序还小的时候，多测试，很容易发现和定位问题，也能更快的解决问题。测试完成后我把这句代码注释掉了。
+我是先在 Visual Studio Code 里把代码写好，再粘贴到远程服务器的 vim 编辑器里。在 vim 的正常模式里，按 gg 再按 dG，可以很快的清除代码。gg 是跳转到代码第一行，dG 是删除当前行到文件末尾的内容。
+然后就是，由备选字母生成所有的指定字数的字母组合，再使用 grep 程序与词库匹配单词，输出所有拼写正确的单词。但是我发现，适用于所有字数单词的代码。。。我不会写/汗，绞尽脑汁也没想到。我真该学学算法了。然后我就想着先写一个特殊情况下的，说不定就有灵感了呢，于是我就写了一段只能生成含有3个字母的字母组合的代码，用到了三层嵌套的 for 循环。</p><pre tabindex=0><code>#将字母组合成指定位数，只能生成3位的字母组合
+for ((i=0; i
+</code></pre><p>我发现代码运行起来很慢，毕竟，生成所有字母可能的组合再从中挑出拼写正确的单词真的是一种很蠢的行为。这才是3个字母的组合了，要是更多位数的单词呢，只会更慢了。
+那本字典(文件名words)，我在我安装的 ubuntu 的 /usr/share/dict 目录里竟然没找到，我在腾讯云开发者平台的 Cloud Studio 的系统相应路径也没找到，难道是阉割了？我从网上找了一份，但并不好用。这个字典是用来进行拼写检查的，其中有很多不是单词。在筛选出来的单词里，有很多单词含有重复的字母，而我玩的这个游戏里，单词都是由互不相同的字母组成的。虽然存在这样的问题，但我想着，给单词排一下序会不会好一点？且看下面的代码。字典链接：https://svnweb.freebsd.org/base/head/share/dict/web2?view=log</p><pre tabindex=0><code>#将字母组合成指定位数，只能生成3位的字母组合
+for ((i=0; i&gt; ~/genwords.txt
+ done 
+ done
+done
+
+cat genwords.txt | sort -u
+rm -f genwords.txt
+</code></pre><p><del>sort 只能接受文件，所以</del>我就先把程序的输出结果保存到一个临时文件 genwords.txt 中，再用管道传递给 sort，最后删除临时文件。
+排序之后效果也并不好，单词太多，而且其中有很多含有相同字母的单词，不能用来玩（you）儿（xi）游（zuo）戏（bi）。我又想着能不能把那些含有重复的字母的单词剔除出去，但是我写的条件判断总是出错/无奈。
+在晚上睡觉的时候，灵光一闪，我真的是舍近求远，为什么不直接用正则表达式从字典里匹配单词呢/吐血
+在 Visual Studio Code 中，注释掉多行代码，要先用鼠标选中多行，再按 ctrl+k ctrl+c 。
+把上面那段循环注释掉，用正则表达式替代。然而。。。我写的正则表达式总是出错/无奈</p><pre tabindex=0><code>echo ${someletters[*]}
+grep -Ei ^[&#34;${someletters[*]}&#34;]{$numletters}$ ~/words &gt;&gt; ~/genwords.txt
+
+cat genwords.txt | sort -u
+rm -f genwords.txt
+</code></pre><p>我用 ${someletters[*]} 获取数组内的所有元素。程序曾经的错误提示之一是： grep: Unmatched [ or [^ ，给 grep 加上一个 E 选项就解决了，表示支持扩展的正则表达式。给脚本第一行后面加上 -x，追踪脚本的运行，运行结果：</p><pre tabindex=0><code>+ echo a n d
+a n d
++ grep -Ei &#39;^[a n d]{3}$&#39; /root/words
++ sort -u
++ cat genwords.txt
+cat: genwords.txt: No such file or directory
++ rm -f genwords.txt
+</code></pre><p>我以为是因为 ${someletters[*]} 生成的字符之间有空格，所以导致正则表达式不能正确运行（其实正则表达式是正常的），所以我又加上了一段代码来去除空格：</p><pre tabindex=0><code>#去除${someletters[*]}元素之间的空格
+wordsletter=${someletters[*]}
+# shell 将命令输出结果保存为变量的值
+wordsletter=$(echo $wordsletter | sed &#39;s/[[:space:]]//g&#39;)
+echo $wordsletter
+
+# ${someletters[*]}生成的字符之间是有空格的
+# [root@iZuf6fxweg30jhggd2hv4tZ bin]# grep -Ei ^[a n d]{3}$ ~/words
+# grep: Unmatched [ or [^
+grep -Ei ^[&#34;${someletters[*]}&#34;]{$numletters}$ ~/words &gt;&gt; ~/genwords.txt
+
+cat genwords.txt | sort -u
+rm -f genwords.txt
+</code></pre><p>重新运行程序，但依然是相同的错误结果。我把后面那段把结果输出到临时文件再排序再删除临时文件的代码删除后正常了。我也没深究出错的原因是什么，因为这段代码是多余的。
+现在程序可以正常工作了，运行一下试一试：</p><pre tabindex=0><code>[root@iZuf6fxweg30jhggd2hv4tZ bin]# genwords 3 a n d
+Ada
+add
+Ana
+ana
+and
+Ann
+ann
+dad
+Dan
+dan
+naa
+Nan
+nan
+</code></pre><p>结果中含有重复字母的单词太多了，还是不能实际帮助我玩游戏。我第一时间想到的解决方法现在已经不可知了，因为那个版本的代码我没有保存。然后我想到的方法是找一个词汇量小一点的字典。
+我先是找到了一个包含2000个单词的表格，但很多常用的单词都没有，丢弃。然后我又找到了一个包含 103976个单词的字典，格式是 csv 和 sql，我用下面这个命令把单词那一列保存到 enwordsok 文件中。</p><pre tabindex=0><code>awk -F, &#39;{print $1}&#39; enwords.csv &gt; enwordsok
+</code></pre><p>但效果还是不好，这个词库还是太大，含有重复字母的单词还是占了很大一部分，我还是得想想把这些单词去掉的方法。我还是选择了正则表达式。
+然而我还是遇到了和前面遇到的一样的问题，正则表达式出错，这次提示： grep: Invalid back reference。原因是我又忘了给 grep 命令加上 -E 选项。</p><pre tabindex=0><code>#去除${someletters[*]}元素之间的空格
+wordsletter=${someletters[*]}
+# shell 将命令输出结果保存为变量的值
+wordsletter=$(echo $wordsletter | sed &#39;s/[[:space:]]//g&#39;)
+
+# ${someletters[*]}生成的字符之间是有空格的
+# [root@iZuf6fxweg30jhggd2hv4tZ bin]# grep -Ei ^[a n d]{3}$ ~/words
+# grep: Unmatched [ or [^
+# grep 加E 扩展的正则表达式
+# grep 加i 忽略大小写 
+#出现 grep: Invalid back reference 没有加E
+grep -E ^[$wordsletter]{$numletters}$ ~/words | grep -Ev &#39;^.*(.).*\1.*$&#39;
+</code></pre><p>grep 的 -v 选项表示反选。运行结果：</p><pre tabindex=0><code>[root@iZuf6fxweg30jhggd2hv4tZ bin]# genwords 3 a n d
+and
+dan
+</code></pre><p>太完美了。
+最后的代码是：</p><pre tabindex=0><code>#!/bin/bash
+# 由给定字母生成指定字数单词
+# 程序示例：genwords 3 e t s q l g o b
+numletters=$1 #要生成的单词所包含的字母个数
+numaltletter=$(($#-1)) #所有给定的字母的个数
+for ((i=0; i
+</code></pre><p>只有短短的十几行，但还能再精简，比如，去掉那两句“去掉 ${someletters[*]} 列出的数组元素之间的空格”的代码：</p><pre tabindex=0><code>#!/bin/bash
+# 由给定字母生成指定字数单词
+# 程序示例：genwords 3 e t s q l g o b
+numletters=$1 #要生成的单词所包含的字母个数
+numaltletter=$(($#-1)) #所有给定的字母的个数
+for ((i=0; i
+</code></pre><p>代码还可以更简单，只要改一改命令形式：</p><pre tabindex=0><code>程序示例：genwords 3 etsqlgob
+</code></pre><p>把备选字母之间的空格去掉，命令输入起来也更方便，我们也就不需要那段把备选字母保存到数组中的代码了，代码像这样：</p><pre tabindex=0><code>#!/bin/bash
+# 由给定字母生成指定字数单词
+# 程序示例：genwords 3 etsqlgob
+numletters=$1 #要生成的单词所包含的字母个数
+grep -E ^[&#34;$2&#34;]{$numletters}$ ~/words | grep -Ev &#39;^.*(.).*\1.*$&#39;
+</code></pre><p>那何不更简单一点呢：</p><pre tabindex=0><code>#!/bin/bash
+# 由给定字母生成指定字数单词
+# 程序示例：genwords 3 etsqlgob
+grep -E ^[&#34;$2&#34;]{$1}$ ~/words | grep -Ev &#39;^.*(.).*\1.*$&#39;
+</code></pre><p>有效代码只需要一行。突然有点伤心，我用了三天的空闲时间写出来的代码原来。。。竟然用一句话就能概括/呜呜ㄒoㄒ</p><hr><p>这是我写的人生中第一个 Shell 脚本，收获挺多的。在写代码时的那些困惑还是因为我对 Shell、对正则表达式、对算法不了解。
+<del>我一个站在学科鄙视链顶端的数学专业的学生</del>
+其实还是很有成就感的。</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/wp/learn-latex-in-30-minutes/ title="Previous post (older)"><span>Previous</span>
+[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX</a>
+<a rel=next href=/post/wp/javascript-anki-blank-space-sequel/ title="Next post (newer)"><span>Next</span>
+续·JavaScript实现文章隔字挖空及与Anki结合使用</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>

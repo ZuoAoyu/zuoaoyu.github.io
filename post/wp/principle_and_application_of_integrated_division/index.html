@@ -1,0 +1,102 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>综合除法原理及应用 | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="综合除法原理及应用 | o5o"><meta itemprop=name content="综合除法原理及应用 | o5o"><meta name=twitter:title content="综合除法原理及应用 | o5o"><meta name=application-name content="综合除法原理及应用 | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2020-07-31T16:36:34+0800"><meta property="article:published_time" content="2020-07-31T16:36:34+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"综合除法原理及应用","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2020-07-31","description":"","wordCount":118,"mainEntityOfPage":"True","dateModified":"2020-07-31","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>综合除法原理及应用</h1><div class=post-meta><div>By Guanghao Zuo | <time>July 31, 2020</time>
+| 1 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>今天看了看综合除法。</p><p>现在有这样一个问题：
+f(x)=2x^5-5x^3-8x，
+g(x)=x+3
+问g(x)除f(x)的商式q(x)和余式r(x)是多少。
+要怎么来算呢？你可能会按下面的格式来做除法：
+<img loading=lazy src=/xiake/2020/07/daiyuchufa01.png alt width=6920 height=3162>
+这样一步步算下来，于是你知道了，哦，商式q(x)=2x^4-6x^3+13x^2-39x+109，余式r(x)=-327.
+那我接下来又有一个问题要问你，我要让你把f(x)表成g(x)=x+3的方幂和，即表成：
+c_0+c_1(x+3)+c_2(x+3)^2+\cdots
+的形式。
+这时你要怎么办呢？还是按上面的方法一步步算吗，那可要算很久喽。
+有没有什么简便的算法呢？我们先来观察f(x),g(x),q(x),r(x)这几个式子。
+f(x),g(x),q(x),r(x)的次数分别是5、1、4、0，于是我们可以大胆猜测，对于<strong>所有</strong>这样的求一个1次多项式除一个n次多项式的商式和余式的问题，商式q(x)的次数总是比被除式f(x)的次数少1，而余式r(x)总是一个常数。（这里不再证明，到具体例子的时候验证。）
+那这样一来，求“商式、余式”的问题就转化成了求“商式、余式的多项式系数”的问题，因为n次多项式是有标准形式的，我们知道了多项式的系数，就等于知道了这个多项式。比如，如果我们知道了上面q(x)的系数是2,-6,13,-39,109，那么就可以把q(x)写出来：q(x)=2x^4-6x^3+13x^2-39x+109。</p><hr><p>接下来，为了方便寻找规律，我们看看这个求商式、余式的问题的一般形式：
+设
+f(x)=a_nx^n+a_{n_1}x^{n-1}+\cdots+a_1x+a_0,
+g(x)=x-c，c是一个常数。
+g(x)除f(x)的商式设为
+q(x)=b_{n-1}x^{n-1}+b_{n_2}x^{n-2}+\cdots+b_1x+b_0
+余式或者说余数记为r。
+之后我们对这个问题做除法：
+<img loading=lazy src=/xiake/2020/07/daiyuchufa02.png alt width=6920 height=2106>
+我没有写完，但写到这儿就可以发现一些规律浮现了出来。
+q(x)=a_nx^{n-1}+\left(a_{n-1}+ca_n\right)x^{n-2}+\left[a_{n-2}+c\left(a_{n-1}+ca_n\right)\right]x^{n-3}+\cdots,
+q(x)=b_{n-1}x^{n-1}+b_{n_2}x^{n-2}+\cdots+b_1x+b_0
+对比之后可以得到：
+b_{n-1}=a_n,
+b_{n-2}=a_{n-1}+ca_n=a_{n-1}+cb_{n-1},
+b_{n-3}=a_{n-2}+cb_{n-2}.
+我们不妨按照这个规律继续写下去：
+b_{n-4}=a_{n-3}+cb_{n-3},
+\cdots,
+b_1=a_2+cb_2,
+b_0=a_1+cb_1,
+r=a_0+cb_0.
+即，商式的每一项的系数等于它的前一项的系数的c倍加上被除式中对应项的前一项的系数；余式等于商式最后一项的系数的c倍加上被除式最后一项的系数。
+如果这种规律成立（确实成立，后面会验证），那么商式和余式的系数就可以经由被除式和除式的多项式系数计算得到，进而我们就可以得到商式和余式的表达式。</p><hr><p>如何简便地应用这个规律呢？
+我们还是以最开始的那个问题为例，
+f(x)=2x^5-5x^3-8x，
+g(x)=x+3
+问g(x)除f(x)的商式q(x)和余式r(x)是多少。
+可以按照下面这种格式来做除法。
+第一步 搭框架
+因为我们把求商式和余式的问题转化为了多项式系数的加法和乘法问题，所以，我们不再需要写出完整的多项式，而只把各项系数写出来即可。
+把f(x)写成标准形式：f(x)=2x^5+0x^4-5x^3+0x^2-8x+0
+f(x)的首项系数a_n为2，其余各项系数为0, -5, 0, -8, 0.
+另外，为了统一形式，我们把x+3写成x-(-3)。
+<img loading=lazy src=/xiake/2020/07/daiyuchufa03i.png alt width=3142 height=1829>
+第二步 计算商式首项系数b_{n-1}
+由上面的规律，显然b_{n-1}=a_n，我们填上去。
+<img loading=lazy src=/xiake/2020/07/daiyuchufa04i.png alt width=3142 height=1829>
+第三步 计算商式第二项系数b_{n-2}
+由b_{n-2}=a_{n-1}+ca_n=a_{n-1}+cb_{n-1}计算得到，
+cb_{n-1}=-3\times 2=-6,
+b_{n-2}=a_{n-1}+ca_n=a_{n-1}+cb_{n-1}=0+(-6)=-6
+我们也填上去。
+<img loading=lazy src=/xiake/2020/07/daiyuchufa05i.png alt width=3142 height=1829>
+第四步 计算所有剩余的系数
+照例，先算cb_{i-1}，填到横线上面的空白处，再上下两项相加得到b_i，填到横线下面的空白处，我们计算所有剩余的系数。
+<img loading=lazy src=/xiake/2020/07/daiyuchufa06i.png alt width=3142 height=1829>
+即商式各项系数分别为2, -6, 13, -39, 109.
+余式或者说余数，为-327.
+即商式q(x)=2x^4-6x^3+13x^2-39x+109，余式r(x)=-327.
+得到的结果和之前计算的一样，但我们只是列了一个小小的算式，足足省下那么多的纸、省下那么多的时间，的确是够简便的。
+这就是“综合除法”。一种简便、简洁的计算一个1次多项式除一个n次多项式的商式和余式的方法。</p><hr><p>接着再来看这个问题：把f(x)表成g(x)=x+3的方幂和，即表成：
+c_0+c_1(x+3)+c_2(x+3)^2+\cdots
+我们只需要多次使用综合除法即可，计算依然很简便：
+<img loading=lazy src=/xiake/2020/07/daiyuchufa07-e1596180570429.png alt width=3304 height=2958>
+怎么还原成表达式呢，我个人喜欢这样写：
+先写出来一半表达式
+(x+3)[(x+3)[(x+3)[(x+3)[(x+3)
+再一层一层地补充完整
+(x+3)[(x+3)[(x+3)[(x+3)[(x+3)2-30],
+(x+3)[(x+3)[(x+3)[(x+3)[(x+3)2-30]+175],
+(x+3)[(x+3)[(x+3)[(x+3)[(x+3)2-30]+175]-495],
+(x+3)[(x+3)[(x+3)[(x+3)[(x+3)2-30]+175]-495]+667],
+(x+3)[(x+3)[(x+3)[(x+3)[(x+3)2-30]+175]-495]+667]-327
+然后，再整理一下
+2\left(x+3\right)^5-30\left(x+3\right)^4+175\left(x+3\right)^3-495\left(x+3\right)^2+667\left(x+3\right)-327
+这样我们就把f(x)改写成了x+3的方幂和的形式。在标次数的时候，我是直接数的中括号外层的(x+3)的个数。</p><hr><p>那么我们算的到底对不对呢？怎么检验呢？难道再手动一层层地乘回去？
+我们用Matlab验证。用expand()函数展开上面得到的方幂和形式的f(x)，看看和最初的f(x)是否一样，如果一样那就说明整个综合除法的过程是正确的。</p><pre tabindex=0><code>syms x
+f=2*(x+3)^5-30*(x+3)^4+175*(x+3)^3-495*(x+3)^2+667*(x+3)-327;
+expand(f)
+</code></pre><p>运行结果为：</p><pre tabindex=0><code>ans =
+ 
+2*x^5 - 5*x^3 - 8*x
+</code></pre><p>太棒了，这就是最开始的那个f(x)。f(x)=2x^5-5x^3-8x，我们是正确的。</p><hr><p>上面我们说x-c中的c是一个常数，那么如果c是一个复常数，能否使用综合除法呢？当然可以。
+我们再来看一道题：
+f(x)=x^3-x^2-x,
+g(x)=x-1+2i
+求商式和余数。
+将g(x)改写为g(x)=x-(1-2i)，应用综合除法：
+<img loading=lazy src=/xiake/2020/07/daiyuchufa08.png alt width=3142 height=1049>
+即商式q(x)=x^2-2ix-(5+2i)，余数r=-9+8i。</p><hr><p>综合除法，你会了吗。</p><hr><p>参考资料
+[1] 高等代数辅导与习题解答 北大·第四版, p8.</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/wp/android_phone_china_mobile_k1-4g_m550/ title="Previous post (older)"><span>Previous</span>
+折腾安卓功能机中国移动K1 4G M550</a>
+<a rel=next href=/post/wp/fourier_series_expansion_graphic/ title="Next post (newer)"><span>Next</span>
+一个傅里叶级数展开式的图象</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>

@@ -1,0 +1,347 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX | o5o"><meta itemprop=name content="[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX | o5o"><meta name=twitter:title content="[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX | o5o"><meta name=application-name content="[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2019-01-18T23:05:27+0800"><meta property="article:published_time" content="2019-01-18T23:05:27+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2019-01-18","description":"","wordCount":4159,"mainEntityOfPage":"True","dateModified":"2019-01-18","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>[翻译/中英对照] Learn LaTeX in 30 minutes 30分钟入门LaTeX</h1><div class=post-meta><div>By Guanghao Zuo | <time>January 18, 2019</time>
+| 20 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>「Learn LaTeX in 30 minutes」文档翻译。</p><hr><p>In this guide, we hope to give you your first introduction to LATEX. The guide does not require you to have any prior knowledge of LATEX, but by the time you are finished, you will have written your first LaTeX document, and hopefully will have a good knowledge of some of the basic functions provided by LATEX.
+在这份指南中，我们期望带给你 LaTeX 的第一次介绍。这份指南不需要你之前拥有任何 LaTeX 相关的知识，但当你读完后，你会拥有你的第一份 LaTeX 文档，并且有很大可能获得许多有关 LaTeX 基本功能的知识。</p><h3 id=what-islatex-什么是-latex><a href=#what-islatex-%e4%bb%80%e4%b9%88%e6%98%af-latex class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>What is LATEX? 什么是 LATEX？</h3><p>LATEX (pronounced LAY-tek or LAH-tek) is a tool used to create professional-looking documents. It is based on the WYSIWYM (what you see is what you mean) idea, meaning you only have focus on the contents of your document and the computer will take care of the formatting. Instead of spacing out text on a page to control formatting, as with Microsoft Word or LibreOffice Writer, users can enter plain text and let LATEX take care of the rest.
+LaTeX 是一种用于创建拥有专业外观的文档的工具。它基于 WYSIWYM，意味着你只需要集中精力于内容，排版交给计算机。就像 Microsoft Word 或 LibreOffice Writer，用户能够输入纯文本并让 LaTeX 处理剩下的部分，而非通过给页面上的文本手动添加间距来进行排版。</p><h3 id=why-learn-latex-为什么要学习-latex><a href=#why-learn-latex-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%ad%a6%e4%b9%a0-latex class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Why learn LATEX? 为什么要学习 LaTeX？</h3><p>LATEX is used all over the world for scientific documents, books, as well as many other forms of publishing. Not only can it create beautifully typeset documents, but it allows users to very quickly tackle the more complicated parts of typesetting, such as inputting mathematics, creating tables of contents, referencing and creating bibliographies, and having a consistent layout across all sections. Due to the huge number of open source packages available (more on this later), the possibilities with LATEX are endless. These packages allow users to do even more with LATEX, such as add footnotes, draw schematics, create tables etc.
+LaTex 的使用遍及世界，被用于科学文档、书籍和许多其他形式的出版物。它不仅能够创建美观的印刷文档，而且允许用户非常便捷地处理排版中更加复杂地部分，例如输入数学公式、创建内容表格、引用和创建参考文献，并能使所有的部分都拥有一致的布局。由于有许多的开源包可以使用，LaTeX 的可能性是无止境的。这些包允许用户用 LaTeX 做得更多，例如添加脚注、画图表、创建表格等等。
+One of the most important reasons people use LATEX is that it separates the content of the document from the style. This means that once you have written the content of your document, we can change its appearance with ease. Similarly, you can create one style of document which can be used to standardise the appearance of many different documents. This allows scientific journals to create templates for submissions. These templates have a pre-made layout meaning that only the content needs to be added. In fact there are hundreds of templates available for everything from CVs to slideshows.
+人们使用 LaTeX 的一个重要原因是，它将文档的内容同文档的样式分离开了。这就意味着一旦你写好文档的内容，我们能轻易地改变它的外观。类似地，你可以创建一种文档样式用于将许多不同文档的外观规范化。这允许学术期刊为投稿创建拥有预先制作好的布局的模板，意味着，只需要作者再往里添加内容就可以了。事实上，从简历到幻灯片，有数百种模板可以使用。</p><h3 id=writing-your-first-piece-oflatex写下你的-latex-文档的第一部分><a href=#writing-your-first-piece-oflatex%e5%86%99%e4%b8%8b%e4%bd%a0%e7%9a%84-latex-%e6%96%87%e6%a1%a3%e7%9a%84%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Writing your first piece of LATEX 写下你的 LaTeX 文档的第一部分</h3><p>The first step is to create a new LATEX project. You can do this on your own computer by creating a new .tex file, or else you can start a new project in Overleaf. Let’s start with the simplest working example:
+第一步是创建一个新 LaTeX 项目。你能够在你自己的电脑上通过创建一个 .tex 后缀的新文件做到这一步，也可以在 Overleaf 上开始一个新项目。让我们从最简单的作品示例开始：</p><pre tabindex=0><code>\documentclass{article}
+ 
+\begin{document}
+First document. This is a simple example, with no 
+extra parameters or packages included.
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Firstdocsmall.png alt width=672 height=95>
+You can see that LATEX has already taken care of the first piece of formatting for you, by indenting the first line of the paragraph. Let’s have a close look at what each part of our code does.
+你能够看到 LaTeX 已经帮你完成了初步排版，缩进了段落的第一行。让我们离近点看一看代码的每一部分都做了些什么。
+The first line of code declares the type of document, known as the class. The class controls the overall appearance of the document. Different types of documents will require different classes i.e. a CV/resume will require a different class than a scientific paper. In this case, the class is <strong>article</strong>, the simplest and most common LATEX class. Other types of documents you may be working on may require different classes such as <strong>book</strong> or <strong>report</strong>.
+代码的第一行表明了文档类型，也就是所谓的类。类控制着文档的全局外观。不同的文档类型需要不同的类，即一份简历与一份学术论文需要使用不同的类。在当前例子中，文档的类是 article，这个是最简单也是最常用的 LaTeX 类。你要是写其他各种类型文档，就需要各种不同的类，例如 book 或 report.
+After this, you write the content of our document, enclosed inside the \begin{document} and \end{document} tags. This is known as the body of the document. You can start writing here and make changes to the text if you wish. To see the result of these changes in the PDF you have to compile the document. To do this in Overleaf, simply hit <strong>Recompile</strong>. (You can also set your project to automatically recompile when you edit your files, by clicking on the small arrow next to the ‘Recompile button and set ‘Auto Compile to ‘On.)
+在这之后，你写下了文档的内容，并将其放在 \begin{document} 和 \end{document} 标签里，这就是所谓的文档主体。只要你愿意，你可以在从这儿开始写作或改变文本以观察结果。为了从 PDF 文档中看到这些改变带来的结果，你需要编译这份文档。在<br>Overleaf 中，你只需要点击 Recompile 就可以了。
+If you are using a basic text editor such as gedit, emacs, vim, sublime, notepad etc., you will have to compile the document manually. To do this, simply run pdflatex in your computers terminal/command line. See here for more information on how to do this.
+如果你正在使用一种基本的文本编辑器，例如 gedit, emacs, vim, sublime, notepad 等等，你需要去手动编译文档。为了完成这一过程，仅仅只需要在你的电脑的终端或命令行中使用 pdflatex 命令。
+If you are using a dedicated LaTeX editor such as TeXmaker or TeXworks, simply hit the <strong>Recompile</strong> button. Consult the programs documentation if you are unsure of where this is.
+如果你正在使用一种专业 LaTeX 编辑器，例如 TeXmaker 或 TeXworks，只需点击 Recompile 按钮。如果你不确定按钮在哪，查阅程序文档吧。
+Now that you have learnt how to add content to our document, the next step is to give it a title. To do this, we must talk briefly about the preamble.
+现在你已经学会了怎样去为文档添加内容，下一步就是给它添加一个标题。为了做到这一步，我们必须要简短地谈一谈 preamble <del>序文</del>（翻译为“头文本”应该更合适）。</p><h3 id=the-preamble-of-a-document-文档的-preamble><a href=#the-preamble-of-a-document-%e6%96%87%e6%a1%a3%e7%9a%84-preamble class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>The preamble of a document 文档的 preamble</h3><p>In the previous example the text was entered after the \begin{document} command. Everything in your .tex file before this point is called the preamble. In the preamble you define the type of document you are writing, the language you are writing in, the packages you would like to use (more on this later) and several other elements. For instance, a normal document preamble would look like this:
+在先前的例子中，内容被放在 \begin{document} 命令后。你的 .tex 文件中的所有在此之前的内容被称为 preamble。在 preamble 中，你定义了你正在写的文档的类型、你正在输入的语言、你想要使用的<strong>包</strong>（稍后会详细介绍）和其他几种元素。实际上，一个正常的文档序文通常看起来像这样：</p><pre tabindex=0><code>\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+</code></pre><p>Below a detailed description of each line:
+下面是对每一行的详细描述：</p><p>\documentclass[12pt, letterpaper]{article}<br>As said before, this defines the type of document. Some additional parameters included in the square brackets brackets can be passed to the command. These parameters must be comma-separated. In the example, the extra parameters set the font size (12pt) and the paper size (letterpaper). Of course other font sizes (9pt, 11pt, 12pt) can be used, but if none is specified, the default size is 10pt. As for the paper size other possible values are a4paper and legalpaper; see the article about Page size and margins for more details about this.
+\documentclass[12pt, letterpaper]{article} 正如之前所说，这一行定义文档类型。一些被放在方括号内的附加参数可以被传送给命令。这些参数必须以逗号分隔。在这个例子中，额外的参数设置了字体大小（12pt）和纸张大小 （letterpaper）。 当然，也可以设置为其他字体大小（9pt, 11pt, 12pt），但如果没有指定参数的话，默认的字体大小是 10pt。至于纸张大小，其他可能的值是 a4paper 和 legalpaper。
+\usepackage[utf8]{inputenc}<br>This is the encoding for the document. It can be omitted or changed to another encoding but utf-8 is recommended. Unless you specifically need another encoding, or if you are unsure about it, add this line to the preamble.
+\usepackage[utf8]{inputenc} 这是文档的编码。它可以被省略或是改为其他的编码，但一般推荐使用 utf-8。除非你明确地需要其他编码，或你对此不确定，就把这行命令加到 preamble 里。</p><h3 id=adding-a-title-author-and-date-添加标题作者和日期><a href=#adding-a-title-author-and-date-%e6%b7%bb%e5%8a%a0%e6%a0%87%e9%a2%98%e4%bd%9c%e8%80%85%e5%92%8c%e6%97%a5%e6%9c%9f class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Adding a title, author and date 添加标题、作者和日期</h3><p>To add a title, author and date to our document, you must add three lines to the preamble (NOT the main body of the document). These lines are
+为了给文档添加标题、作者和日期，你需要在序文里添加三行命令。这些代码分别是
+\title{First document}</p><p>This is the title.
+\title{First document}<br>这行代码用于添加标题
+\author{Hubert Farnsworth}<br>Here you put the name of the Author(s) and, as a optional parameter, you can add the next command:
+\author{Hubert Farnsworth}<br>这行代码用于添加作者姓名，并且，作为可选参数，你可以添加这行代码：
+\thanks{funded by the Overleaf team}<br>This can be added after the name of the autor, inside the braces of the title command. It will add a superscript and a footnote with the text inside the braces. Useful if you need to thank an institution in your article.
+\thanks{funded by the Overleaf team}<br>这行代码可以写在作者姓名之后，与之一起放在花括号里。这行代码会为花括号里的文本添加上标和脚注。如果你需要在文章中感谢某个机构，这条命令会十分有用。
+\date{February 2014}<br>You can enter the date manually or use the command \today so the date will be updated automatically at the time you compile your document
+\date{February 2014}<br>你可以手动输入日期，也可使用 \today 这一命令，这样一来，日期会被自动更新为你编译文档的时间。
+With these lines added, your preamble should look something like this
+添加上述命令后，你的 preamble 看起来应该像这样：</p><pre tabindex=0><code>\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+ 
+\title{First document}
+\author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
+\date{February 2017}
+</code></pre><p>Now that you have given your document a title, author and date, you can print this information on the document with the \maketitle command. This should be included in the body of the document at the place you want the title to be printed.
+现在你已经为文档添加了标题、作者和日期，你可以使用 \maketitle 命令，这一以来，这些信息就可以在生成的文档中显示出来了。你想让这些信息在哪里显示，就把它们放在 <strong>body</strong>（文档主体） 中对应的位置。</p><pre tabindex=0><code>\begin{document}
+ 
+\maketitle
+ 
+We have now added a title, author and date to our first \LaTeX{} document!
+ 
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Learnlatex1.png alt width=401 height=156></p><h3 id=adding-comments-添加注释><a href=#adding-comments-%e6%b7%bb%e5%8a%a0%e6%b3%a8%e9%87%8a class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Adding comments 添加注释</h3><p>As with any code you are writing, it can often be useful to include comments. Comments are pieces of text you can include in the document which will not be printed, and will not affect the document in any way. They are useful for organizing your work, taking notes, or commenting out lines/sections when debugging. To make a comment in LATEX, simply write a % symbol at the beginning of the line as shown below:
+就像你正在写的任何代码一样，为代码添加注释通常是有用的。注释是你添加到文档中的文本的一部分，但不会被显示出来，也不会对文档产生任何影响。这些注释对你组织文章、做笔记或在调试时暂时注释掉某一行或某一部分很有用。在 LaTeX 中添加注释，只需在那一行的开头加一个 %，就像这样：</p><pre tabindex=0><code>\begin{document}
+ 
+\maketitle
+ 
+We have now added a title, author and date to our first \LaTeX{} document!
+ 
+% This line here is a comment. It will not be printed in the document.
+ 
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Learnlatex1.png alt width=401 height=156></p><h3 id=bold-italics-and-underlining加粗倾斜与添加下划线><a href=#bold-italics-and-underlining%e5%8a%a0%e7%b2%97%e5%80%be%e6%96%9c%e4%b8%8e%e6%b7%bb%e5%8a%a0%e4%b8%8b%e5%88%92%e7%ba%bf class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Bold, italics and underlining 加粗、倾斜与添加下划线</h3><p>We will now look at some simple text formatting commands.
+现在我们来看一些简单的文本格式化命令。</p><ul><li><strong>Bold</strong>: Bold text in LaTeX is written with the \textbf{…} command.</li><li><em>Italics</em>: Italicised text in LaTeX is written with the \textit{…} command.</li><li>Underline: Underlined text in LaTeX is written with the \underline{…} command.</li><li><strong>粗体</strong>：在 LaTeX 中用 \textbf{…} 命令加粗文本。</li><li><em>斜体</em>: 在 LaTeX 中用 \textit{…} 命令倾斜文本。</li><li>下划线: 在 LaTeX 中用 \underline{…} 命令为文本添加下划线。
+An example of each of these in action is shown below:
+下面是每一种命令的实际操作示例：</li></ul><pre tabindex=0><code>Some of the \textbf{greatest}
+discoveries in \underline{science} 
+were made by \textbf{\textit{accident}}.
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Biu1.png alt width=492 height=87>
+Another very useful command is the \emph{…} command. What the \emph command actually does with its argument depends on the context – inside normal text the emphasized text is italicized, but this behaviour is reversed if used inside an italicized text- see example below:
+另一个非常有用的命令是 \emph{…}. \emph 命令会对它的参数产生何种效果取决于上下文——在正常文本里，强调文本被显示为斜体，但如果被放在倾斜文本中，强调文本的行为是相反的。看下面的例子：</p><pre tabindex=0><code>Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.
+ 
+\textit{Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.}
+ 
+\textbf{Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Biu5.png alt width=439 height=156>
+Moreover, some packages, e.g. Beamer, change the behaviour of \emph command.
+此外，一些包，例如 Beamer，改变了 \emph 命令的行为。</p><h3 id=adding-images-添加图片><a href=#adding-images-%e6%b7%bb%e5%8a%a0%e5%9b%be%e7%89%87 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Adding images 添加图片</h3><p>We will now look at how to add images to a LATEX document. On Overleaf, you will first have to upload the images.
+我们现在来看如何给 LaTeX 文档添加图片。在 Overleaf 中，你首先需要上传图片。
+Below is a example on how to include a picture.
+下面是一个添加图片的例子：</p><pre tabindex=0><code>\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+ 
+\begin{document}
+The universe is immense and it seems to be homogeneous, 
+in a large scale, everywhere we look at.
+ 
+\includegraphics{universe}
+ 
+There&#39;s a picture of a galaxy above
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/InsertingImagesEx1.png alt width=616 height=233>
+LATEX can not manage images by itself, so you will need to use a package. Packages can be used to change the default look of your LATEX document, or to allow more functionalities. In this case, you need to include an image in our document, so you should use the graphicx package. This package gives new commands, \includegraphics{…} and \graphicspath{…}. To use the graphicx package, include the following line in you preamble: \usepackage{graphicx}
+LaTeX 自身无法管理图片，所以你需要使用包。包能够被用来更改 LaTeX 文档的默认外观，或添加更多功能。在这个例子里，你需要添加图片到文档中，所以你应该使用 graphicx 包。这个包包含一些新命令，\includegraphics{…} 和 \graphicspath{…}. 为了使用 graphicx 包，把如下命令添加到 preamble 中：\usepackage{graphicx}
+The command \graphicspath{ {images/} } tells LATEX that the images are kept in a folder named images under the current directory.
+命令 \graphicspath{ {images/} } 告诉 LaTeX，图片被保存在当前文件夹中的一个名为 images 的文件夹中。
+The \includegraphics{universe} command is the one that actually included the image in the document. Here universe is the name of the file containing the image without the extension, then universe.PNG becomes universe. The file name of the image should not contain white spaces nor multiple dots.
+命令 \includegraphics{universe} 真正用于将图片添加到文档中。这里，universe 是图片文件的名称，不带扩展名，那么，universe.PNG 就该写成 universe. 图片的名称不应该包含空格或多个句点.
+Note: The file extension is allowed to be included, but it’s a good idea to omit it. If the file extension is omitted it will prompt LaTeX to search for all the supported formats. It is also usually recommended to use lowercase letters for the file extension when uploading image files. For more details see the section about generating high resolution and low resolution images.
+注意: 文件扩展名是允许被使用的，但更好的主意是忽略它。如果文件名被忽略，它会提示 LaTeX 去搜索所有支持的格式。在上传图片文件时，也推荐使用小写文件扩展名。</p><h3 id=captions-labels-and-references-题注标签和引用><a href=#captions-labels-and-references-%e9%a2%98%e6%b3%a8%e6%a0%87%e7%ad%be%e5%92%8c%e5%bc%95%e7%94%a8 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Captions, labels and references 题注、标签和引用</h3><p>Images can be captioned, labelled and referenced by means of the figure environment as shown below:
+可以通过 figure 环境的方式为图片添加题注、标签和引用，就像这样：</p><pre tabindex=0><code>\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{mesh}
+    \caption{a nice plot}
+    \label{fig:mesh1}
+\end{figure}
+ 
+As you can see in the figure \ref{fig:mesh1}, the 
+function grows near 0. Also, in the page \pageref{fig:mesh1} 
+is the same example.
+</code></pre><p><img loading=lazy src=/xiake/2019/01/InsertingImages.png alt width=631 height=243>
+There are three important commands in the example:
+在例子中有三条重要的命令：</p><ul><li>\caption{a nice plot}: As you may expect this command sets the caption for the figure. If you create a list of figures this caption will be used there. You can place it above or below the figure.</li><li>\label{fig:mesh1}: If you need to refer the image within your document, set a label with this command. The label will number the image, and combined with the next command will allow you to reference it.</li><li>\ref{fig:mesh1}: This code will be substituted by the number corresponding to the referenced figure.</li><li>\caption{a nice plot}: 正如你所期待的，这条命令为图像添加题注。如果你创建了一个图像列表，这条题注会被用在那儿。把它放在图片上方和下方都可以。</li><li>\label{fig:mesh1}: 如果你需要在文档内引用图片，用这条命令给图片设置标签。标签会为图片编号，结合下一条命令，你就可以引用图片了。</li><li>\ref{fig:mesh1}: 这段代码会被图像对应的编号所替换。
+When placing images in a LATEX document, we should always put them inside a figure environment or similar so that LATEX will position the image in a way that fits in with the rest of your text.
+在 LaTeX 文档中插入图片时，我们应该总是把它们放在 figure 环境或其他相似环境中，这样，LaTeX 会以一种与其他文本相适应的方式定位图片。
+Note: If you are using captions and references on your own computer, you will have to compile the document twice for the references to work. Overleaf will do this for you automatically.’
+注意: 如果你正在你自己的电脑上使用题注和引用，<strong>你需要编译文档两次</strong>，才能让引用生效。ShareLaTeX 会为你自动做这件事。</li></ul><h3 id=creating-lists-inlatex用-latex-创建列表><a href=#creating-lists-inlatex%e7%94%a8-latex-%e5%88%9b%e5%bb%ba%e5%88%97%e8%a1%a8 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Creating lists in LATEX 用 LaTeX 创建列表</h3><p>Lists are very simple to create in LATEX. You can create lists using different list environments. Environments are sections of our document that you want to present in a different way to the rest of the document. They start with a \begin{…} command and end with an \end{…} command.
+用 LaTeX 创建列表是非常简单的。你可以使用不同的列表环境创建列表。环境是文档的一部分，使你可以以一种与其余文本不同的方式表现内容。环境以 \begin{…} 命令开头，以 \end{…} 命令结束。
+There are two main different types of lists, ordered lists and unordered lists. Each will use a different environment.
+有两种不同类型的列表，有序列表和无序列表。每一种都使用一种不同的环境。</p><h4 id=unordered-lists-无序列表><a href=#unordered-lists-%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Unordered lists 无序列表</h4><p>Unordered lists are produced by the <strong>itemize</strong> environment. Each entry must be preceded by the control sequence \item as shown below.
+无序列表由 itemize 环境生成。每一项都必须跟在控制序列 \item 之后，就像下面这样：</p><pre tabindex=0><code>\begin{itemize}
+  \item The individual entries are indicated with a black dot, a so-called bullet.
+  \item The text in the entries may be of any length.
+\end{itemize}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Itemize.png alt width=695 height=119>
+By default the individual entries are indicated with a black dot, so-called bullet. The text in the entries may be of any length.
+默认情况下，单独一项用一个黑点表示，也可称作 bullet（着重号）。项中的文本可以是任意长度。</p><h4 id=ordered-lists-有序列表><a href=#ordered-lists-%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Ordered lists 有序列表</h4><p>Ordered list have the same syntax inside a different environment. We make ordered lists using the enumerate environment:
+有序列表被放在一个不同的环境中，语法相同。我们使用 enumerate 环境创建有序列表：</p><pre tabindex=0><code>\begin{enumerate}
+  \item This is the first entry in our list
+  \item The list numbers increase with each entry we add
+\end{enumerate}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Enumerate.png alt width=527 height=103>
+As with unordered lists, each entry must be preceded by the control sequence \item, which will automatically generate the number labelling the item. The enumerate labels consists of sequential numbers starting at one.
+就像无序列表那样，每一个项都必须跟在控制序列 \item 之后，这样就能自动生成数字标签。枚举标签由从1开始的连续数字组成。</p><h3 id=adding-math-tolatex在-latex-文档中添加数学公式><a href=#adding-math-tolatex%e5%9c%a8-latex-%e6%96%87%e6%a1%a3%e4%b8%ad%e6%b7%bb%e5%8a%a0%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Adding math to LATEX 在 LaTeX 文档中添加数学公式</h3><p>One of the main advantages of LATEX is the ease at which mathematical expressions can be written. LATEX allows two writing modes for mathematical expressions: the inline mode and the display mode. The first one is used to write formulas that are part of a text. The second one is used to write expressions that are not part of a text or paragraph, and are therefore put on separate lines. Let’s see an example of the inline mode:
+LaTeX 的主要优势之一就是可以很轻易地书写数学公式。LaTeX 有两种数学表达式书写模式：行内模式和单独显示模式。行内模式用于书写和其他文本分不开的公式。单独显示模式用于书写不是文本或段落的一部分，并因此被放在单独一行上的公式。来看一个行内模式的例子：</p><pre tabindex=0><code>In physics, the mass-energy equivalence is stated 
+by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Einstein1.png alt width=674 height=70>
+To put your equations in inline mode use one of these delimiters: ( … ), $ … $ or \begin{math} … \end{math}. They all work and the choice is a matter of taste.
+要以行内模式表示公式，需要用到这些定界符：( … ), $ … $ 或 \begin{math} … \end{math}. 它们都可以使用，选择使用哪种看个人喜好了。
+The displayed mode has two versions: numbered and unnumbered.
+单独显示模式有两种形式：未编号的和带编号的。</p><pre tabindex=0><code>The mass-energy equivalence is described by the famous equation
+ 
+\[E=mc^2\]
+ 
+discovered in 1905 by Albert Einstein. 
+In natural units ($c = 1$), the formula expresses the identity
+ 
+\begin{equation}
+E=m
+\end{equation}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Einstein2.png alt width=674 height=182>
+To print your equations in display mode use one of these delimiters: [ … ], \begin{displaymath} … \end{displaymath} or \begin{equation} … \end{equation}. $$ … $$ is discouraged as it can give inconsistent spacing, and may not work well with some math packages.
+为了以单独显示模式显示你的等式，需要用到以下定界符：[ … ], $$ … $$ 或 \begin{displaymath} … \end{displaymath} 或 \begin{equation} … \end{equation}
+Important Note: equation* environment is provided by an external package, consult the amsmath article.
+特别注意：equation* 环境由外部包提供，详情浏览 amsmath article.
+Many math mode commands require the amsmath package, so be sure to include it when writing math. An example is shown below of some basic math mode commands.
+许多数学模式相关命令需要用到 amsmath 包，所以，在书写数学文章时一定要把它包含进来。下面是一些基本的数学模式命令的例子：</p><pre tabindex=0><code>Subscripts in math mode are written as $a_b$ and superscripts are written as $a^b$. These can be combined an nested to write expressions such as
+ 
+$$T^{i_1 i_2 \dots i_p}_{j_1 j_2 \dots j_q} = T(x^{i_1},\dots,x^{i_p},e_{j_1},\dots,e_{j_q})$$
+ 
+We write integrals using $\int$ and fractions using $\frac{a}{b}$. Limits are placed on integrals using superscripts and subscripts:
+ 
+$$\int_0^1 \frac{1}{e^x} =  \frac{e-1}{e}$$
+ 
+Lower case Greek letters are written as $\omega$ $\delta$ etc. while upper case Greek letters are written as $\Omega$ $\Delta$.
+ 
+Mathematical operators are prefixed with a backslash as $\sin(\beta)$, $\cos(\alpha)$, $\log(x)$ etc.
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Math.png alt width=665 height=342>
+The possibilities with math in LATEX are endless and it is impossible to list them all here. Be sure to check out our other articles on
+数学在 LaTeX 中拥有无限可能，不可能把它们全部列在这里。一定要去查看我们的其他文章。</p><ul><li>Mathematical expressions</li><li>Subscripts and superscripts</li><li>Brackets and Parentheses</li><li>Fractions and Binomials</li><li>Aligning Equations</li><li>Operators</li><li>Spacing in math mode</li><li>Integrals, sums and limits</li><li>Display style in math mode</li><li>List of Greek letters and math symbols</li><li>Mathematical fonts</li><li></li></ul><h3 id=basic-formatting-基本排版><a href=#basic-formatting-%e5%9f%ba%e6%9c%ac%e6%8e%92%e7%89%88 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Basic Formatting 基本排版</h3><p>We will now look at how to write abstracts, as well as how to format a LATEX document into different chapters, sections and paragraphs.
+我们现在来看如何去书写摘要，以及，怎样将一份 LaTeX 文档格式化为不同的章节、部分和段落。</p><h4 id=abstracts-摘要><a href=#abstracts-%e6%91%98%e8%a6%81 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Abstracts 摘要</h4><p>In scientific documents it’s a common practice to include a brief overview of the main subject of the paper. In LATEX there’s the abstract environment for this. The abstract environment will put the text in a special format at the top of your document.
+在科学文献中，通常的做法是在文章中包含一个简短的综述以说明论文的主题。在 LaTeX 中有一个 abstract 环境可以做到。abstract 环境会将文本以一种特殊的格式放到文档前面。</p><pre tabindex=0><code>\begin{document}
+ 
+\begin{abstract}
+This is a simple paragraph at the beginning of the 
+document. A brief introduction about the main subject.
+\end{abstract}
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Abstractsmall.png alt width=535 height=97></p><h4 id=paragraphs-and-newlines-段落和换行><a href=#paragraphs-and-newlines-%e6%ae%b5%e8%90%bd%e5%92%8c%e6%8d%a2%e8%a1%8c class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Paragraphs and newlines 段落和换行</h4><pre tabindex=0><code>\begin{document}
+ 
+\begin{abstract}
+This is a simple paragraph at the beginning of the 
+document. A brief introduction about the main subject.
+\end{abstract}
+ 
+Now that we have written our abstract, we can begin writing our first paragraph.
+ 
+This line will start a second Paragraph.
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Abstractnonewline.png alt width=628 height=182>
+When writing the contents of your document, if you need to start a new paragraph you must hit the “Enter” key twice (to insert a double blank line). Notice that LATEX automatically indents paragraphs.
+书写文档内容时，如果你需要开始一个新的段落，你需要敲击“Enter”键两次（去插入一个双空行）。注意，LaTeX 会自动缩进段落。
+To start a new line without actually starting a new paragraph insert a break line point, this can be done by \ (a double backslash as in the example) or the \newline command.
+如果想要另起一行却不开始新段落，需要插入一个换行符，这一操作通过 \ (双反斜杠，就像在例子中那样) 或 \newline 命令完成。
+Care should be taken that multiple \ or \newlines are not used to “simulate” paragraphs with larger spacing between them, as this can interfere with LATEX’s typesetting algorithms. The recommended method to do so is to keep using double blank lines to create new paragraphs without any , and then add \usepackage{parskip} to the preamble.
+应该小心，多个 反斜杠 \ 或 \newlines 不是用来“假装”扩大段落间距的。想要达到这样的目的，推荐的方法是，依然使用双空行去创建新段落，而不是使用 \，然后添加命令 \usepackage{parskip} 到 preamble 中。
+You can find more information in the Paragraphs and new lines article.
+你可以从 Paragraphs and new lines article 获取更多信息。</p><h3 id=chapters-and-sections-章节和分节><a href=#chapters-and-sections-%e7%ab%a0%e8%8a%82%e5%92%8c%e5%88%86%e8%8a%82 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Chapters and Sections 章节和分节</h3><p>Commands to organize a document vary depending on the document type, the simplest form of organization is the sectioning, available in all formats.
+用来组织文档的命令根据文档类型的不同而有所不同，最简单的文章组织形式是分节，可以在所有格式中起作用。</p><pre tabindex=0><code>\chapter{First Chapter}
+ 
+\section{Introduction}
+ 
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+\section{Second Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\subsection{First Subsection}
+Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
+ 
+\section*{Unnumbered Section}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Sections1.png alt width=394 height=410>
+The command \section{} marks the beginning of a new section, inside the braces is set the title. Section numbering is automatic and can be disabled by including a * in the section command as \section*{}. We can also have \subsection{}s, and indeed \subsubsection{}s. The basic levels of depth are listed below:
+命令 \section{} 标记了新节的开始，在花括号内设置标题名称。小节编号是自动生成的，并且可以通过在 section 命令中加 * 关闭，就像这样：\section*{}. 我们还有 \subsection{} 和 \subsubsection{} 命令. 基本深度层次如下：</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>-1</td><td></td></tr><tr><td><strong>\part{part}</strong></td><td></td></tr><tr><td></td><td></td></tr><tr><td>0</td><td></td></tr><tr><td><strong>\chapter{chapter}</strong></td><td></td></tr><tr><td></td><td></td></tr><tr><td>1</td><td></td></tr><tr><td><strong>\section{section}</strong></td><td></td></tr><tr><td></td><td></td></tr><tr><td>2</td><td></td></tr><tr><td><strong>\subsection{subsection}</strong></td><td></td></tr><tr><td></td><td></td></tr><tr><td>3</td><td></td></tr><tr><td><strong>\subsubsection{subsubsection}</strong></td><td></td></tr><tr><td></td><td></td></tr><tr><td>4</td><td></td></tr><tr><td><strong>\paragraph{paragraph}</strong></td><td></td></tr><tr><td></td><td></td></tr><tr><td>5</td><td></td></tr><tr><td><strong>\subparagraph{subparagraph}</strong></td><td></td></tr><tr><td>Note that \part and \chapter are only available in report and book document classes.</td><td></td></tr><tr><td>注意，\part 和 \chapter 只在 report 和 book 文档类型中生效。</td><td></td></tr><tr><td>For a more complete discussion about the document structure see the article about sections and chapters.</td><td></td></tr><tr><td>获得更完整的关于文档结构的讨论，请看 sections and chapters.</td><td></td></tr></tbody></table><h3 id=creating-tables-创建表格><a href=#creating-tables-%e5%88%9b%e5%bb%ba%e8%a1%a8%e6%a0%bc class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Creating tables 创建表格</h3><h4 id=creating-a-simple-table-inlatex用-latex-创建简单表格><a href=#creating-a-simple-table-inlatex%e7%94%a8-latex-%e5%88%9b%e5%bb%ba%e7%ae%80%e5%8d%95%e8%a1%a8%e6%a0%bc class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Creating a simple table in LATEX 用 LaTeX 创建简单表格</h4><p>Below you can see the simplest working example of a table
+下面你可以看到最简单的表格示例</p><pre tabindex=0><code>\begin{center}
+\begin{tabular}{ c c c }
+ cell1 &amp; cell2 &amp; cell3 \\ 
+ cell4 &amp; cell5 &amp; cell6 \\  
+ cell7 &amp; cell8 &amp; cell9    
+\end{tabular}
+\end{center}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/TablesEx1.png alt width=219 height=117>
+The tabular environment is the default LATEX method to create tables. You must specify a parameter to this environment, in this case {c c c}. This tells LATEX that there will be three columns and that the text inside each one of them must be centred. You can also use r to align the text to the right and l for left alignment. The alignment symbol & is used to specify the breaks in the table entries. There must always be one less alignment symbol in each line than the number of columns. To go to the next line of your table, we use the new line command \. We wrap the entire table inside the center environment so that it will appear in the center of the page.
+tabular 环境是 LaTeX 创建表格的默认方法。你必须为该环境指定一个参数，就像这样：{c c c}. 该参数告诉 LaTeX 该表格有三列，而且，表格内的文本都是居中的。你也可以使用 r 让文本右对齐，用 l 让文本左对齐。对齐符号 & 被用来标记表格条目的中断。每一行的对齐标志的个数总是比列的个数少一个。为了换行，我们使用新行命令 \。我们把整个放在 center 环境中，所以表格会被显示在页面中间。</p><h4 id=adding-borders-添加边框><a href=#adding-borders-%e6%b7%bb%e5%8a%a0%e8%be%b9%e6%a1%86 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Adding borders 添加边框</h4><p>The tabular environment is more flexible, you can put separator lines in between each column.
+tabular 环境非常灵活，你可以把分隔线放在两列之间。</p><pre tabindex=0><code>\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ cell1 &amp; cell2 &amp; cell3 \\ 
+ cell4 &amp; cell5 &amp; cell6 \\ 
+ cell7 &amp; cell8 &amp; cell9 \\ 
+ \hline
+\end{tabular}
+\end{center}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/TablesEx2.png alt width=252 height=125>
+You can add borders using the horizontal line command \hline and the vertical line parameter |.
+你可以使用水平线命令 \hline 和垂直线参数 | 添加边框。</p><ul><li>{ |c|c|c| }: This declares that three columns, separated by a vertical line, are going to be used in the table. The | symbol specifies that these columns should be separated by a vertical line.</li><li>\hline: This will insert a horizontal line. We have included horizontal lines at the top and bottom of the table here. There is no restriction on the number of times you can use \hline.</li><li>{ |c|c|c| }: 这表明表格有三列，被垂直线分开。| 符号表明这些列被垂直线分开。</li><li>\hline: 这条命令会插入一个水平线。我们在表格的顶部和底部分别插入了一条水平线。\hline 命令的使用次数没有限制。
+Below you can see a second example.
+下面你可以看到第二个示例。</li></ul><pre tabindex=0><code>\begin{center}
+ \begin{tabular}{||c c c c||} 
+ \hline
+ Col1 &amp; Col2 &amp; Col2 &amp; Col3 \\ [0.5ex] 
+ \hline\hline
+ 1 &amp; 6 &amp; 87837 &amp; 787 \\ 
+ \hline
+ 2 &amp; 7 &amp; 78 &amp; 5415 \\
+ \hline
+ 3 &amp; 545 &amp; 778 &amp; 7507 \\
+ \hline
+ 4 &amp; 545 &amp; 18744 &amp; 7560 \\
+ \hline
+ 5 &amp; 88 &amp; 788 &amp; 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/TablesEx3.png alt width=375 height=240>
+Creating tables in LATEX can be a bit tricky sometimes, so you may want to use the TablesGenerator.com online tool to export LATEX code for tabulars. The File > Paste table data option lets you copy and paste data from spreadsheet applications.
+使用 LaTeX 创建表格有时候是有一些麻烦的，所以你可能会去想到使用 TablesGenerator.com 在线工具导出可以直接在 tabulars 环境中使用的 LaTeX 代码。File > Paste table data 这一选项可以让你从电子表格应用中复制并粘贴数据。</p><h4 id=captions-labels-and-references-题注标签和引用-1><a href=#captions-labels-and-references-%e9%a2%98%e6%b3%a8%e6%a0%87%e7%ad%be%e5%92%8c%e5%bc%95%e7%94%a8-1 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Captions, labels and references 题注、标签和引用</h4><p>You can caption and reference tables in much the same way as images. The only difference is that instead of the figure environment, you use the table environment.
+你可以与为图片添加题注和引用很类似的操作为表格添加题注和引用。唯一的区别是，你需要使用 table 环境，而不是 figure 环境。</p><pre tabindex=0><code>Table \ref{table:data} is an example of referenced \LaTeX{} elements.
+ 
+\begin{table}[h!]
+\centering
+\begin{tabular}{||c c c c||} 
+ \hline
+ Col1 &amp; Col2 &amp; Col2 &amp; Col3 \\ [0.5ex] 
+ \hline\hline
+ 1 &amp; 6 &amp; 87837 &amp; 787 \\ 
+ 2 &amp; 7 &amp; 78 &amp; 5415 \\
+ 3 &amp; 545 &amp; 778 &amp; 7507 \\
+ 4 &amp; 545 &amp; 18744 &amp; 7560 \\
+ 5 &amp; 88 &amp; 788 &amp; 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Table to test captions and labels}
+\label{table:data}
+\end{table}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/Ourtablelabel.png alt width=576 height=318>
+Note: If you are using captions and references on your own computer, you will have to compile the document twice for the references to work. Overleaf will do this for you automatically.’
+Note: 如果你正在你自己的电脑上使用题注和引用，<strong>你需要编译文档两次</strong>以使引用生效。ShareLaTeX 会为你自动做这件事。</p><h3 id=adding-a-table-of-contents-添加目录><a href=#adding-a-table-of-contents-%e6%b7%bb%e5%8a%a0%e7%9b%ae%e5%bd%95 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Adding a Table of Contents 添加目录</h3><p>To create the table of contents is straightforward, the command \tableofcontents does all the work for you:
+添加目录很简单，\tableofcontents 命令为你做了所有的工作：</p><pre tabindex=0><code>\documentclass{article}
+\usepackage[utf8]{inputenc}
+ 
+\title{Sections and Chapters}
+\author{Gubert Farnsworth}
+\date{ }
+ 
+\begin{document}
+ 
+\maketitle
+ 
+\tableofcontents
+ 
+\section{Introduction}
+ 
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+\addcontentsline{toc}{section}{Unnumbered Section}
+\section*{Unnumbered Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\section{Second Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\end{document}
+</code></pre><p><img loading=lazy src=/xiake/2019/01/TableOfContentsEx1.png alt width=491 height=520>
+Sections, subsections and chapters are automatically included in the table of contents. To manually add entries, for example when you want an unnumbered section, use the command \addcontentsline as shown in the example.
+节标题，小节标题和章节标题被自动包含到目录中。手动添加目录项，比如当你想添加一个未编号的节标题，使用命令 \addcontentsline，就像例子中那样。</p><hr><p>这是截止目前我看过的最好的 LaTeX 入门文章。将其翻译为中文的想法是上个学期萌发的，很早以前就差不多翻译完了，一直没有发出来，今天得以成行。
+<img loading=lazy src=/xiake/2019/01/translatesharelatexdoc.png alt width=1363 height=356>
+ShareLaTeX 和 Overleaf 在中文翻译中我给混用了，因为我之前翻译的时候 Overleaf 还在测试，那时原文档里都写的是 ShareLaTeX，改不改看我的心情，也没什么影响。
+原英文文档里附有很多扩展文章链接，建议大家最好还是去看原文档，单词都很简单。文档链接：https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+未来我会继续对翻译进行修正，以期更信、达、雅。</p></div></div><div class=container><nav class="flex container suggested"><a rel=next href=/post/wp/shell-and-regex-generate-special-words/ title="Next post (newer)"><span>Next</span>
+Shell脚本和正则表达式实现由给定字母生成指定字数单词</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
