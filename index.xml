@@ -1,4 +1,42 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Feb 2023 20:34:03 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Django添加删除文章功能</title><link>https://o5o.me/post/django_add_function_delete_entry/</link><pubDate>Thu, 09 Feb 2023 20:34:03 +0800</pubDate><guid>https://o5o.me/post/django_add_function_delete_entry/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 11 Feb 2023 17:39:30 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Shell给文件批量重命名</title><link>https://o5o.me/post/shell_rename_files/</link><pubDate>Sat, 11 Feb 2023 17:39:30 +0800</pubDate><guid>https://o5o.me/post/shell_rename_files/</guid><description>
+&lt;p>今天我有一个需求是要将某文件夹下所有文件开头的&lt;code>wp_&lt;/code>去掉，网上很多答案都过时了，例如：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">$ rename &lt;span class="s1">&amp;#39;wp_&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span> *.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Bareword &lt;span class="s2">&amp;#34;wp_&amp;#34;&lt;/span> not allowed &lt;span class="k">while&lt;/span> &lt;span class="s2">&amp;#34;strict subs&amp;#34;&lt;/span> in use at line 1, in:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wp_
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>想要批量重命名可以这样写：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">$ rename -n &lt;span class="s1">&amp;#39;s/^wp_//&amp;#39;&lt;/span> *
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rename&lt;span class="o">(&lt;/span>wp_cancel-domain-name-beian.md, cancel-domain-name-beian.md&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rename&lt;span class="o">(&lt;/span>wp_cloudreve_webdav_obsidian_synchronization.md, cloudreve_webdav_obsidian_synchronization.md&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rename&lt;span class="o">(&lt;/span>wp_down-epub-oreilly.md, down-epub-oreilly.md&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>加上&lt;code>-n&lt;/code>只会列出重命名前后的文件名对比，而不会真正重命名，方便你不断调整合适的命令写法。真正重命名时应该把&lt;code>-n&lt;/code>去掉：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">$ rename &lt;span class="s1">&amp;#39;s/^wp_//&amp;#39;&lt;/span> *
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Django添加删除文章功能</title><link>https://o5o.me/post/django_add_function_delete_entry/</link><pubDate>Thu, 09 Feb 2023 20:34:03 +0800</pubDate><guid>https://o5o.me/post/django_add_function_delete_entry/</guid><description>
 &lt;p>在我写的项目里，称类似文章的文本为entry。我想要在entry编辑页面（edit_entry）上添加一个删除按钮，点击后这条entry会被删除。&lt;/p>
 &lt;h3 id="添加视图">
 &lt;a href="#%e6%b7%bb%e5%8a%a0%e8%a7%86%e5%9b%be" class="anchor">
