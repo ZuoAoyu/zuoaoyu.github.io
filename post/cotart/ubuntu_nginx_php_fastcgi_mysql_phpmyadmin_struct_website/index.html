@@ -1,0 +1,250 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>LNMP网站环境搭建 | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="LNMP网站环境搭建 | o5o"><meta itemprop=name content="LNMP网站环境搭建 | o5o"><meta name=twitter:title content="LNMP网站环境搭建 | o5o"><meta name=application-name content="LNMP网站环境搭建 | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2019-07-29T14:58:11+0800"><meta property="article:published_time" content="2019-07-29T14:58:11+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"LNMP网站环境搭建","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2019-07-29","description":"","wordCount":793,"mainEntityOfPage":"True","dateModified":"2019-07-29","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>LNMP网站环境搭建</h1><div class=post-meta><div>By Guanghao Zuo | <time>July 29, 2019</time>
+| 4 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>几天前收到阿里云发来的短信和邮件，提醒我shuxueben.cn网站未指向阿里云服务器，如果3天内不修正就要删除我的网站备案接入信息。
+我又去阿里云买了一个“轻量应用服务器”，环境选择了Ubuntu。</p><hr><p>所有的命令我都是以root身份执行的。
+首先更新系统[1]</p><pre tabindex=0><code>apt-get update
+apt-get upgrade
+apt-get dist-upgrade
+</code></pre><p>安装Nginx</p><pre tabindex=0><code>apt-get install nginx
+</code></pre><p>查看是否安装成功</p><pre tabindex=0><code>nginx -v 
+</code></pre><p>这时候，访问服务器ip地址或指向该ip地址的域名，就可以看到一个Nginx的欢迎信息。
+安装Mysql</p><pre tabindex=0><code>apt-get install mysql-server （中间会让输入root密码）
+apt-get install mysql-client
+</code></pre><p>查看是否安装成功</p><pre tabindex=0><code>mysql -u root -p
+回车，输入密码
+select version();
+exit; #退出mysql环境
+</code></pre><p>安装php</p><pre tabindex=0><code>apt-get install php
+php -v（查看版本）
+</code></pre><p>安装FastCgi</p><pre tabindex=0><code>apt-get install spawn-fcgi
+</code></pre><p>修改Nginx站点配置文件</p><pre tabindex=0><code>cd /etc/nginx/sites-available/
+cp default default.backup
+vim default
+</code></pre><p>添加index.php</p><pre tabindex=0><code># Add index.php to the list if you are using PHP
+index index.html index.htm index.nginx-debian.html index.php;
+</code></pre><p>去掉部分注释[2]：</p><pre tabindex=0><code>	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+	#
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+	#
+	#	# With php7.0-cgi alone:
+	#	fastcgi_pass 127.0.0.1:9000;
+	#	# With php7.0-fpm:
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+	}
+</code></pre><p>安装mysql扩展</p><pre tabindex=0><code>apt-get install php7.0-mysql
+</code></pre><p>安装必要扩展</p><pre tabindex=0><code>apt-get install php7.0 php-pear
+apt-get install php7.0-curl
+apt-get install php7.0-json
+apt-get install php7.0-cgi
+</code></pre><p>在根目录（/var/www/html 可以在default配置文件中看到）中新建test.php文件，测试php</p><pre tabindex=0><code>vim test.php
+按i进入编辑模式，插入：
+php echo phpinfo(); ?
+按Esc，输入“:wq”保存并退出
+</code></pre><p>在浏览器中访问“你的ip/test.php”测试。
+nginx相关命令</p><pre tabindex=0><code>service nginx restart
+service nginx start
+service nginx stop
+</code></pre><p>Nginx配置文件夹中的site-available和sites-enabled的区别[3][4]</p><pre tabindex=0><code>If you are coming from Apache, the &#34;sites-available&#34; and &#34;sites-enabled&#34; 
+directories will be familiar.
+
+These directories are used to define configurations for your websites. 
+Files are generally created in the &#34;sites-available&#34; directory, and then
+symbolically linked to the &#34;sites-enabled&#34; directory when they are ready 
+to go live.
+
+...
+
+In the &#34;nginx.conf&#34; file, we can see that the end of the &#34;http&#34; block has:
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+
+# How To Configure Nginx
+# https://www.digitalocean.com/community/tutorials/how-to-configure-the-nginx-web-server-on-a-virtual-private-server
+</code></pre><p>Nginx不能正常启动的常见原因[5]
+nginx端口被占用</p><pre tabindex=0><code>netstat -tnlp
+
+ps -ef | grep nginx
+pkill -9 nginx
+
+service nginx restart
+</code></pre><p>nginx 日志文件出现”fastcgi_pass” directive is duplicate 错误[6]
+这是在修改刚才那个配置文件default的时候，同时去掉了“fastcgi_pass 127.0.0.1:9000;”和“fastcgi_pass unix:/run/php/php7.0-fpm.sock;”这两行的注释。</p><hr><p>启动php-fpm进程[7]</p><pre tabindex=0><code>systemctl start php7.0-fpm
+或
+service start php7.0-fpm
+</code></pre><p>而非</p><pre tabindex=0><code>systemctl start php-fpm
+service start php-fpm
+</code></pre><p>Nginx添加虚拟主机Virtual Host
+把Nginx配置文件default最下面的一些代码取消注释，把关键信息修改成你自己的即可。
+我在添加虚拟主机的同时，还将顶级域名301重定向到www二级域名[8][9]，我的代码如下：</p><pre tabindex=0><code># Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+server {
+	listen 80;
+	listen [::]:80;
+
+        server_name www.shuxueben.cn;
+
+	root /var/www/www.shuxueben.cn;
+	index index.html index.php;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name shuxueben.cn;
+	return 301 http://www.shuxueben.cn$request_uri;
+}
+</code></pre><p>listen 80;和listen [::]:80;均表示监听80端口的链接，后者是前者的ipv6版本[10]。
+在访问php页面时总是弹出下载页面[11]
+这是因为在nginx的配置文件中没有添加解析php的代码，我们把default文件中虚拟主机那部分的代码修改为如下形式：</p><pre tabindex=0><code>server {
+	listen 80;
+	listen [::]:80;
+
+        server_name www.shuxueben.cn;
+
+	root /var/www/www.shuxueben.cn;
+	index index.html index.php;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+        #
+        #       # With php7.0-cgi alone:
+        #       fastcgi_pass 127.0.0.1:9000;
+        #       # With php7.0-fpm:
+                fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        }
+}
+</code></pre><hr><p>安装phpMyAdmin[12]</p><pre tabindex=0><code>apt install phpmyadmin;
+</code></pre><p>提示选择web服务器时，因为列表中没有Nginx，按Tab键跳过。再按回车。
+Configure database for phpmyadmin with dbconfig-common?
+选择Yes
+MySQL application password for phpmyadmin，这个密码仅仅在phpMyAdmin内部用于和MySQL通信，留空即可，会自动生成密码。登录phpMyAdmin时还是用你的MySQL密码。
+创建符号链接</p><pre tabindex=0><code>ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+</code></pre><p>访问“你的ip/phpmyadmin”测试。这里的用户名和密码是root和你的MySQL密码。</p><hr><p>上传网站代码，以WordPress为例</p><pre tabindex=0><code>cd /var/www/www.shuxueben.cn
+wget https://wordpress.org/latest.tar.gz
+tar zxf latest.tar.gz
+#得到wordpress文件夹
+</code></pre><p>修改文件所有者和用户组为www-data[13][14]</p><pre tabindex=0><code>chown www-data:www-data -R wordpress
+</code></pre><p>文件权限不需要修改。修改权限可以使用chmod命令。
+批量给文件设置644权限、给文件夹设置755权限[15]</p><pre tabindex=0><code>chmod 644 -R wordpress
+find wordpress -type d -print|xargs chmod 755
+</code></pre><hr><p>创建www用户组和用户（用不到）[16]
+我的wordpress上传文件时提示输入ftp账户和密码，是文件所有者和所在用户组的问题。我以为应该把文件的所有者和用户组设为www，其实应该设为www-data。
+系统中没有www用户和用户组。其实不需要手动添加的。</p><pre tabindex=0><code>id www
+groupadd www
+useradd -g www -s /sbin/nologin www
+id www
+</code></pre><p>后来我发现没用，又把www用户和用户组删了。
+删除用户和用户组[17]</p><pre tabindex=0><code>userdel www
+groupdel www
+</code></pre><hr><p>wordpress上传文件大小最大只有2MB，需要修改php.ini文件。
+找到php.ini文件，可用浏览器访问我们刚才写的test.php文件，里面有php.ini的路径。[18]</p><pre tabindex=0><code>/etc/php/7.0/fpm/php.ini
+</code></pre><hr><p>修改wordpress固定链接[19]
+需要修改Nginx的网站配置文件代码，要添加的代码为：</p><pre tabindex=0><code>	if (-f $request_filename/index.html){
+    		rewrite (.*) $1/index.html break;
+	}
+
+	if (-f $request_filename/index.php){
+    		rewrite (.*) $1/index.php;
+	}
+
+	if (!-f $request_filename){
+    		rewrite (.*) /index.php;
+	}
+</code></pre><p>完整的虚拟主机配置代码为：</p><pre tabindex=0><code># Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+server {
+	listen 80;
+	listen [::]:80;
+
+        server_name www.shuxueben.cn;
+
+	root /var/www/www.shuxueben.cn;
+	index index.html index.php;
+
+	if (-f $request_filename/index.html){
+    		rewrite (.*) $1/index.html break;
+	}
+
+	if (-f $request_filename/index.php){
+    		rewrite (.*) $1/index.php;
+	}
+
+	if (!-f $request_filename){
+    		rewrite (.*) /index.php;
+	}
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+        #
+        #       # With php7.0-cgi alone:
+        #       fastcgi_pass 127.0.0.1:9000;
+        #       # With php7.0-fpm:
+                fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        }
+}
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name shuxueben.cn;
+	return 301 http://www.shuxueben.cn$request_uri;
+}
+</code></pre><hr><p>wordpress后台工具里有一个“站点健康”，提醒我php没有安装bcmath和imagick模块。[20][21]</p><pre tabindex=0><code>apt-get install php-bcmath
+php -m #如果出现bcmath就说明安装成功了
+
+apt-get install php-imagick
+php -m #如果出现imagick就说明安装成功了, 如果没有，可重启php-fpm服务
+service php7.0-fpm restart
+
+#或者重启apache 2019年8月31日0:40更新
+systemctl restart apache2
+</code></pre><hr><p>参考文献
+我想说明的是，我不保障下面所列网址里的内容为作者原创，但它们都给予了我很大的帮助。</p><pre tabindex=0><code>[1] Ubuntu 16 安装Nginx+Php+Mysql - 西贝小小凤 - 博客园 https://www.cnblogs.com/xbxxf/p/9122920.html
+[2] 在树莓派上安装 Nginx + PHP - 简书 https://www.jianshu.com/p/81a75b4b51bd
+[3] nginx里面的sites-available和sites-enabled有什么区别 - SegmentFault 思否 https://segmentfault.com/q/1010000009726769
+[4] How To Configure The Nginx Web Server On a Virtual Private Server | DigitalOcean https://www.digitalocean.com/community/tutorials/how-to-configure-the-nginx-web-server-on-a-virtual-private-server
+[5] 关于Nginx不能正常启动的问题 - 秋天未成熟的博客 - CSDN博客 https://blog.csdn.net/u012832088/article/details/80729002
+[6] 解决安装nginx 日志文件出现&#34;fastcgi_pass&#34; directive is duplicate 错误 - qq_26184091的博客 - CSDN博客 https://blog.csdn.net/qq_26184091/article/details/45419201
+[7] Ubuntu安装PHP7 - 程序小工 - 博客园 https://www.cnblogs.com/zqunor/p/8524646.html
+[8] nginx 301 将不带www域名，重定向到www域名 - beyond__devil的博客 - CSDN博客 https://blog.csdn.net/beyond__devil/article/details/79880947
+[9] Converting rewrite rules Converting rewrite rules
+[10] Listen 0.0.0.0:80 Listen [::0]:80 - weixin_34037173的博客 - CSDN博客 https://blog.csdn.net/weixin_34037173/article/details/93885997
+[11] centos系统,基于nginx服务器,用https访问php页面总弹出下载页面问题完美解决 - leeten的博客 - CSDN博客 https://blog.csdn.net/jinx_leeten/article/details/51769154
+[12] 在Ubuntu 18.04上为Nginx安装phpMyAdmin - 斑驳的岁月 - CSDN博客 https://blog.csdn.net/weixin_39467231/article/details/83958552
+[13] 要执行请求的操作，WordPress 需要访问您网页服务器的权限。 请输入您的 FTP 登录XXXX完美解决方法 - Michael Wing&#39;s workspace - CSDN博客 https://blog.csdn.net/micwing/article/details/12004987
+[14] LNMP添加、删除虚拟主机及伪静态使用教程 - LNMP一键安装包 https://lnmp.org/faq/lnmp-vhost-add-howto.html
+[15] linux 批量设置文件夹755 文件644权限 - 正风三才的博客 - CSDN博客 https://blog.csdn.net/tty521/article/details/73123857
+[16] linux创建www用户组和用户 http://www.dreamwu.com/post-20.html
+[17] Ubuntu基础命令(六)--添加和删除用户和用户组 - Mikowoo007的博客 - CSDN博客 https://blog.csdn.net/Mikowoo007/article/details/84952068
+[18] 查找php配置文件php.ini所在路径的二种方法 - 齐泽文的Blog - CSDN博客 https://blog.csdn.net/qq_17054989/article/details/79832507
+[19] nginx 配置wordpress固定链接（自定义） - 微笑阳光哈*_* - 博客园 https://www.cnblogs.com/holdon521/p/5675729.html
+[20] Ubuntu PHP安装bcmath模块 - GoodByeZ - 博客园 https://www.cnblogs.com/jingjingdidunhe/p/6945355.html
+[21] how to install imagemagick for php7 on ubuntu? - Ask Ubuntu https://askubuntu.com/questions/769396/how-to-install-imagemagick-for-php7-on-ubuntu
+</code></pre><hr><p>2019年8月6日更新
+shuxueben.cn 出现错误: 413 Request Entity Too Large
+我在nginx.conf(/etc/nginx)中添加了一行</p><pre tabindex=0><code>client_max_body_size 50m;
+</code></pre></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/wp/maze-automatic-path-finding/ title="Previous post (older)"><span>Previous</span>
+迷宫自动寻路问题求解</a>
+<a rel=next href=/post/cotart/wordpress_view_content_after_login/ title="Next post (newer)"><span>Next</span>
+WordPress内容登录后查看</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
