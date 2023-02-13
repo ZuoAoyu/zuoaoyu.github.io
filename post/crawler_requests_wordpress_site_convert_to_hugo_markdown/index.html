@@ -1,0 +1,418 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo | o5o</title><meta property="og:site_name" content="o5o"><meta property="og:title" content="爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo | o5o"><meta itemprop=name content="爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo | o5o"><meta name=twitter:title content="爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo | o5o"><meta name=application-name content="爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo | o5o"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2023-02-13T17:29:36+0800"><meta property="article:published_time" content="2023-02-13T17:29:36+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2023-02-13","description":"","wordCount":837,"mainEntityOfPage":"True","dateModified":"2023-02-13","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+o5o</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo</h1><div class=post-meta><div>By Guanghao Zuo | <time>February 13, 2023</time>
+| 4 minutes</div><div class=tags><a href=/tags/wordpress/>WordPress</a></div></div></div></div></header></article><div class=article-post><p>写博客很多年了，以前用的都是WordPress，一个传统的PHP+MySQL的CMS。在2022年底开了一个新博客，用Hugo配合Obsidian来写，经过我的配置，在本地写好文章后只需git推送到github，github actions自动部署生成静态页面发送到服务器。很优雅的写作方式，所以从文章数量就能看出来，换用Hugo之后我是相当的高产。</p><p>所以我就想将这些年用WordPress写的文章都统一整理出来，集中用Hugo进行管理。很自然地我就想到了，使用python爬虫将所有文章和文章配图都爬取下来，将内容转换为Hugo能识别的Markdown格式。</p><h3 id=分析><a href=#%e5%88%86%e6%9e%90 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>分析</h3><ul><li>要爬取的网站：xiake.me（写本文时还是WordPress，未来绑定到Hugo博客）</li><li>使用的WP主题：Twenty Fifteen</li><li>文章列表URL：<code>https://xiake.me/page/2/</code>，其中<code>2</code>是指第2页。</li><li>文章URL：<code>https://xiake.me/2020/08/06/一个傅里叶级数展开式的图象/</code>，日期+文章标题或略缩名slug</li><li>文章配图URL：<code>https://xiake.me/wp-content/uploads/2020/08/fuliye.png</code>，日期+文件名</li></ul><p>要获取的数据：</p><ol><li>文章标题</li><li>文章slug（文章略缩名，用于固定链接）</li><li>文章URL</li><li>文章文字内容</li><li>文章配图</li><li>文章发布日期</li></ol><p>思路：访问文章列表URL，获取文章标题、文章slug、文章URL，访问文章URL获取文章内容、文章发布日期，下载文章配图，并将图片链接替换为本地相对链接。</p><p>获取文章标题、URL这些数据使用XPATH，替换图片链接使用正则表达式。</p><h3 id=用ipython踩坑><a href=#%e7%94%a8ipython%e8%b8%a9%e5%9d%91 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>用IPython踩坑</h3><p>最终我们是要将程序用面向对象的方式来写，也就是把爬虫封装成一个类。但我们可以先用IPython把爬虫的运行过程走一遍，等各个环节都理顺了，把坑都存踩完了，再改造成想要的样子。</p><p>在这个环节，我先用Jupyter Lab用面向过程的思路把代码敲一遍。每写好一个代码块（cell）都可以按<code>shift+enter</code>（或<code>ctrl+enter</code>）运行一下，检查错误很方便。</p><p>先导入一些必定用到的模块，其他模块用到的时候再导入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>fake_useragent</span> <span class=kn>import</span> <span class=n>UserAgent</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>lxml</span> <span class=kn>import</span> <span class=n>etree</span>
+</span></span></code></pre></td></tr></table></div></div><p>定义URL、请求头、获取响应对象：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>url</span> <span class=o>=</span> <span class=s1>&#39;https://xiake.me&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>ua</span> <span class=o>=</span> <span class=n>UserAgent</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>headers</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;UserAgent&#39;</span><span class=p>:</span> <span class=n>ua</span><span class=o>.</span><span class=n>random</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=n>res</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>将获取到的html内容打印出来看一看是不是成功获取到了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>html</span> <span class=o>=</span> <span class=n>res</span><span class=o>.</span><span class=n>content</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>html</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>用XPATH解析页面，得到xpath对象：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 解析html,得到文章元素</span>
+</span></span><span class=line><span class=cl><span class=n>xpath_dbs</span> <span class=o>=</span> <span class=s1>&#39;/html/body/div/div[2]/div/main/article/header/h2/a&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>parse_html</span> <span class=o>=</span> <span class=n>etree</span><span class=o>.</span><span class=n>HTML</span><span class=p>(</span><span class=n>html</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>post_list</span> <span class=o>=</span> <span class=n>parse_html</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=n>xpath_dbs</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>post_list</code>是一个列表，列表里的各个元素是xpath对象，接下来从第一个元素中取数据。</p><p>取文章标题：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>post_title</span> <span class=o>=</span> <span class=n>post_list</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./text()&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>post_title</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>取文章slug：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>post_slug</span> <span class=o>=</span> <span class=n>post_list</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./@href&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>post_slug</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>取文章链接并根据链接访问文章页面（二级页面）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>url1</span> <span class=o>=</span> <span class=n>post_list</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./@href&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>html2</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url1</span><span class=p>,</span><span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>)</span><span class=o>.</span><span class=n>content</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>写取文章正文内容和文章发表日期的xpath：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 文章内容xpath</span>
+</span></span><span class=line><span class=cl><span class=n>xpath_dbs2</span> <span class=o>=</span> <span class=s1>&#39;/html/body/div/div[2]/div/main/article/div&#39;</span>
+</span></span><span class=line><span class=cl><span class=c1># 文章日期、作者xpath</span>
+</span></span><span class=line><span class=cl><span class=n>xpath_dbs3</span> <span class=o>=</span> <span class=s1>&#39;/html/body/div/div[2]/div/main/article/footer&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>xpath解析二级页面，取文章正文内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>parse_html2</span> <span class=o>=</span> <span class=n>etree</span><span class=o>.</span><span class=n>HTML</span><span class=p>(</span><span class=n>html2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>post_content</span> <span class=o>=</span> <span class=n>parse_html2</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=n>xpath_dbs2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>post_content</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>html</span> <span class=k>as</span> <span class=nn>htmlP</span>
+</span></span><span class=line><span class=cl><span class=n>post_con_html</span> <span class=o>=</span> <span class=n>htmlP</span><span class=o>.</span><span class=n>unescape</span><span class=p>(</span><span class=n>etree</span><span class=o>.</span><span class=n>tostring</span><span class=p>(</span><span class=n>post_content</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span><span class=o>.</span><span class=n>decode</span><span class=p>())</span>
+</span></span></code></pre></td></tr></table></div></div><p>注意这里我又导入了一个<code>html</code>模块。因为之前没想到用它，我用<code>html</code>来命名了一个变量，因此我只好把这里导入的这个模块取别名为<code>htmlP</code></p><p>取文章发表日期：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>post_footer</span> <span class=o>=</span> <span class=n>parse_html2</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=n>xpath_dbs3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>post_pubdate</span><span class=o>=</span><span class=n>post_footer</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./span[1]/a/time[1]/@datetime&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>post_pubdate</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>这段代码的运行结果（文章发表日期），格式和Hugo文章里的日期格式一样，因此就不用转换日期格式了。</p><p>将文章中的图片下载下来，并替换文章中的图片链接：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 将文章里的图片下载下来，并替换html中的图片链接</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>re</span>
+</span></span><span class=line><span class=cl><span class=n>pattern</span> <span class=o>=</span> <span class=n>re</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;&lt;img .*?src=&#34;(.*?)&#34; alt=.*?&gt;&#39;</span><span class=p>,</span> <span class=n>re</span><span class=o>.</span><span class=n>S</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>img_list</span> <span class=o>=</span> <span class=n>pattern</span><span class=o>.</span><span class=n>findall</span><span class=p>(</span><span class=n>post_con_html</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>dir</span> <span class=o>=</span> <span class=s1>&#39;xiake/&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>img_link</span> <span class=ow>in</span> <span class=n>img_list</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>html_bytes</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=o>=</span><span class=n>img_link</span><span class=p>,</span><span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>)</span><span class=o>.</span><span class=n>content</span>
+</span></span><span class=line><span class=cl>    <span class=n>filename_list</span> <span class=o>=</span> <span class=n>img_link</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;uploads/&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>dir_img</span> <span class=o>=</span> <span class=nb>dir</span> <span class=o>+</span> <span class=s1>&#39;/&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>filename_list</span><span class=p>[:</span><span class=mi>2</span><span class=p>])</span><span class=o>+</span><span class=s1>&#39;/&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>dir_img</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>dir_img</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>filename</span> <span class=o>=</span> <span class=n>dir_img</span> <span class=o>+</span> <span class=n>filename_list</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>filename</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>html_bytes</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> 下载成功&#39;</span> <span class=o>%</span> <span class=n>filename</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 图片下载成功后把html代码里的图片链接替换成本地链接</span>
+</span></span><span class=line><span class=cl>    <span class=n>post_con_html</span> <span class=o>=</span> <span class=n>post_con_html</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>img_link</span><span class=p>,</span><span class=n>filename</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>这里是用正则来取图片链接，下载图片依然是用的requests。</p><p>图片下载下来后我是打算放到代码同级目录下的一个叫<code>xiake</code>的文件夹里，并按日期来嵌套文件夹（即<code>xiake/年/月/日/图片文件.jpg</code>），因此如果这个文件夹不存在就需要提前新建它。</p><p>图片下载成功后，用<code>replace()</code>方法把html里的链接替换掉。</p><p>看看图片链接是不是都替换成功了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>post_con_html</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>接下来要将html转换为markdown，这里我用到了一个第三方包：markdownify，所以使用之前需要安装它：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>pip install markdownify
+</span></span></code></pre></td></tr></table></div></div><p>在Jupyter Lab里可以直接运行上面这句命令。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>markdownify</span> <span class=kn>import</span> <span class=n>markdownify</span> <span class=k>as</span> <span class=n>md</span>
+</span></span><span class=line><span class=cl><span class=n>post_con_md</span> <span class=o>=</span> <span class=n>md</span><span class=p>(</span><span class=n>post_con_html</span><span class=p>,</span><span class=n>heading_style</span><span class=o>=</span><span class=s1>&#39;ATX&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>post_con_md</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n\n\n</span><span class=s1>&#39;</span><span class=p>,</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>post_con_md</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>参数<code>heading_style='ATX'</code>的作用是，在转换后，文章小标题用<code>#</code>来标识。转换成markdown格式之后，文章里的空行有些多，所以去掉。</p><p>将转换后的文章内容整理成符合hugo格式要求的文本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 将文章保存为hugo需要的markdown格式，</span>
+</span></span><span class=line><span class=cl><span class=n>text</span> <span class=o>=</span> <span class=s2>&#34;&#34;&#34;---
+</span></span></span><span class=line><span class=cl><span class=s2>title: &#34;</span><span class=si>{}</span><span class=s2>&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>date: </span><span class=si>{}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>categories:
+</span></span></span><span class=line><span class=cl><span class=s2>- 
+</span></span></span><span class=line><span class=cl><span class=s2>tags:
+</span></span></span><span class=line><span class=cl><span class=s2>- 
+</span></span></span><span class=line><span class=cl><span class=s2>---
+</span></span></span><span class=line><span class=cl><span class=s2></span><span class=si>{}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>post_title</span><span class=p>,</span><span class=n>post_pubdate</span><span class=p>,</span><span class=n>post_con_md</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>text</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>最后保存成文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>dir_post</span> <span class=o>=</span> <span class=s1>&#39;content/post/&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>dir_post</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>dir_post</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>post_filename</span> <span class=o>=</span> <span class=n>dir_post</span><span class=o>+</span><span class=s1>&#39;wp_&#39;</span><span class=o>+</span><span class=n>post_slug</span><span class=o>+</span><span class=s1>&#39;.md&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>post_filename</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>text</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> 文章保存成功&#39;</span> <span class=o>%</span> <span class=n>post_filename</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>文件名用获取的文章slug来命名，前面再加上一个<code>wp_</code>前缀。文章保存在了代码同级目录下的<code>content/post/</code>文件夹里。</p><p>踩坑过程结束了。看上面的过程，似乎挺顺利的样子。真实情况是，总体很顺利，但也确实踩了不少坑。我已经很努力在还原真实的写代码过程了，如果把每个坑都仔细描述一下，这篇文章的长度我觉得还能再增加一倍。</p><h3 id=封装><a href=#%e5%b0%81%e8%a3%85 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>封装</h3><p>在改写代码之前，通过上面写代码的过程，我又想到几个可以改进的点：</p><ol><li>程序写成交互式的，这样不仅可以爬这一个wp站，其他的也可以；</li><li>图片和markdown文件可以放到同一个文件夹里。</li><li>上面的代码都是理想情况下的样子，增加错误处理代码，提高容错性。</li><li>从同一篇文章里爬取的数据放到一个字典里，更整齐。</li></ol><p>下面开始写代码了。</p><p>主函数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=n>spider_url</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s2>&#34;你想爬取哪一个WordPress博客？</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=n>spider_dir</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s2>&#34;你想将爬取到的内容放在哪一个文件夹里面？</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=n>spider</span> <span class=o>=</span> <span class=n>WordPressSpider</span><span class=p>(</span><span class=n>spider_url</span><span class=p>,</span> <span class=n>spider_dir</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=n>spider</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>接下来在代码最上方调用一堆模块、定义<code>WordPressSpider</code>类：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>html</span>  
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>  
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>re</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>  
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>fake_useragent</span> <span class=kn>import</span> <span class=n>UserAgent</span>  
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>lxml</span> <span class=kn>import</span> <span class=n>etree</span>  
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>markdownify</span> <span class=kn>import</span> <span class=n>markdownify</span> <span class=k>as</span> <span class=n>md</span>  
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>urllib</span> <span class=kn>import</span> <span class=n>parse</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>WordPressSpider</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;  
+</span></span></span><span class=line><span class=cl><span class=s2>    将WordPress博客“xiake.me”上的文章爬取下来，并下载文章图片到本地，替换文章中的图片链接为  
+</span></span></span><span class=line><span class=cl><span class=s2>    本地链接，最后需将文章转为Hugo需要的Markdown格式。  
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>先说明，下面的代码都是在上面这个<code>WordPressSpider</code>类里面的方法定义。不要当成普通函数定义了。</p><p>初始化：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>spider_url</span><span class=p>,</span><span class=n>spider_dir</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>url</span> <span class=o>=</span> <span class=p>(</span><span class=n>spider_url</span> <span class=k>if</span> <span class=n>spider_url</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>!=</span> <span class=s1>&#39;/&#39;</span> <span class=k>else</span> <span class=n>spider_url</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>  
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>baseurl</span> <span class=o>=</span> <span class=p>(</span><span class=n>spider_url</span> <span class=k>if</span> <span class=n>spider_url</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>!=</span> <span class=s1>&#39;/&#39;</span> <span class=k>else</span> <span class=n>spider_url</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span> <span class=o>+</span> <span class=s1>&#39;/page/</span><span class=si>{}</span><span class=s1>/&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>spider_dir</span> <span class=o>=</span> <span class=n>spider_dir</span>
+</span></span></code></pre></td></tr></table></div></div><p>我用了两个属性<code>self.url</code>、<code>self.baseurl</code>，这是为了让程序可以爬取多个网站所做的妥协。属性声明里用了条件解析式，这样的话无论你输入的网址是不是带最后的那个<code>/</code>都能正确处理。</p><p><code>get_proxies()</code>方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_proxies</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>proxies</span> <span class=o>=</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;http&#39;</span><span class=p>:</span> <span class=s1>&#39;http://127.0.0.1:7890&#39;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;https&#39;</span><span class=p>:</span> <span class=s1>&#39;http://127.0.0.1:7890&#39;</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>proxies</span>
+</span></span></code></pre></td></tr></table></div></div><p>调用requests时可以指定一个参数（那两个字我不敢说，因为我的网站备案了），这样就可以顺畅访问“加载慢”的网站了。</p><p>请求头：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_headers</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>ua</span> <span class=o>=</span> <span class=n>UserAgent</span><span class=p>()</span>  
+</span></span><span class=line><span class=cl>    <span class=n>headers</span> <span class=o>=</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;UserAgent&#39;</span><span class=p>:</span> <span class=n>ua</span><span class=o>.</span><span class=n>random</span><span class=p>,</span>  
+</span></span><span class=line><span class=cl>    <span class=p>}</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>headers</span>
+</span></span></code></pre></td></tr></table></div></div><p>如果只是爬我自己的网站的话，没有反爬手段，其实可以不用使用<code>fake_useragent</code>，为了增加程序的普适性，用上还是最好的。</p><p><code>parse_html()</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>parse_html</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>xpath_dbs</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>res</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>url</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>get_headers</span><span class=p>(),</span> <span class=n>proxies</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>get_proxies</span><span class=p>())</span>  
+</span></span><span class=line><span class=cl>    <span class=n>html_source</span> <span class=o>=</span> <span class=n>res</span><span class=o>.</span><span class=n>content</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=n>parse_html</span> <span class=o>=</span> <span class=n>etree</span><span class=o>.</span><span class=n>HTML</span><span class=p>(</span><span class=n>html_source</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>parse_html</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=n>xpath_dbs</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>这里就用上了上面的<code>get_proxies()</code>方法。接受一个xpath表达式，解析页面，返回xpath对象（列表）。</p><p>获得文章列表：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_post_list</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>xpath_dbs</span> <span class=o>=</span> <span class=s1>&#39;/html/body/div/div[2]/div/main/article/header/h2/a&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>post_list</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>parse_html</span><span class=p>(</span><span class=n>xpath_dbs</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>post_list</span>
+</span></span></code></pre></td></tr></table></div></div><p>获得总页码（文章一共有几页）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_page_nums</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>xpath_dbs</span> <span class=o>=</span> <span class=s1>&#39;/html/body/div/div[2]/div/main/nav/div/a[2]/text()&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>num</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>parse_html</span><span class=p>(</span><span class=n>xpath_dbs</span><span class=p>)[</span><span class=mi>0</span><span class=p>])</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>num</span>
+</span></span></code></pre></td></tr></table></div></div><p>这个页码数字是直接从html页面里取的。文章列表下方有一串数字，第1页……第n页，直接用xpath取这个<code>n</code>即可。</p><p>遍历文章列表：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_post_info</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>post_list</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>get_post_list</span><span class=p>()</span>  
+</span></span><span class=line><span class=cl>    <span class=n>post_info</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>  
+</span></span><span class=line><span class=cl>    <span class=n>article_xpath_dbs</span> <span class=o>=</span> <span class=s1>&#39;/html/body/div/div[2]/div/main/article&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>post</span> <span class=ow>in</span> <span class=n>post_list</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>post</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./text()&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;url&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>post</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./@href&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;slug&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>parse</span><span class=o>.</span><span class=n>unquote</span><span class=p>(</span><span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;url&#39;</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>2</span><span class=p>])</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>url</span> <span class=o>=</span> <span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;url&#39;</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=n>article</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>parse_html</span><span class=p>(</span><span class=n>article_xpath_dbs</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;pub_date&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>article</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./footer/span[1]/a/time[1]/@datetime&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_content</span> <span class=o>=</span> <span class=n>article</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./div&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_con_html</span> <span class=o>=</span> <span class=n>html</span><span class=o>.</span><span class=n>unescape</span><span class=p>(</span><span class=n>etree</span><span class=o>.</span><span class=n>tostring</span><span class=p>(</span><span class=n>post_content</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>())</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_con_html</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>get_images</span><span class=p>(</span><span class=n>post_con_html</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=n>post_info</span><span class=p>[</span><span class=s1>&#39;content_md&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>convert_html_to_markdown</span><span class=p>(</span><span class=n>post_con_html</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>save_post</span><span class=p>(</span><span class=n>post_info</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>这里又再一次调用了<code>parse_html()</code>方法，用于获取文章正文内容。一篇文章的各个数据都保存到了一个字典里，显得很整齐。每遍历一次，都调用<code>convert_html_to_markdown()</code>转换正文格式，调用<code>get_images()</code>保存图片，调用<code>save_post()</code>保存文章，这些方法是在下面定义的。</p><p>html转markdown：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>convert_html_to_markdown</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>html_content</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>md_content</span> <span class=o>=</span> <span class=n>md</span><span class=p>(</span><span class=n>html_content</span><span class=p>,</span> <span class=n>heading_style</span><span class=o>=</span><span class=s1>&#39;ATX&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n\n\n</span><span class=s1>&#39;</span><span class=p>,</span> <span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=c1># md_content = md(html_content, heading_style=&#39;ATX&#39;)  </span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>md_content</span>
+</span></span></code></pre></td></tr></table></div></div><p>保存图片：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_images</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>html_content</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=n>pattern</span> <span class=o>=</span> <span class=n>re</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;&lt;img .*?src=&#34;(.*?)&#34; alt=.*?&gt;&#39;</span><span class=p>,</span> <span class=n>re</span><span class=o>.</span><span class=n>S</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=n>img_list</span> <span class=o>=</span> <span class=n>pattern</span><span class=o>.</span><span class=n>findall</span><span class=p>(</span><span class=n>html_content</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>img_list</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>html_content</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=n>dir_name</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>spider_dir</span> <span class=o>+</span> <span class=s1>&#39;/&#39;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>img_link</span> <span class=ow>in</span> <span class=n>img_list</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=s1>&#39;greenhand&#39;</span> <span class=ow>in</span> <span class=n>img_link</span><span class=p>:</span> <span class=c1># 文章中部分图片链接失效  </span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;失效链接跳过&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>            <span class=k>break</span>  
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=n>html_bytes</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=o>=</span><span class=n>img_link</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>get_headers</span><span class=p>(),</span> <span class=n>proxies</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>get_proxies</span><span class=p>())</span><span class=o>.</span><span class=n>content</span>  
+</span></span><span class=line><span class=cl>            <span class=n>filename_list</span> <span class=o>=</span> <span class=n>img_link</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;uploads/&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>            <span class=n>dir_img</span> <span class=o>=</span> <span class=n>dir_name</span> <span class=o>+</span> <span class=s1>&#39;/&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>filename_list</span><span class=p>[:</span><span class=mi>2</span><span class=p>])</span> <span class=o>+</span> <span class=s1>&#39;/&#39;</span>  
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>dir_img</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>                <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>dir_img</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>            <span class=n>filename</span> <span class=o>=</span> <span class=n>dir_img</span> <span class=o>+</span> <span class=n>filename_list</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>            <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>filename</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>                <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>html_bytes</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>                <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> 下载成功&#39;</span> <span class=o>%</span> <span class=n>filename</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>            <span class=c1># 图片下载成功后把html代码里的图片链接替换成本地链接  </span>
+</span></span><span class=line><span class=cl>            <span class=n>html_content</span> <span class=o>=</span> <span class=n>html_content</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>img_link</span><span class=p>,</span> <span class=n>filename</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=k>except</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;图片下载出错，跳过&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>html_content</span>
+</span></span></code></pre></td></tr></table></div></div><p>这一部分代码相比上面用jupyter lab写的代码，增加了错误处理，如果requests报错，就捕获错误并让程序继续运行，而不是直接退出。</p><p>上面代码里的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>if</span> <span class=s1>&#39;greenhand&#39;</span> <span class=ow>in</span> <span class=n>img_link</span><span class=p>:</span> <span class=c1># 文章中部分图片链接失效  </span>
+</span></span><span class=line><span class=cl>	<span class=nb>print</span><span class=p>(</span><span class=s1>&#39;失效链接跳过&#39;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>	<span class=k>break</span>  
+</span></span></code></pre></td></tr></table></div></div><p>是用来跳过一些失效链接，这些图片链接里的共同特征是含有“greenhand”，我翻了好多份备份文件，都没找到这些图片，所有也没能补上，只好跳过它们。</p><p>还有的情况是，即便图片失效了，requests依然不会报错，而是下载下来一个空文件。这种情况，requests文档里应该有办法解决，但我是选择了手动处理。</p><p>保存文章：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>save_post</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>post_info_dict</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=n>text</span> <span class=o>=</span> <span class=s2>&#34;&#34;&#34;---  
+</span></span></span><span class=line><span class=cl><span class=s2>title: &#34;</span><span class=si>{}</span><span class=s2>&#34;  
+</span></span></span><span class=line><span class=cl><span class=s2>date: </span><span class=si>{}</span><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>categories:  
+</span></span></span><span class=line><span class=cl><span class=s2>- tags:  
+</span></span></span><span class=line><span class=cl><span class=s2>- ---  
+</span></span></span><span class=line><span class=cl><span class=s2></span><span class=si>{}</span><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>post_info_dict</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>],</span> <span class=n>post_info_dict</span><span class=p>[</span><span class=s1>&#39;pub_date&#39;</span><span class=p>],</span> <span class=n>post_info_dict</span><span class=p>[</span><span class=s1>&#39;content_md&#39;</span><span class=p>])</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=n>dir_post</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>spider_dir</span> <span class=o>+</span> <span class=s1>&#39;/post/&#39;</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>dir_post</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>            <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>dir_post</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=n>post_filename</span> <span class=o>=</span> <span class=n>dir_post</span> <span class=o>+</span> <span class=s1>&#39;wp_&#39;</span> <span class=o>+</span> <span class=n>post_info_dict</span><span class=p>[</span><span class=s1>&#39;slug&#39;</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39;.md&#39;</span>  
+</span></span><span class=line><span class=cl>        <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>post_filename</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>text</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> 文章保存成功&#39;</span> <span class=o>%</span> <span class=n>post_filename</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>注意一定不要为了代码整齐好看而让文档字符串跟着代码一起缩进，不然你用来缩进的那些空格都会进入到最后保存的文件当中，从而让文件内容变得杂乱。</p><p>最后是<code>run()</code>方法，我把这个方法比喻作开车时“点火启动”这个步骤：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>page_num</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=bp>self</span><span class=o>.</span><span class=n>get_page_nums</span><span class=p>()</span><span class=o>+</span><span class=mi>1</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>url</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>baseurl</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>page_num</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>get_post_info</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>在这个方法里，首先调用<code>get_page_nums()</code>方法获得总页码，然后一页页遍历文章列表。</p><h3 id=最后><a href=#%e6%9c%80%e5%90%8e class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>最后</h3><p>写代码是很有成就感的一个过程，如果每遇到一个困难都能顺畅解决，那就更有成就感啦。最后推荐一些帮我解决问题的网站：</p><ol><li><a href=https://www.runoob.com/>菜鸟教程 - 学的不仅是技术，更是梦想！</a>，我经常在这里直接搜python语法、函数的用法，linux命令等。</li><li><a href=https://stackoverflow.com/>Stack Overflow - Where Developers Learn, Share, & Build Careers</a>，如果你的程序报错，在这个网站里绝对有人遇到和你一样的报错信息。不过这个网站的搜索有些弱，最好是在Google搜(<code>site:stackoverflow.com</code>)。</li><li>Github，你想“造轮子”之前，先去看一看是不是有已经造好的轮子。比如上面用到的<code>markdownify</code>。</li><li>python包的官方网站或仓库主页。一般会有用法示范。</li></ol></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/django_separate_dev_and_prod_environment/ title="Previous post (older)"><span>Previous</span>
+Django开发环境和生产环境分离</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
