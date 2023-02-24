@@ -1,4 +1,13 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Feb 2023 17:29:36 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo</title><link>https://o5o.me/post/crawler_requests_wordpress_site_convert_to_hugo_markdown/</link><pubDate>Mon, 13 Feb 2023 17:29:36 +0800</pubDate><guid>https://o5o.me/post/crawler_requests_wordpress_site_convert_to_hugo_markdown/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>o5o</title><link>https://o5o.me/</link><description>Recent content on o5o</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 24 Feb 2023 13:36:05 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>如何理解Django路由配置URLConf中的正则表达式</title><link>https://o5o.me/post/django_urlconf_re_path/</link><pubDate>Fri, 24 Feb 2023 13:36:05 +0800</pubDate><guid>https://o5o.me/post/django_urlconf_re_path/</guid><description>
+&lt;p>在Django中，如果要通过url将参数传递给视图，有两种路由配置方式。如下两种方式等效：&lt;/p>
+&lt;pre tabindex="0">&lt;code>urlpatterns = [
+   path(&amp;#39;article/&amp;lt;int:id&amp;gt;/&amp;#39;, views.article_detail, name = &amp;#39;article_detail&amp;#39;),
+  re_path(r&amp;#39;^article/(?P&amp;lt;id&amp;gt;\d+)/$&amp;#39;, views.article_detail, name=&amp;#39;article_detail&amp;#39;),
+]
+&lt;/code>&lt;/pre>&lt;p>都可以匹配：&lt;code>http://.../article/3/&lt;/code>。其中的&lt;code>(?P&amp;lt;id&amp;gt;\d+)&lt;/code>作何理解？&lt;/p>
+&lt;p>这是一个命名组，将&lt;code>\d+&lt;/code>匹配到的数字记录到名字为&lt;code>id&lt;/code>的这个命名组中。&lt;/p>
+&lt;p>参考：&lt;a href="https://www.regular-expressions.info/named.html">Named Capturing Groups and Backreferences&lt;/a>
+&lt;a href="https://stackoverflow.com/questions/50286437/what-does-p-mean-in-ptopic-id-d">What does P mean in &lt;code>/(?P&amp;lt;topic_id&amp;gt;\d+)$&lt;/code>&lt;/a>&lt;/p></description></item><item><title>爬取WordPress网站：以爬虫的方式迁移WordPress至Hugo</title><link>https://o5o.me/post/crawler_requests_wordpress_site_convert_to_hugo_markdown/</link><pubDate>Mon, 13 Feb 2023 17:29:36 +0800</pubDate><guid>https://o5o.me/post/crawler_requests_wordpress_site_convert_to_hugo_markdown/</guid><description>
 &lt;p>写博客很多年了，以前用的都是WordPress，一个传统的PHP+MySQL的CMS。在2022年底开了一个新博客，用Hugo配合Obsidian来写，经过我的配置，在本地写好文章后只需git推送到github，github actions自动部署生成静态页面发送到服务器。很优雅的写作方式，所以从文章数量就能看出来，换用Hugo之后我是相当的高产。&lt;/p>
 &lt;p>所以我就想将这些年用WordPress写的文章都统一整理出来，集中用Hugo进行管理。很自然地我就想到了，使用python爬虫将所有文章和文章配图都爬取下来，将内容转换为Hugo能识别的Markdown格式。&lt;/p>
 &lt;h3 id="分析">
