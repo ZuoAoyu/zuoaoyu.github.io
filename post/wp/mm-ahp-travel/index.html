@@ -15,7 +15,7 @@ A=\begin{bmatrix}
 B_1=\begin{bmatrix}
 1 & 2 & 5\
 1/2 & 1 & 2\
-1/5 & 1/2 &1
+1/5 & 1/2 &amp;1
 \end{bmatrix},
 B_2=\begin{bmatrix}
 1 & 1/3 & 1/8\
@@ -25,7 +25,7 @@ B_2=\begin{bmatrix}
 B_3=\begin{bmatrix}
 1 & 1 & 3\
 1 & 1 & 3\
-1/3 & 1/3 &1
+1/3 & 1/3 &amp;1
 \end{bmatrix},
 B_4=\begin{bmatrix}
 1 & 3 & 4\
@@ -43,9 +43,9 @@ CI=\frac{\lambda-n}{n-1}
 其中, \lambda为矩阵的最大特征根, n为矩阵的阶数. 当CI=0时, 矩阵为一致阵, CI越大, 矩阵越不一致.
 Saaty又引入随机一致性指标RI, 并给出了他计算得到的随机一致性指标RI的数值：</p><table><thead><tr><th>n</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead><tbody><tr><td>RI</td><td>0.58</td><td>0.90</td><td>1.12</td><td>1.24</td><td>1.32</td><td>1.41</td><td>1.45</td><td>1.49</td></tr><tr><td>当CR(一致性比率)满足</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CR=\frac{CI}{RI}&lt;0.1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>时认为A的不一致程度在容许范围之内. 上式中的0.1是可以调整的, 对于重要决策问题应当适当减小.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>上述过程称为一致性检验. 若检验通过, 则可以用矩阵的特征向量作为权向量, 若检验不通过, 需要对矩阵作修正, 或者重新做成对比较.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>经计算, 以上各矩阵的CI值如下表</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><table><thead><tr><th>A</th><th>B1</th><th>B2</th><th>B3</th><th>B4</th><th>B5</th></tr></thead><tbody><tr><td>0.0180</td><td>0.0028</td><td>7.7081e-04</td><td>-1.1102e-15</td><td>0.0046</td><td>-4.4409e-16</td></tr><tr><td>以上各矩阵的CR值如下表</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><table><thead><tr><th>A</th><th>B1</th><th>B2</th><th>B3</th><th>B4</th><th>B5</th></tr></thead><tbody><tr><td>0.0161</td><td>0.0048</td><td>0.0013</td><td>-1.9142e-15</td><td>0.0079</td><td>-7.6567e-16</td></tr><tr><td>可以看到, 以上各矩阵的CR均小于0.1, 一致性检验通过. 故它们的特征向量(已归一化)\overrightarrow{\omega_{A}},\overrightarrow{\omega_{B1}},\overrightarrow{\omega_{B2}},\overrightarrow{\omega_{B3}},\overrightarrow{\omega_{B4}},\overrightarrow{\omega_{B5}}均可作为权向量. 其中最引人注目的是矩阵B3和B5, 因为它们是一致矩阵, 所以计算得到的值为0(Matlab中不为0是因为存在误差).</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 id=综合权重><a href=#%e7%bb%bc%e5%90%88%e6%9d%83%e9%87%8d class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>综合权重</h3><p>令W=[\overrightarrow{\omega_{B1}},\overrightarrow{\omega_{B2}},\overrightarrow{\omega_{B3}},\overrightarrow{\omega_{B4}},\overrightarrow{\omega_{B5}}], 那么
 W=\begin{bmatrix}
-0.5954&0.0819&0.4286&0.6337&0.1667\
-0.2764&0.2363&0.4286&0.1919&0.1667\
-0.1283&0.6817&0.1429&0.1744&0.6667
+0.5954&amp;0.0819&amp;0.4286&amp;0.6337&amp;0.1667\
+0.2764&amp;0.2363&amp;0.4286&amp;0.1919&amp;0.1667\
+0.1283&amp;0.6817&amp;0.1429&amp;0.1744&amp;0.6667
 \end{bmatrix}
 其中, 第i行的5个数值分别是方案P_i对4项准则的权重, 将它们与准则层对目标层的权重\overrightarrow{\omega_A}对应地相乘再求和, 就得到方案P_i对目标的权重. 从而, 第3层(方案层)对第1层(目标层)的综合权重\omega可表示为
 \omega=W\overrightarrow{\omega_A}
@@ -143,7 +143,7 @@ SW=[MVB1,MVB2,MVB3,MVB4,MVB5]*MVA
 </code></pre><h3 id=用到的工具><a href=#%e7%94%a8%e5%88%b0%e7%9a%84%e5%b7%a5%e5%85%b7 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>用到的工具</h3><p>[0]Matlab<br>[1] Typora<br>[2] LaTeX在线公式编辑<br>[3] Visual Studio Code<br>[4] KaTeX（及WP同名插件）<br>[5] Word</p><h3 id=我想说><a href=#%e6%88%91%e6%83%b3%e8%af%b4 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>我想说</h3><p>没有严格按我们平时用的模板的格式来写。
 WordPress 插入公式好麻烦。
 代码不够优雅。但我越来越喜欢Matlab了。</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/justaoyu/lumia830-att/ title="Previous post (older)"><span>Previous</span>
-Lumia830 美版 AT&T 申请解锁码解网络锁</a>
+Lumia830 美版 AT&amp;T 申请解锁码解网络锁</a>
 <a rel=next href=/post/wp/quicklatex-latex-wechat-png/ title="Next post (newer)"><span>Next</span>
 使用QuickLaTeX生成适于在微信公众号中使用的高清LaTeX数学公式图片</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
 <script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
