@@ -306,7 +306,7 @@
 &lt;p>我印象中不是第一次遇到这个报错了，因此就有了价值把它记录下来。&lt;/p>
 &lt;p>报错的原因在于，我在定义类的时候，把&lt;code>def __init__&lt;/code>写成了&lt;code>def __int__&lt;/code>。&lt;/p>
 &lt;p>在PyCharm中，写的时候如果写&lt;code>def in&lt;/code>，之后会有代码补全提示，它的第一项是&lt;code>def __int__&lt;/code>，如果不仔细看就敲了回车，错误就产生了。&lt;/p>
-&lt;p>正确的写法是老老实实把&lt;code>def __init(self):&lt;/code>一个字一个字地敲完。&lt;/p></description></item><item><title>如何理解Django路由配置URLConf中的正则表达式</title><link>https://o5o.me/post/django_urlconf_re_path/</link><pubDate>Fri, 24 Feb 2023 13:36:05 +0800</pubDate><guid>https://o5o.me/post/django_urlconf_re_path/</guid><description>
+&lt;p>正确的写法是老老实实把&lt;code>def __init__(self):&lt;/code>一个字一个字地敲完。&lt;/p></description></item><item><title>如何理解Django路由配置URLConf中的正则表达式</title><link>https://o5o.me/post/django_urlconf_re_path/</link><pubDate>Fri, 24 Feb 2023 13:36:05 +0800</pubDate><guid>https://o5o.me/post/django_urlconf_re_path/</guid><description>
 &lt;p>在Django中，如果要通过url将参数传递给视图，有两种路由配置方式。如下两种方式等效：&lt;/p>
 &lt;pre tabindex="0">&lt;code>urlpatterns = [
    path(&amp;#39;article/&amp;lt;int:id&amp;gt;/&amp;#39;, views.article_detail, name = &amp;#39;article_detail&amp;#39;),
