@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SRS on 侠客</title><link>https://o5o.me/categories/srs/</link><description>Recent content in SRS on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 31 Jan 2023 22:42:21 +0800</lastBuildDate><atom:link href="https://o5o.me/categories/srs/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu自建Anki同步服务</title><link>https://o5o.me/post/anki_self_hosted_sync_server_ubuntu/</link><pubDate>Tue, 31 Jan 2023 22:42:21 +0800</pubDate><guid>https://o5o.me/post/anki_self_hosted_sync_server_ubuntu/</guid><description>Anki更新2.1.57版本后，内置支持自建同步服务。之前都是需要以插件的形式实现，且搭建后往往只适用于旧版本的Anki，选择了自建同步服务就意味着放弃追求新版本和新功能。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SRS on 侠客</title><link>https://o5o.me/categories/srs/</link><description>Recent content in SRS on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Apr 2023 12:51:08 +0800</lastBuildDate><atom:link href="https://o5o.me/categories/srs/index.xml" rel="self" type="application/rss+xml"/><item><title>新安装的Supermemo界面调教优化</title><link>https://o5o.me/post/supermemo_init/</link><pubDate>Sun, 09 Apr 2023 12:51:08 +0800</pubDate><guid>https://o5o.me/post/supermemo_init/</guid><description>第一次打开 Question of the Day 第一次打开SuperMemo，在主界面前面有一个弹窗“Question of the Day”，里面是一些“使用中的常见问题”，对应的是文件SuperMemo\bin\tips.txt。点击“Close”即可关闭。
+激活 如果SM未激活，软件界面上方会有一个大大的红色横幅。点击红色横幅，在弹窗中点“Password”，输入激活码O4W54S31SM即可激活。
+Level 默认的Level是“Beginner”，修改为“Professional”会有更多的选项可使用。
+菜单栏 :- File - Level :- Professional
+Hints 提示 开启Hints(提示)后，将光标放在按钮上，会显示对应的提示，方便了解按钮的作用。
+菜单栏 :- Window :- Hints
+评分按钮 点击 Learn 开始学习和复习. 如果展示给你的是一道题, 下方会有5个评分按钮. 默认的评分按钮是图标, 但在我这里显示有&amp;quot;锯齿感&amp;quot;, 因此我习惯将它们更改为文字.
+菜单栏 - Toolkit - Options :- SuperMemo - 去掉勾选Greade icons - OK
+Layout 布局 我在复习卡片的时候比较喜欢在左侧打开“Contents”（目录树）。因此我一般会把布局调整成这个样子：
+调整软件界面布局为 Warrior layout：菜单栏 :- Window - Layout :- Warrior layout
+关闭左侧的 Statistics。
+打开目录树：软件界面最上方菜单栏下面一行按钮里点“Contents”，或快捷键Alt + C。
+用鼠标将软件各窗口手动调整成上图的位置。
+保存布局：菜单栏 :- Window - Layout :- Save as default，自己给布局起一个名字。</description></item><item><title>Ubuntu自建Anki同步服务</title><link>https://o5o.me/post/anki_self_hosted_sync_server_ubuntu/</link><pubDate>Tue, 31 Jan 2023 22:42:21 +0800</pubDate><guid>https://o5o.me/post/anki_self_hosted_sync_server_ubuntu/</guid><description>Anki更新2.1.57版本后，内置支持自建同步服务。之前都是需要以插件的形式实现，且搭建后往往只适用于旧版本的Anki，选择了自建同步服务就意味着放弃追求新版本和新功能。
 只需要几行代码就可以搭建自己的Anki同步服务了：
 screen -S anki-aoyu python3 -m venv ~/syncserver ~/syncserver/bin/pip install anki SYNC_USER1=aoyu:123456 ~/syncserver/bin/python -m anki.syncserver 我的系统版本是Ubuntu22.04，安装过程是相当顺畅的。很大概率你需要先运行apt install python3.10-venv，之后才能python3 -m venv ~/syncserver，不过你不需要提前考虑到这一点，报错后会提醒你安装的。
 SYNC_USER1后面跟的是账户名和密码，在Anki里用这个账号登录。

@@ -1,4 +1,144 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>侠客</title><link>https://o5o.me/</link><description>Recent content on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 05 Mar 2023 11:27:27 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>爬取网站的favicon.ico</title><link>https://o5o.me/post/crawler_requests_websites_favicon_ico/</link><pubDate>Sun, 05 Mar 2023 11:27:27 +0800</pubDate><guid>https://o5o.me/post/crawler_requests_websites_favicon_ico/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>侠客</title><link>https://o5o.me/</link><description>Recent content on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Apr 2023 12:51:08 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>新安装的Supermemo界面调教优化</title><link>https://o5o.me/post/supermemo_init/</link><pubDate>Sun, 09 Apr 2023 12:51:08 +0800</pubDate><guid>https://o5o.me/post/supermemo_init/</guid><description>
+&lt;h2 id="第一次打开">
+&lt;a href="#%e7%ac%ac%e4%b8%80%e6%ac%a1%e6%89%93%e5%bc%80" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+第一次打开
+&lt;/h2>
+&lt;h3 id="question-of-the-day">
+&lt;a href="#question-of-the-day" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Question of the Day
+&lt;/h3>
+&lt;p>第一次打开SuperMemo，在主界面前面有一个弹窗“Question of the Day”，里面是一些“使用中的常见问题”，对应的是文件&lt;code>SuperMemo\bin\tips.txt&lt;/code>。点击“Close”即可关闭。&lt;/p>
+&lt;h3 id="激活">
+&lt;a href="#%e6%bf%80%e6%b4%bb" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+激活
+&lt;/h3>
+&lt;p>如果SM未激活，软件界面上方会有一个大大的红色横幅。点击红色横幅，在弹窗中点“Password”，输入激活码&lt;code>O4W54S31SM&lt;/code>即可激活。&lt;/p>
+&lt;h3 id="level">
+&lt;a href="#level" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Level
+&lt;/h3>
+&lt;p>默认的Level是“Beginner”，修改为“Professional”会有更多的选项可使用。&lt;/p>
+&lt;p>菜单栏 :- File - Level :- Professional&lt;/p>
+&lt;h3 id="hints-提示">
+&lt;a href="#hints-%e6%8f%90%e7%a4%ba" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Hints 提示
+&lt;/h3>
+&lt;p>开启Hints(提示)后，将光标放在按钮上，会显示对应的提示，方便了解按钮的作用。&lt;/p>
+&lt;p>菜单栏 :- Window :- Hints&lt;/p>
+&lt;h3 id="评分按钮">
+&lt;a href="#%e8%af%84%e5%88%86%e6%8c%89%e9%92%ae" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+评分按钮
+&lt;/h3>
+&lt;p>点击 Learn 开始学习和复习. 如果展示给你的是一道题, 下方会有5个评分按钮. 默认的评分按钮是图标, 但在我这里显示有&amp;quot;锯齿感&amp;quot;, 因此我习惯将它们更改为文字.&lt;/p>
+&lt;p>菜单栏 - Toolkit - Options :- SuperMemo - 去掉勾选Greade icons - OK&lt;/p>
+&lt;h3 id="layout-布局">
+&lt;a href="#layout-%e5%b8%83%e5%b1%80" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Layout 布局
+&lt;/h3>
+&lt;p>我在复习卡片的时候比较喜欢在左侧打开“Contents”（目录树）。因此我一般会把布局调整成这个样子：&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://o5o.me/2023-04-09/supermemo_layout_content.png"
+alt=""
+width=1920
+height="1041" />&lt;/p>
+&lt;p>调整软件界面布局为 Warrior layout：菜单栏 :- Window - Layout :- Warrior layout&lt;/p>
+&lt;p>关闭左侧的 Statistics。&lt;/p>
+&lt;p>打开目录树：软件界面最上方菜单栏下面一行按钮里点“Contents”，或快捷键&lt;code>Alt + C&lt;/code>。&lt;/p>
+&lt;p>用鼠标将软件各窗口手动调整成上图的位置。&lt;/p>
+&lt;p>保存布局：菜单栏 :- Window - Layout :- Save as default，自己给布局起一个名字。&lt;/p>
+&lt;h2 id="自定义软件界面显示">
+&lt;a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e8%bd%af%e4%bb%b6%e7%95%8c%e9%9d%a2%e6%98%be%e7%a4%ba" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+自定义软件界面显示
+&lt;/h2>
+&lt;h3 id="修改软件字体">
+&lt;a href="#%e4%bf%ae%e6%94%b9%e8%bd%af%e4%bb%b6%e5%ad%97%e4%bd%93" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+修改软件字体
+&lt;/h3>
+&lt;p>菜单栏 - Toolkit :- Options - Fonts&lt;/p>
+&lt;p>SuperMemo 有很多的字体设置项, Interface font 软件界面字体, Question font问答卡片中Question部分的字体, Answer font 问答卡片中Answer部分的字体, Contents font 目录树的字体, Highlight font 高亮文本的字体.&lt;/p>
+&lt;p>这里的&amp;quot;问答卡片&amp;quot;, 指的是点击&amp;quot;Add new&amp;quot;按钮添加的有&amp;quot;上下两个框&amp;quot;的卡片.&lt;/p>
+&lt;p>软件另外有两处修改字体的地方: 菜单栏 - Toolkit :- Options - Language, Translation font, Phonetic transcription.&lt;/p>
+&lt;p>修改字体的同时, 字符集确保是&amp;quot;中文GB2312&amp;quot;, 我之前曾遇到乱码问题(导出卡片到另一个collection, 结果发现汉字乱码了), 怀疑和字符集有关.&lt;/p>
+&lt;h3 id="修改卡片内容字体">
+&lt;a href="#%e4%bf%ae%e6%94%b9%e5%8d%a1%e7%89%87%e5%86%85%e5%ae%b9%e5%ad%97%e4%bd%93" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+修改卡片内容字体
+&lt;/h3>
+&lt;p>把以上这些设置项都设定好后, 可以发现最重要的部分: 卡片内容的字体, 还是老样子. 卡片的字体等样式由css控制, 文件位于&lt;code>SuperMemo\bin\supermemo.css&lt;/code>. 如果是设置字体的话, 比较建议在软件内通过选项修改, 不建议直接修改CSS文件. 保存后SuperMemo会添加相关的代码到该css文件.&lt;/p>
+&lt;p>相关选项的位置: 菜单栏 - Toolkit :- Options - Fonts - Stylesheet&lt;/p>
+&lt;p>字体的控制选项非常多, 默认是&amp;quot;Text&amp;quot;, 可以通过下拉菜单修改其他部分的字体. 如果不知道每一个选项控制的是哪一部分, 可以先修改字体(不要改字体大小), 获得好的体验, 等后面SM用熟练了, 自然就知道选项指的是什么了.&lt;/p>
+&lt;p>等后面对SM非常熟悉了, 想获得更好的体验, 那时候再直接修改CSS. 如果打开css文件后发现中文乱码, 将文件编码修改为&amp;quot;gb2312&amp;quot;后重新打开文件即可.&lt;/p>
+&lt;h3 id="其他字体">
+&lt;a href="#%e5%85%b6%e4%bb%96%e5%ad%97%e4%bd%93" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+其他字体
+&lt;/h3>
+&lt;p>我发现在 supermemo.ini (&lt;code>SuperMemo\bin\supermemo.ini&lt;/code>) 中也有字体的设置项, 经测试, 控制的是 &amp;ldquo;Question of the Day&amp;rdquo; 弹窗中按钮的字体(也许还有其他部分).&lt;/p>
+&lt;p>如果这个文件打开后中文乱码, 同样的, 将文件编码修改为&amp;quot;gb2312&amp;quot;后重新打开文件即可.&lt;/p></description></item><item><title>爬取网站的favicon.ico</title><link>https://o5o.me/post/crawler_requests_websites_favicon_ico/</link><pubDate>Sun, 05 Mar 2023 11:27:27 +0800</pubDate><guid>https://o5o.me/post/crawler_requests_websites_favicon_ico/</guid><description>
 &lt;p>这个文件是显示在浏览器网站标题旁边的那个小图标。&lt;/p>
 &lt;p>网站一般会把它放在网站根目录，也有的是在网页里指定它的路径。&lt;/p>
 &lt;p>代码1：&lt;/p>
