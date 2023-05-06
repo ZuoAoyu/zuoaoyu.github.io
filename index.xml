@@ -1,4 +1,664 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>侠客</title><link>https://o5o.me/</link><description>Recent content on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 05 May 2023 16:29:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>keras多分类问题: 新闻主题分类</title><link>https://o5o.me/post/keras_case_multi_classify_report_class/</link><pubDate>Fri, 05 May 2023 16:29:00 +0800</pubDate><guid>https://o5o.me/post/keras_case_multi_classify_report_class/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>侠客</title><link>https://o5o.me/</link><description>Recent content on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 06 May 2023 09:50:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>keras回归问题: 房价预测</title><link>https://o5o.me/post/keras_case_regression_house_price_forecast/</link><pubDate>Sat, 06 May 2023 09:50:00 +0800</pubDate><guid>https://o5o.me/post/keras_case_regression_house_price_forecast/</guid><description>
+&lt;p>所用环境为Colab.&lt;/p>
+&lt;h2 id="定义任务目标">
+&lt;a href="#%e5%ae%9a%e4%b9%89%e4%bb%bb%e5%8a%a1%e7%9b%ae%e6%a0%87" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+定义任务目标
+&lt;/h2>
+&lt;p>拿到某地区的一些信息, 如犯罪率, 地方房产税率等, 预测该地区的房价.&lt;/p>
+&lt;h2 id="数据收集">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e6%94%b6%e9%9b%86" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据收集
+&lt;/h2>
+&lt;p>使用 波士顿房价 数据集.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 加载数据集(需联网)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">from&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">tensorflow&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">keras&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">datasets&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">import&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">boston_housing&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">train_targets&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">test_data&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">test_targets&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">boston_housing&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load_data&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="数据可视化">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据可视化
+&lt;/h4>
+&lt;p>建立对数据形状的感受.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 检查数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">train_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">train_targets&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">test_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">test_targets&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dtype&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ((404, 13), (404,), (102, 13), (102,), dtype(&amp;#39;float64&amp;#39;))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="nb">type&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]),&lt;/span> &lt;span class="n">train_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ndim&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># (numpy.ndarray, numpy.ndarray, 2)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>看一下数据集里的数据到底长什么样子, 数据对应的标签是什么.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">train_data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># array([ 1.23247, 0. , 8.14 , 0. , 0.538 , 6.142 , 91.7 , 3.9769 , 4. , 307. , 21. , 396.9 , 18.72 ])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">train_targets&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 15.2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="数据标注">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e6%a0%87%e6%b3%a8" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据标注
+&lt;/h3>
+&lt;p>已标注好&lt;/p>
+&lt;h3 id="数据清理">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e6%b8%85%e7%90%86" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据清理
+&lt;/h3>
+&lt;p>无需清理&lt;/p>
+&lt;h2 id="数据预处理">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e9%a2%84%e5%a4%84%e7%90%86" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据预处理
+&lt;/h2>
+&lt;h3 id="数据向量化和标准化">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e5%90%91%e9%87%8f%e5%8c%96%e5%92%8c%e6%a0%87%e5%87%86%e5%8c%96" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据向量化和标准化
+&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 数据标准化&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">mean&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mean&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">axis&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">train_data&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">-=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">mean&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">std&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">axis&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">train_data&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">/=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">std&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">test_data&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">-=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">mean&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="c1"># 注意, 测试数据标准化所用的均值和标准差值也是从训练数据里得到的, 而不是用测试数据的.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">test_data&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">/=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">std&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="处理缺失值">
+&lt;a href="#%e5%a4%84%e7%90%86%e7%bc%ba%e5%a4%b1%e5%80%bc" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+处理缺失值
+&lt;/h3>
+&lt;p>不需要处理缺失值.&lt;/p>
+&lt;h3 id="数据划分-训练集-验证集-测试集">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e5%88%92%e5%88%86-%e8%ae%ad%e7%bb%83%e9%9b%86-%e9%aa%8c%e8%af%81%e9%9b%86-%e6%b5%8b%e8%af%95%e9%9b%86" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据划分: 训练集, 验证集, 测试集
+&lt;/h3>
+&lt;p>数据量太少了, 使用K折交叉验证.&lt;/p>
+&lt;h2 id="选择模型评估方法">
+&lt;a href="#%e9%80%89%e6%8b%a9%e6%a8%a1%e5%9e%8b%e8%af%84%e4%bc%b0%e6%96%b9%e6%b3%95" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+选择模型评估方法
+&lt;/h2>
+&lt;h3 id="评估方法选择">
+&lt;a href="#%e8%af%84%e4%bc%b0%e6%96%b9%e6%b3%95%e9%80%89%e6%8b%a9" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+评估方法选择
+&lt;/h3>
+&lt;p>这里选择平均绝对误差(mean absolute error, MAE)作为模型评估的指标. 它是预测值与目标值之差的绝对值.&lt;/p>
+&lt;p>如果这个问题的MAE等于0.5, 就表示预测房价与实际价格平均相差500美元.&lt;/p>
+&lt;h3 id="确定简单基准模型应能超越这个基准">
+&lt;a href="#%e7%a1%ae%e5%ae%9a%e7%ae%80%e5%8d%95%e5%9f%ba%e5%87%86%e6%a8%a1%e5%9e%8b%e5%ba%94%e8%83%bd%e8%b6%85%e8%b6%8a%e8%bf%99%e4%b8%aa%e5%9f%ba%e5%87%86" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+确定简单基准(模型应能超越这个基准)
+&lt;/h3>
+&lt;p>无&lt;/p>
+&lt;h2 id="构建第一个模型">
+&lt;a href="#%e6%9e%84%e5%bb%ba%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%a8%a1%e5%9e%8b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+构建第一个模型
+&lt;/h2>
+&lt;h3 id="特征选择过滤没有信息量的特征-开发新特征">
+&lt;a href="#%e7%89%b9%e5%be%81%e9%80%89%e6%8b%a9%e8%bf%87%e6%bb%a4%e6%b2%a1%e6%9c%89%e4%bf%a1%e6%81%af%e9%87%8f%e7%9a%84%e7%89%b9%e5%be%81-%e5%bc%80%e5%8f%91%e6%96%b0%e7%89%b9%e5%be%81" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+特征选择(过滤没有信息量的特征; 开发新特征)
+&lt;/h3>
+&lt;p>在本例中特征就是该地区各房屋周边的相关信息了.&lt;/p>
+&lt;h3 id="选择架构">
+&lt;a href="#%e9%80%89%e6%8b%a9%e6%9e%b6%e6%9e%84" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+选择架构
+&lt;/h3>
+&lt;p>两个中间层, 每层64个单元. 第三层输出预测值.&lt;/p>
+&lt;p>层1: Dense层, &amp;ldquo;表示空间&amp;quot;的维数&lt;code>units&lt;/code>为&lt;code>64&lt;/code>, 激活函数&lt;code>activation&lt;/code>为&lt;code>relu&lt;/code>.&lt;/p>
+&lt;p>层2: Dense层, &amp;ldquo;表示空间&amp;quot;的维数&lt;code>units&lt;/code>为&lt;code>64&lt;/code>, 激活函数&lt;code>activation&lt;/code>为&lt;code>relu&lt;/code>.&lt;/p>
+&lt;p>层3: Dense层, &amp;ldquo;表示空间&amp;quot;的维数&lt;code>units&lt;/code>为&lt;code>1&lt;/code>, 它是一个线性层, 没有激活函数. 这是标量回归(预测单一连续值的回归)的典型设置.&lt;/p>
+&lt;h3 id="训练配置损失函数-批量大小-学习率">
+&lt;a href="#%e8%ae%ad%e7%bb%83%e9%85%8d%e7%bd%ae%e6%8d%9f%e5%a4%b1%e5%87%bd%e6%95%b0-%e6%89%b9%e9%87%8f%e5%a4%a7%e5%b0%8f-%e5%ad%a6%e4%b9%a0%e7%8e%87" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+训练配置(损失函数, 批量大小, 学习率)
+&lt;/h3>
+&lt;h4 id="优化器-optimizer">
+&lt;a href="#%e4%bc%98%e5%8c%96%e5%99%a8-optimizer" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+优化器 optimizer
+&lt;/h4>
+&lt;p>这里选&lt;code>rmsprop&lt;/code>&lt;/p>
+&lt;h4 id="损失函数-loss-function">
+&lt;a href="#%e6%8d%9f%e5%a4%b1%e5%87%bd%e6%95%b0-loss-function" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+损失函数 loss function
+&lt;/h4>
+&lt;p>这里选均方误差(mean squared error, MSE)损失函数&lt;code>mse&lt;/code>, 预测值与目标值之差的平方.&lt;/p>
+&lt;h4 id="训练轮数">
+&lt;a href="#%e8%ae%ad%e7%bb%83%e8%bd%ae%e6%95%b0" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+训练轮数
+&lt;/h4>
+&lt;p>这里训练100轮.&lt;/p>
+&lt;h4 id="数据批量大小">
+&lt;a href="#%e6%95%b0%e6%8d%ae%e6%89%b9%e9%87%8f%e5%a4%a7%e5%b0%8f" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+数据批量大小
+&lt;/h4>
+&lt;p>批量大小设为16.&lt;/p>
+&lt;h3 id="模型构建代码">
+&lt;a href="#%e6%a8%a1%e5%9e%8b%e6%9e%84%e5%bb%ba%e4%bb%a3%e7%a0%81" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+模型构建代码
+&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">from&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">tensorflow&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">import&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">keras&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">from&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">tensorflow&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">keras&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">import&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">layers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 由于需要将同一个模型多次实例化, 因此用一个函数来构建模型.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">def&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">build_model&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>&lt;span class="c1"># 构建模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>&lt;span class="n">model&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">keras&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Sequential&lt;/span>&lt;span class="p">([&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">    &lt;/span>&lt;span class="n">layers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Dense&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">64&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">activation&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;relu&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">    &lt;/span>&lt;span class="n">layers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Dense&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">64&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">activation&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;relu&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">    &lt;/span>&lt;span class="n">layers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Dense&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>&lt;span class="c1"># 编译模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>&lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">compile&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">optimizer&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;rmsprop&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">loss&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;mse&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">metrics&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;mae&amp;#34;&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">  &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">model&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="拟合模型-k折交叉验证">
+&lt;a href="#%e6%8b%9f%e5%90%88%e6%a8%a1%e5%9e%8b-k%e6%8a%98%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+拟合模型 k折交叉验证
+&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">numpy&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">np&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">k&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">4&lt;/span> &lt;span class="c1"># 分为4折, 3折作为训练数据, 1折作为验证数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">num_val_samples&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">//&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="c1"># 多少条数据作为验证数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">num_epochs&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="c1"># 训练100轮&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">all_scores&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">k&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;Processing fold #&lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">val_data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">train_data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1"># 准备验证数据: 第i个分区的数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">val_targets&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">train_targets&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1"># 验证数据目标值: 第i个分区的数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">partial_train_data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">concatenate&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">train_data&lt;/span>&lt;span class="p">[(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:]],&lt;/span> &lt;span class="n">axis&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">partial_train_targets&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">concatenate&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">train_targets&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">train_targets&lt;/span>&lt;span class="p">[(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:]],&lt;/span> &lt;span class="n">axis&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">model&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">build_model&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># 构建模型(已编译)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">fit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">partial_train_data&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">partial_train_targets&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">epochs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">num_epochs&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">batch_size&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">16&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">verbose&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 训练模型(静默模式, verbose=0)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">val_mse&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">val_mae&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">evaluate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">val_data&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">val_targets&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">verbose&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 在验证数据上评估模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">all_scores&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">val_mae&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出:&lt;/p>
+&lt;pre tabindex="0">&lt;code>Processing fold #0
+Processing fold #1
+Processing fold #2
+Processing fold #3
+&lt;/code>&lt;/pre>&lt;p>训练时各轮的所有分数:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">all_scores&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># [1.963736653327942, 2.7470197677612305, 2.514702558517456, 2.423671007156372]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mean&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">all_scores&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2.41228249669075&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="改进模型">
+&lt;a href="#%e6%94%b9%e8%bf%9b%e6%a8%a1%e5%9e%8b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+改进模型
+&lt;/h2>
+&lt;p>上面的模型, 最后得到的是在每一折上训练100轮后的得分(mae). 现在修改模型, 在每一折上训练500轮, 把每一轮的得分都记录下来. 最后计算每一轮在每一折上的平均得分. 最后得到的应该是500个值.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">numpy&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">np&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">k&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">4&lt;/span> &lt;span class="c1"># 分为4折, 3折作为训练数据, 1折作为验证数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">num_val_samples&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">//&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="c1"># 多少条数据作为验证数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">num_epochs&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">500&lt;/span> &lt;span class="c1"># 训练100轮&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">all_mae_histories&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">k&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;Processing fold #&lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">val_data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">train_data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1"># 准备验证数据: 第i个分区的数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">val_targets&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">train_targets&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1"># 验证数据目标值: 第i个分区的数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">partial_train_data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">concatenate&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">train_data&lt;/span>&lt;span class="p">[(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:]],&lt;/span> &lt;span class="n">axis&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">partial_train_targets&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">concatenate&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">train_targets&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">train_targets&lt;/span>&lt;span class="p">[(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">num_val_samples&lt;/span>&lt;span class="p">:]],&lt;/span> &lt;span class="n">axis&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">model&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">build_model&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># 构建模型(已编译)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">history&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">fit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">partial_train_data&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">partial_train_targets&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">validation_data&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">val_data&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">val_targets&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">epochs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">num_epochs&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">batch_size&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">16&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">verbose&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 训练模型(静默模式, verbose=0)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">mae_history&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">history&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">history&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;val_mae&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">all_mae_histories&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mae_history&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Processing fold #0 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Processing fold #1 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Processing fold #2 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Processing fold #3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>结果:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">all_mae_histories&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">average_mae_history&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mean&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="ow">in&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">all_mae_histories&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="ow">in&lt;/span>&lt;span class="err"> &lt;/span>&lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num_epochs&lt;/span>&lt;span class="p">)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">average_mae_history&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 500&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="可视化拟合结果">
+&lt;a href="#%e5%8f%af%e8%a7%86%e5%8c%96%e6%8b%9f%e5%90%88%e7%bb%93%e6%9e%9c" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+可视化拟合结果
+&lt;/h3>
+&lt;h4 id="绘制验证mae曲线">
+&lt;a href="#%e7%bb%98%e5%88%b6%e9%aa%8c%e8%af%81mae%e6%9b%b2%e7%ba%bf" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+绘制验证MAE曲线
+&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">matplotlib.pyplot&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">plt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">plot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">average_mae_history&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">average_mae_history&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">xlabel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Epochs&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ylabel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Validation MAE&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img loading="lazy"
+src="https://o5o.me/2023-05-06/20230506112806.png"
+alt=""
+width=576
+height="432" />&lt;/p>
+&lt;p>前面几轮的验证MAE远大于后面的轮次, 很难从图中发现规律. 忽略前10个数据点.&lt;/p>
+&lt;h4 id="绘制验证mae曲线剔除前10个数据点">
+&lt;a href="#%e7%bb%98%e5%88%b6%e9%aa%8c%e8%af%81mae%e6%9b%b2%e7%ba%bf%e5%89%94%e9%99%a4%e5%89%8d10%e4%b8%aa%e6%95%b0%e6%8d%ae%e7%82%b9" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+绘制验证MAE曲线(剔除前10个数据点)
+&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">matplotlib.pyplot&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">plt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">truncated_mae_history&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">average_mae_history&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">:]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">plot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">truncated_mae_history&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">truncated_mae_history&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">xlabel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Epochs&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ylabel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Validation MAE&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">plt&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img loading="lazy"
+src="https://o5o.me/2023-05-06/20230506113139.png"
+alt=""
+width=567
+height="432" />&lt;/p>
+&lt;p>从图中看出, 当训练到120轮之后验证数据的MAE就不再显著降低, 之后就开始过拟合.&lt;/p>
+&lt;h2 id="训练最终模型">
+&lt;a href="#%e8%ae%ad%e7%bb%83%e6%9c%80%e7%bb%88%e6%a8%a1%e5%9e%8b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+训练最终模型
+&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">model&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">build_model&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">fit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">train_data&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">train_targets&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">epochs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">130&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">batch_size&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">16&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">verbose&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 在所有训练数据上训练模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">test_mse_score&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">test_mae_score&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">evaluate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">test_data&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">test_targets&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>结果:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">test_mae_score&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2.342545747756958&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="评价模型">
+&lt;a href="#%e8%af%84%e4%bb%b7%e6%a8%a1%e5%9e%8b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+评价模型
+&lt;/h2>
+&lt;p>上面得到的MAE为2.34, 也就是说, 房价预测值和实际值平均相差了2340美元. 差距依旧很大, 不过比最开始的模型有了一点点进步.&lt;/p>
+&lt;h2 id="利用模型进行预测">
+&lt;a href="#%e5%88%a9%e7%94%a8%e6%a8%a1%e5%9e%8b%e8%bf%9b%e8%a1%8c%e9%a2%84%e6%b5%8b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+利用模型进行预测
+&lt;/h2>
+&lt;p>拿到一栋房屋的各项特征数据, 把它像上面那样进行数据预处理, 之后用&lt;code>model.predict()&lt;/code>进行预测.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">predictions&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">predict&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">test_data&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">predictions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>结果:&lt;/p>
+&lt;pre tabindex="0">&lt;code>4/4 [==============================] - 0s 4ms/step
+array([7.722374], dtype=float32)
+&lt;/code>&lt;/pre>&lt;p>预测得到的值为&lt;code>7.722374&lt;/code>, 表明模型认为, 测试数据里第一所房子的价格约为7722美元.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">test_targets&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 7.2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>房屋的实际价格是7200美元, 预测结果和真实价格相差了500美元.&lt;/p>
+&lt;h2 id="部署模型">
+&lt;a href="#%e9%83%a8%e7%bd%b2%e6%a8%a1%e5%9e%8b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+部署模型
+&lt;/h2>
+&lt;p>不部署.&lt;/p></description></item><item><title>keras多分类问题: 新闻主题分类</title><link>https://o5o.me/post/keras_case_multi_classify_report_class/</link><pubDate>Fri, 05 May 2023 16:29:00 +0800</pubDate><guid>https://o5o.me/post/keras_case_multi_classify_report_class/</guid><description>
 &lt;p>所用环境为Colab.&lt;/p>
 &lt;h2 id="定义任务目标">
 &lt;a href="#%e5%ae%9a%e4%b9%89%e4%bb%bb%e5%8a%a1%e7%9b%ae%e6%a0%87" class="anchor">
