@@ -1,0 +1,148 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>下载网页图片到本地并替换网页内的图片链接 | 侠客</title><meta property="og:site_name" content="侠客"><meta property="og:title" content="下载网页图片到本地并替换网页内的图片链接 | 侠客"><meta itemprop=name content="下载网页图片到本地并替换网页内的图片链接 | 侠客"><meta name=twitter:title content="下载网页图片到本地并替换网页内的图片链接 | 侠客"><meta name=application-name content="下载网页图片到本地并替换网页内的图片链接 | 侠客"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2023-05-06T09:50:00+0800"><meta property="article:published_time" content="2023-05-06T09:50:00+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"下载网页图片到本地并替换网页内的图片链接","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2023-05-06","description":"","wordCount":285,"mainEntityOfPage":"True","dateModified":"2023-05-06","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+侠客</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>下载网页图片到本地并替换网页内的图片链接</h1><div class=post-meta><div>By Guanghao Zuo | <time>May 06, 2023</time>
+| 2 minutes</div><div class=tags><a href=/tags/requests/>requests</a></div></div></div></div></header></article><div class=article-post><p>从某信读书下载下来一本电子书, 是一个html文件, 里面包含所有的文字内容, 但里面的图片依然都是在线链接. 本文的目的是把这些图片都下载到本地, 并且把html页面里面的图片链接都替换成本地的链接.</p><h2 id=导入预计用到的模块><a href=#%e5%af%bc%e5%85%a5%e9%a2%84%e8%ae%a1%e7%94%a8%e5%88%b0%e7%9a%84%e6%a8%a1%e5%9d%97 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>导入预计用到的模块</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 导包</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pathlib</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>lxml</span> <span class=kn>import</span> <span class=n>etree</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>re</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=读取html文件><a href=#%e8%af%bb%e5%8f%96html%e6%96%87%e4%bb%b6 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>读取html文件</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>base_dir</span> <span class=o>=</span> <span class=n>pathlib</span><span class=o>.</span><span class=n>Path</span><span class=p>(</span><span class=sa>r</span><span class=s2>&#34;D:\Projects\book_hands_on_machine_learning&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>file_path</span> <span class=o>=</span> <span class=n>base_dir</span> <span class=o>/</span> <span class=s2>&#34;book.html&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>html_content</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=xpath解析得到图片的xpath对象列表><a href=#xpath%e8%a7%a3%e6%9e%90%e5%be%97%e5%88%b0%e5%9b%be%e7%89%87%e7%9a%84xpath%e5%af%b9%e8%b1%a1%e5%88%97%e8%a1%a8 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>XPATH解析得到图片的xpath对象列表</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>parse_xpath</span><span class=p>(</span><span class=n>html</span><span class=p>,</span> <span class=n>xpath_stat</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>parse_html</span> <span class=o>=</span> <span class=n>etree</span><span class=o>.</span><span class=n>HTML</span><span class=p>(</span><span class=n>html</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>result_list</span> <span class=o>=</span> <span class=n>parse_html</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=n>xpath_stat</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result_list</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>img_xpath_list</span> <span class=o>=</span> <span class=n>parse_xpath</span><span class=p>(</span><span class=n>html_content</span><span class=p>,</span> <span class=s1>&#39;//img&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=得到图片链接的列表><a href=#%e5%be%97%e5%88%b0%e5%9b%be%e7%89%87%e9%93%be%e6%8e%a5%e7%9a%84%e5%88%97%e8%a1%a8 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>得到图片链接的列表</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_img_list</span><span class=p>(</span><span class=n>xpath_list</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>img_url_list</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>item</span> <span class=ow>in</span> <span class=n>xpath_list</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>url</span> <span class=o>=</span> <span class=n>item</span><span class=o>.</span><span class=n>xpath</span><span class=p>(</span><span class=s1>&#39;./@src&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>img_url_list</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 链接去重并保留原顺序</span>
+</span></span><span class=line><span class=cl>    <span class=n>img_url_list_new</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=nb>set</span><span class=p>(</span><span class=n>img_url_list</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>img_url_list_new</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>key</span><span class=o>=</span><span class=n>img_url_list</span><span class=o>.</span><span class=n>index</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>img_url_list_new</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>img_url_list</span> <span class=o>=</span> <span class=n>get_img_list</span><span class=p>(</span><span class=n>img_xpath_list</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=下载图片到本地><a href=#%e4%b8%8b%e8%bd%bd%e5%9b%be%e7%89%87%e5%88%b0%e6%9c%ac%e5%9c%b0 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>下载图片到本地</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>save_img</span><span class=p>(</span><span class=n>img_urls</span><span class=p>:</span> <span class=nb>list</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>headers</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;User-Agent&#39;</span><span class=p>:</span> <span class=s1>&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;Cookie&#39;</span><span class=p>:</span> <span class=s1>&#39;填自己的&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>url_file_path_tuple_list</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=n>img_list_length</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>img_urls</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>img_dir</span> <span class=o>=</span> <span class=n>base_dir</span> <span class=o>/</span> <span class=s1>&#39;imgs&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>img_dir</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>img_dir</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>url</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>img_urls</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>img_name</span> <span class=o>=</span> <span class=n>url</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39;.jpg&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=n>img_path</span> <span class=o>=</span> <span class=n>img_dir</span> <span class=o>/</span> <span class=n>img_name</span>
+</span></span><span class=line><span class=cl>        <span class=n>res</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=o>=</span><span class=n>url</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>)</span><span class=o>.</span><span class=n>content</span>
+</span></span><span class=line><span class=cl>        <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>img_path</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>res</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;进度: </span><span class=si>{</span><span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>/</span> <span class=n>img_list_length</span> <span class=o>*</span> <span class=mi>100</span><span class=si>:</span><span class=s2>.2f</span><span class=si>}</span><span class=s2>% 图片 </span><span class=si>{</span><span class=n>url</span><span class=si>}</span><span class=s2> 下载成功.&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>url_file_path_tuple_list</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>url</span><span class=p>,</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>relpath</span><span class=p>(</span><span class=n>img_path</span><span class=p>,</span> <span class=n>base_dir</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>url_file_path_tuple_list</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>url_file_path_tuple_list</span> <span class=o>=</span> <span class=n>save_img</span><span class=p>(</span><span class=n>img_url_list</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=替换html页面里的图片链接为本地链接><a href=#%e6%9b%bf%e6%8d%a2html%e9%a1%b5%e9%9d%a2%e9%87%8c%e7%9a%84%e5%9b%be%e7%89%87%e9%93%be%e6%8e%a5%e4%b8%ba%e6%9c%ac%e5%9c%b0%e9%93%be%e6%8e%a5 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>替换html页面里的图片链接为本地链接</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>replace_img_url</span><span class=p>(</span><span class=n>html_content</span><span class=p>,</span> <span class=n>url_file_path_tuple_list</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>url</span><span class=p>,</span> <span class=n>img_path</span> <span class=ow>in</span> <span class=n>url_file_path_tuple_list</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>html_content</span> <span class=o>=</span> <span class=n>html_content</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;src=&#34;</span><span class=si>{</span><span class=n>url</span><span class=si>}</span><span class=s1>&#34;&#39;</span><span class=p>,</span> <span class=sa>f</span><span class=s1>&#39;src=&#34;</span><span class=si>{</span><span class=n>img_path</span><span class=si>}</span><span class=s1>&#34;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>html_content</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>new_parsed_html</span> <span class=o>=</span> <span class=n>replace_img_url</span><span class=p>(</span><span class=n>html_content</span><span class=p>,</span> <span class=n>url_file_path_tuple_list</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=html其他调整><a href=#html%e5%85%b6%e4%bb%96%e8%b0%83%e6%95%b4 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>html其他调整</h2><p>图片img标签外包裹有一层a标签, 点击图片会打开一个链接. 因此我选择把html里的所有a标签都去掉.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>new_parsed_html</span> <span class=o>=</span> <span class=n>re</span><span class=o>.</span><span class=n>sub</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;href=&#34;http://popImage\?src=.*?&#34;&#39;</span><span class=p>,</span> <span class=s1>&#39;href=&#34;#&#34;&#39;</span><span class=p>,</span> <span class=n>new_parsed_html</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>new_parsed_html</span> <span class=o>=</span> <span class=n>re</span><span class=o>.</span><span class=n>sub</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;&lt;a .*?&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=n>new_parsed_html</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>new_parsed_html</span> <span class=o>=</span> <span class=n>re</span><span class=o>.</span><span class=n>sub</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;&lt;/a&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=n>new_parsed_html</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=保存文件><a href=#%e4%bf%9d%e5%ad%98%e6%96%87%e4%bb%b6 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>保存文件</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>base_dir</span> <span class=o>/</span> <span class=s1>&#39;result.html&#39;</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=err> </span> <span class=err> </span> <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>new_parsed_html</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>最后就得到了一本可以纯本地阅读的电子书. 进一步地, 还可以把它转换成epub格式的电子书. 这就是后面的话题了.</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/keras_case_multi_classify_report_class/ title="Previous post (older)"><span>Previous</span>
+keras多分类问题: 新闻主题分类</a>
+<a rel=next href=/post/keras_case_regression_house_price_forecast/ title="Next post (newer)"><span>Next</span>
+keras回归问题: 房价预测</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
