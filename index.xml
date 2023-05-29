@@ -195,7 +195,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 关闭SSH连接
 &lt;/h3>
-&lt;p>快捷键: &lt;code>ctrl+d2l&lt;/code>, 也可以通过在命令行输入&lt;code>exit&lt;/code>来退出.&lt;/p>
+&lt;p>快捷键: &lt;code>ctrl+d&lt;/code>, 也可以通过在命令行输入&lt;code>exit&lt;/code>来退出.&lt;/p>
 &lt;h2 id="好的小tips">
 &lt;a href="#%e5%a5%bd%e7%9a%84%e5%b0%8ftips" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
