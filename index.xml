@@ -1,4 +1,95 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>侠客</title><link>https://o5o.me/</link><description>Recent content on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 05 Jun 2023 17:26:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>红米手机进入brom模式的方法</title><link>https://o5o.me/post/android_mi_brom_mode/</link><pubDate>Mon, 05 Jun 2023 17:26:00 +0800</pubDate><guid>https://o5o.me/post/android_mi_brom_mode/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>侠客</title><link>https://o5o.me/</link><description>Recent content on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 29 Jun 2023 16:05:00 +0800</lastBuildDate><atom:link href="https://o5o.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Python打印变量名(属性名)及其值</title><link>https://o5o.me/post/python_print_both_variable_name_and_value/</link><pubDate>Thu, 29 Jun 2023 16:05:00 +0800</pubDate><guid>https://o5o.me/post/python_print_both_variable_name_and_value/</guid><description>
+&lt;p>在导入包后, 往往想要打印出包的版本, 如:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">torch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">torchvision&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>想要打印出:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">torch.__version__: 2.0.1+cu117
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">torchvision.__version__: 0.15.2+cu117
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>但如果像下面这样写, 就太不优雅了:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;torch.__version__: &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">__version__&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;torchvision.__version__: &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">torchvision&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">__version__&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也就是在代码里, 每想查看一个包的版本号, 实际上要写两遍&lt;code>__version__&lt;/code>属性名, 一个用于打印普通字符串, 一个用于取属性值.&lt;/p>
+&lt;p>有没有这样一个函数, 把变量名(或属性名)传进去, 就能打印出&lt;code>名称: 值&lt;/code>的字符串呢?&lt;/p>
+&lt;p>我在网上搜索这个问题, 找到了解决办法, 并根据同样的思路, 写了一个自己的版本.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">re&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">inspect&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">print_name_and_value&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">variable_a&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> 打印变量名(传递给函数的实参名), 及其值
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">current_func_info&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">inspect&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">getframeinfo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">inspect&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">currentframe&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">f_back&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">codes&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">list&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">current_func_info&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1"># 取得code_context, 也就是调用该函数的那行代码的文本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">r_list&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">re&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">findall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s1">&amp;#39;\bprint_name_and_value\(\s*(.*?)\s*\)&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">codes&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">re&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">S&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># \b, 单词的边界&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># \s, 任何一个空白字符（等价于`[\f\n\r\t\v]`）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># re.S, 包括换行符在内的任意字符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">r_list&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">r_list&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">variable_a&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># return (r_list[0], variable_a)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">None&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>运行函数:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">print_name_and_value&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">__version__&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print_name_and_value&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torchvision&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">__version__&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>函数运行后, &lt;code>print_name_and_value&lt;/code>函数拿到调用它的那行代码的原文, 然后用正则表达式从中取出函数名后面那个括号里的内容.&lt;/p>
+&lt;p>上述代码我暂时只在Jupyter里进行了测试.&lt;/p></description></item><item><title>红米手机进入brom模式的方法</title><link>https://o5o.me/post/android_mi_brom_mode/</link><pubDate>Mon, 05 Jun 2023 17:26:00 +0800</pubDate><guid>https://o5o.me/post/android_mi_brom_mode/</guid><description>
 &lt;p>众所周知, 小米/红米手机在root前需解BL锁, 如果从官方渠道解锁, 需要等一周甚至更长的时间. 好在联发科芯片的手机可以强制解BL. 解BL锁需让手机进入brom模式, 方法如下:&lt;/p>
 &lt;p>打开解BL的软件, 等待手机连接. 数据线一段先连接到电脑上, 之后, 同时按住手机的&lt;code>音量+&lt;/code>和&lt;code>音量-&lt;/code>键, 然后将数据线另一端插到手机上(不要松开按着手机音量键的手指), 这样就进入brom模式了, 软件会提示已连接到手机(这时再松开按着按键的手指). 需要注意的是, 手机在该模式下是黑屏的状态, 屏幕上没有任何提示.&lt;/p>
 &lt;p>我在 Redmi9 上测试通过.&lt;/p></description></item><item><title>深度学习环境安装</title><link>https://o5o.me/post/deep_learning_environment_basic/</link><pubDate>Mon, 29 May 2023 14:58:08 +0800</pubDate><guid>https://o5o.me/post/deep_learning_environment_basic/</guid><description>
