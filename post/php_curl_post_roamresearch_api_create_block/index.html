@@ -1,0 +1,116 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>PHP cURL 调用 RoamResearch API 创建 Block | 侠客</title><meta property="og:site_name" content="侠客"><meta property="og:title" content="PHP cURL 调用 RoamResearch API 创建 Block | 侠客"><meta itemprop=name content="PHP cURL 调用 RoamResearch API 创建 Block | 侠客"><meta name=twitter:title content="PHP cURL 调用 RoamResearch API 创建 Block | 侠客"><meta name=application-name content="PHP cURL 调用 RoamResearch API 创建 Block | 侠客"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2023-07-13T10:42:00+0800"><meta property="article:published_time" content="2023-07-13T10:42:00+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"PHP cURL 调用 RoamResearch API 创建 Block","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2023-07-13","description":"","wordCount":251,"mainEntityOfPage":"True","dateModified":"2023-07-13","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+侠客</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>PHP cURL 调用 RoamResearch API 创建 Block</h1><div class=post-meta><div>By Guanghao Zuo | <time>July 13, 2023</time>
+| 2 minutes</div><div class=tags></div></div></div></div></header></article><div class=article-post><p>效果: 用户向公众号发送消息, 公众号后端服务器接收到消息后, 调用 RoamResearch 的 API, 创建一个新 block, 将用户的笔记保存到 RR Graph 内.</p><p>代码如下, 目前还比较简陋:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=k>use</span> <span class=nx>Log</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nx>Log</span><span class=o>::</span><span class=na>info</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nv>$message</span><span class=p>[</span><span class=s2>&#34;FromUserName&#34;</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;我的微信标识&#34;</span> <span class=o>&amp;&amp;</span> <span class=nv>$message</span><span class=p>[</span><span class=s2>&#34;MsgType&#34;</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;text&#34;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nv>$today</span> <span class=o>=</span> <span class=nx>date</span><span class=p>(</span><span class=s1>&#39;m-d-Y&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>$data_create_block</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;action&#34;</span> <span class=o>=&gt;</span> <span class=s2>&#34;create-block&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;location&#34;</span> <span class=o>=&gt;</span> <span class=p>[</span><span class=s2>&#34;parent-uid&#34;</span> <span class=o>=&gt;</span> <span class=nv>$today</span><span class=p>,</span> <span class=s2>&#34;order&#34;</span> <span class=o>=&gt;</span> <span class=s2>&#34;last&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;block&#34;</span> <span class=o>=&gt;</span> <span class=p>[</span><span class=s2>&#34;string&#34;</span> <span class=o>=&gt;</span> <span class=nv>$message</span><span class=p>[</span><span class=s2>&#34;Content&#34;</span><span class=p>]],</span>
+</span></span><span class=line><span class=cl>    <span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>$curl</span> <span class=o>=</span> <span class=nx>curl_init</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>curl_setopt_array</span><span class=p>(</span><span class=nv>$curl</span><span class=p>,</span> <span class=k>array</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_URL</span> <span class=o>=&gt;</span> <span class=s2>&#34;https://api.roamresearch.com/api/graph/graph名称/write&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_RETURNTRANSFER</span> <span class=o>=&gt;</span> <span class=k>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_FOLLOWLOCATION</span> <span class=o>=&gt;</span> <span class=k>true</span><span class=p>,</span>  <span class=c1># important
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nx>CURLOPT_UNRESTRICTED_AUTH</span> <span class=o>=&gt;</span> <span class=k>true</span><span class=p>,</span>  <span class=c1># important
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nx>CURLOPT_ENCODING</span> <span class=o>=&gt;</span> <span class=s2>&#34;&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_MAXREDIRS</span> <span class=o>=&gt;</span> <span class=mi>10</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_TIMEOUT</span> <span class=o>=&gt;</span> <span class=mi>30000</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_HTTP_VERSION</span> <span class=o>=&gt;</span> <span class=nx>CURL_HTTP_VERSION_1_1</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_CUSTOMREQUEST</span> <span class=o>=&gt;</span> <span class=s2>&#34;POST&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_POSTFIELDS</span> <span class=o>=&gt;</span> <span class=nx>json_encode</span><span class=p>(</span><span class=nv>$data_create_block</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=nx>CURLOPT_HTTPHEADER</span> <span class=o>=&gt;</span> <span class=k>array</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Content-Type: application/json&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Authorization: &#34;</span> <span class=o>.</span> <span class=s2>&#34;Bearer &#34;</span> <span class=o>.</span> <span class=s2>&#34;你在RR申请的key, 开头是roam-graph-token-&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Accept: application/json&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>$response</span> <span class=o>=</span> <span class=nx>curl_exec</span><span class=p>(</span><span class=nv>$curl</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nv>$err</span> <span class=o>=</span> <span class=nx>curl_error</span><span class=p>(</span><span class=nv>$curl</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nv>$http_info</span> <span class=o>=</span> <span class=nx>curl_getinfo</span><span class=p>(</span><span class=nv>$curl</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nx>curl_close</span><span class=p>(</span><span class=nv>$curl</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nv>$err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>Log</span><span class=o>::</span><span class=na>info</span><span class=p>(</span><span class=s2>&#34;fail&#34;</span> <span class=o>.</span> <span class=nv>$err</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=s2>&#34;fail&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nv>$http_info</span><span class=p>[</span><span class=s2>&#34;http_code&#34;</span><span class=p>]</span> <span class=o>==</span> <span class=mi>200</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>Log</span><span class=o>::</span><span class=na>info</span><span class=p>(</span><span class=s2>&#34;success&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=s2>&#34;success&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s2>&#34;fail&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>return</span> <span class=s2>&#34;你不该在这里&#34;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>和普通的 POST 请求不同, 向 api 发送 POST 请求后, url 会进行重定向, 因此, 要为 cURL 添加选项, 使其支持重定向, 并且在向重定向后的 url 发送请求时, 需要请求头依然附带 <code>Authorization</code> 字段. 因此下面这两个选项非常关键:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=nx>CURLOPT_FOLLOWLOCATION</span> <span class=o>=&gt;</span> <span class=k>true</span><span class=p>,</span>  <span class=c1># important
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>CURLOPT_UNRESTRICTED_AUTH</span> <span class=o>=&gt;</span> <span class=k>true</span><span class=p>,</span>  <span class=c1># important
+</span></span></span></code></pre></td></tr></table></div></div><p>第一个选项<code>CURLOPT_FOLLOWLOCATION</code>, PHP手册中是这样写的: true 时将会根据服务器返回 HTTP 头中的 &ldquo;Location: " 重定向。（注意：这是递归的，&ldquo;Location: " 发送几次就重定向几次，除非设置了 CURLOPT_MAXREDIRS，限制最大重定向次数）。</p><p>第二个选项<code>CURLOPT_UNRESTRICTED_AUTH</code>, PHP手册中是这样写的: true 在使用CURLOPT_FOLLOWLOCATION重定向 header 中的多个 location 时继续发送用户名和密码信息，哪怕主机名已改变。</p><p>我在使用 GuzzleHttp 时没有发现有类似的设置项.</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/keras_training_progress_bar/ title="Previous post (older)"><span>Previous</span>
+模仿Keras的进度条</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>
