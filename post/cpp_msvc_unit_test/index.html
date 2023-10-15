@@ -1,0 +1,346 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>MSVC编写C++代码的单元测试 | 侠客</title><meta property="og:site_name" content="侠客"><meta property="og:title" content="MSVC编写C++代码的单元测试 | 侠客"><meta itemprop=name content="MSVC编写C++代码的单元测试 | 侠客"><meta name=twitter:title content="MSVC编写C++代码的单元测试 | 侠客"><meta name=application-name content="MSVC编写C++代码的单元测试 | 侠客"><meta name=twitter:card content="summary"><meta name=description content="工作、学习、生活、理想"><meta name=twitter:description content="工作、学习、生活、理想"><meta itemprop=description content="工作、学习、生活、理想"><meta property="og:description" content="工作、学习、生活、理想"><meta property="og:type" content="article"><meta property="article:publisher" content="Guanghao Zuo"><meta property="og:article:published_time" content="2023-10-15T14:36:00+0800"><meta property="article:published_time" content="2023-10-15T14:36:00+0800"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"MSVC编写C++代码的单元测试","author":{"@type":"Person","name":"Guanghao Zuo"},"datePublished":"2023-10-15","description":"","wordCount":608,"mainEntityOfPage":"True","dateModified":"2023-10-15","publisher":{"@type":"Organization","name":"Guanghao Zuo","logo":{"@type":"imageObject","url":"https:\/\/o5o.me\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><img src=/favicon.ico>
+侠客</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>MSVC编写C++代码的单元测试</h1><div class=post-meta><div>By Guanghao Zuo | <time>October 15, 2023</time>
+| 3 minutes</div><div class=tags><a href=/tags/c++/>C++</a></div></div></div></div></header></article><div class=article-post><p>我认为, 在开发时, 单元测试的编写时间要早于或等于功能代码的编写时间.</p><h2 id=第一个测试><a href=#%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%b5%8b%e8%af%95 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>第一个测试</h2><p>假如你现在有一个项目, 名为 <code>HelloCpp</code>, 你期望的是, 该项目编译运行后在命令行打印一行文字<code>你好, 世界.</code>, 项目代码如下:</p><p>main.py</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Hello, World.</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>代码很简单, 可以很明显发现代码的运行结果和我们的期望不符, 会在终端打印文字<code>Hello, World.</code>而不是<code>你好, 世界.</code>. 但我们现在假装没能肉眼发现这个错误. 接下来通过单元测试来发现它.</p><p>Visual Studio 菜单栏, File - New - Project, 打开 <code>Create a new project</code> 窗口, 选择<code>Native Unit Test Project</code>, 点击<code>Next</code>.</p><p>自由设定<code>Project name</code>, 我这里设的是<code>HelloCppUnitTest</code>; 把<code>Solution</code>由<code>Create new solution</code>改为<code>Add to solution</code>; 点击<code>Create</code>.</p><p>创建好后, 在<code>解决方案</code>里就能发现多出来一个项目, 就是你刚才创建的单元测试项目.</p><p>在这个单元测试项目的<code>References</code>上点右键, 选<code>Add Reference</code>, 勾选要进行单元测试的项目, 点击<code>OK</code>. 这样在单元测试项目中就能访问"被测项目"的代码了.</p><p>在创建好单元测试项目后, 默认会打开一个与项目同名的<code>.cpp</code>文件, 我们的单元测试就是写在这里. 默认会提供一个空壳子给我们:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;pch.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CppUnitTest.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>Microsoft</span><span class=o>::</span><span class=n>VisualStudio</span><span class=o>::</span><span class=n>CppUnitTestFramework</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=n>HelloCppUnitTest</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>TEST_CLASS</span><span class=p>(</span><span class=n>HelloCppUnitTest</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=n>TEST_METHOD</span><span class=p>(</span><span class=n>TestMethod1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>我们在文件顶部把要测试的代码文件 include 进来, 在 <code>TEST_METHOD</code> 的花括号里编写单元测试:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;pch.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CppUnitTest.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 导入要进行测试的代码所在文件
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&#34;../CppHello/main.cpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 需要哪些头文件, 导入进来
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>Microsoft</span><span class=o>::</span><span class=n>VisualStudio</span><span class=o>::</span><span class=n>CppUnitTestFramework</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=n>HelloCppUnitTest</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>TEST_CLASS</span><span class=p>(</span><span class=n>HelloCppUnitTest</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=n>TEST_METHOD</span><span class=p>(</span><span class=n>TestMethod1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>expected</span> <span class=o>=</span> <span class=s>&#34;你好, 世界.</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>stringstream</span> <span class=n>buffer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>streambuf</span><span class=o>*</span> <span class=n>sbuf</span> <span class=o>=</span> <span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>();</span> <span class=c1>// Save cout&#39;s buffer  // 保存 cout 的原始缓冲区的指针, 以便一会儿再重定向回来
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>(</span><span class=n>buffer</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>());</span> <span class=c1>// Redirect cout to the stringstream buffer  // 将 cout 重定向到字符串流缓冲区
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>			<span class=c1>// 调用要测试的 main() 函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// Call main() in your test
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=kt>int</span> <span class=n>result</span> <span class=o>=</span> <span class=n>main</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>// 完成后, 将 cout 还重定向到原来的缓冲区
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// When finished, redirect cout to the original buffer 
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>(</span><span class=n>sbuf</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;std original buffer: </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>buffer</span><span class=p>.</span><span class=n>get</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>// 测试
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// Test
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>Assert</span><span class=o>::</span><span class=n>AreEqual</span><span class=p>(</span><span class=n>expected</span><span class=p>,</span> <span class=n>buffer</span><span class=p>.</span><span class=n>str</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>单元测试编写好后, 在菜单栏选 Test - Test Explorer, 打开测试资源管理器, 选窗口顶部最左侧那个绿色箭头<code>Run All Tests In View</code>, 即可运行单元测试.</p><p>测试结束后, 可以在测试资源管理器查看测试详情, 对比期望的结果和实际结果的差异.</p><h2 id=第二个测试><a href=#%e7%ac%ac%e4%ba%8c%e4%b8%aa%e6%b5%8b%e8%af%95 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>第二个测试</h2><p>现在要测试下面代码里的类 MyClass 是否能正确初始化.</p><p>main.py</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string_view&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;format&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>MyClass</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>nm</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=o>:</span> <span class=n>name</span><span class=p>{</span> <span class=n>nm</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>getName</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=n>name</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>private</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>name</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>name</span><span class=p>{</span> <span class=s>&#34;Aoyu&#34;</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=n>MyClass</span> <span class=n>a</span><span class=p>{</span> <span class=n>name</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>format</span><span class=p>(</span><span class=s>&#34;{} 是我最好的朋友.&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>.</span><span class=n>getName</span><span class=p>())</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>单元测试代码如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;pch.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CppUnitTest.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 导入要进行测试的代码所在文件
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&#34;../CppHello/main.cpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 需要哪些头文件, 导入进来
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;string&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>Microsoft</span><span class=o>::</span><span class=n>VisualStudio</span><span class=o>::</span><span class=n>CppUnitTestFramework</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=n>HelloCppUnitTest</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>TEST_CLASS</span><span class=p>(</span><span class=n>HelloCppUnitTest</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=n>TEST_METHOD</span><span class=p>(</span><span class=n>TestClassInit</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>name</span> <span class=o>=</span> <span class=s>&#34;Aoyu&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>MyClass</span> <span class=nf>mc</span><span class=p>(</span><span class=n>name</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>Assert</span><span class=o>::</span><span class=n>AreEqual</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>mc</span><span class=p>.</span><span class=n>getName</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>多个单元测试对应多个 <code>TEST_METHOD</code>. 如果把上面两个单元测试写一起, 就是下面这个样子:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;pch.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CppUnitTest.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 导入要进行测试的代码所在文件
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&#34;../CppHello/main.cpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 需要哪些头文件, 导入进来
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;string&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>Microsoft</span><span class=o>::</span><span class=n>VisualStudio</span><span class=o>::</span><span class=n>CppUnitTestFramework</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=n>HelloCppUnitTest</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>TEST_CLASS</span><span class=p>(</span><span class=n>HelloCppUnitTest</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>		<span class=n>TEST_METHOD</span><span class=p>(</span><span class=n>TestMethod1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>expected</span> <span class=o>=</span> <span class=s>&#34;你好, 世界.</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>stringstream</span> <span class=n>buffer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>streambuf</span><span class=o>*</span> <span class=n>sbuf</span> <span class=o>=</span> <span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>();</span> <span class=c1>// Save cout&#39;s buffer  // 保存 cout 的原始缓冲区的指针, 以便一会儿再重定向回来
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>(</span><span class=n>buffer</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>());</span> <span class=c1>// Redirect cout to the stringstream buffer  // 将 cout 重定向到字符串流缓冲区
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>			<span class=c1>// 调用要测试的 main() 函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// Call main() in your test
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=kt>int</span> <span class=n>result</span> <span class=o>=</span> <span class=n>main</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>// 完成后, 将 cout 还重定向到原来的缓冲区
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// When finished, redirect cout to the original buffer 
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>rdbuf</span><span class=p>(</span><span class=n>sbuf</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;std original buffer: </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>buffer</span><span class=p>.</span><span class=n>get</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>// 测试
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// Test
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>Assert</span><span class=o>::</span><span class=n>AreEqual</span><span class=p>(</span><span class=n>expected</span><span class=p>,</span> <span class=n>buffer</span><span class=p>.</span><span class=n>str</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=n>TEST_METHOD</span><span class=p>(</span><span class=n>TestClassInit</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>name</span> <span class=o>=</span> <span class=s>&#34;Aoyu&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>MyClass</span> <span class=nf>mc</span><span class=p>(</span><span class=n>name</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>Assert</span><span class=o>::</span><span class=n>AreEqual</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>mc</span><span class=p>.</span><span class=n>getName</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>很显然, <code>TEST_METHOD(TestClassInit)</code>可以测试通过; <code>TEST_METHOD(TestMethod1)</code>不能测试通过, 因为我们在<code>main.cpp</code>里修改了函数<code>main()</code>的代码. 在实际的开发中, 我们可以通过单元测试来发现哪些后续写的代码"不小心"让之前写的代码产生了异常.</p><h2 id=参考><a href=#%e5%8f%82%e8%80%83 class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>参考</h2><p><a href="https://learn.microsoft.com/zh-cn/visualstudio/test/getting-started-with-unit-testing?view=vs-2022&amp;tabs=dotnet%2Cmstest">单元测试入门</a></p><p><a href="https://learn.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2022">在 Visual Studio 中编写 C/C++ 单元测试</a></p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/php_curl_post_roamresearch_api_create_block/ title="Previous post (older)"><span>Previous</span>
+PHP cURL 调用 RoamResearch API 创建 Block</a></nav></div><div class=container></div><div class=container><div class=post-comment><div id=vcomments></div><script src=//unpkg.com/valine/dist/Valine.min.js></script>
+<script type=text/javascript>new Valine({el:"#vcomments",appId:"aodxhFvcnQZhByjhPdSxKzWH-gzGzoHsz",appKey:"JbXEtUPYPmhJ285n8cIoAnIn",placeholder:"说点什么吧...",visitor:"true"})</script></div></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js data-enable-footnotes=true></script></footer></body></html>

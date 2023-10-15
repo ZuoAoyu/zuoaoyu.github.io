@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C++ on 侠客</title><link>https://o5o.me/tags/c++/</link><description>Recent content in C++ on 侠客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 15 Oct 2023 14:36:00 +0800</lastBuildDate><atom:link href="https://o5o.me/tags/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>MSVC编写C++代码的单元测试</title><link>https://o5o.me/post/cpp_msvc_unit_test/</link><pubDate>Sun, 15 Oct 2023 14:36:00 +0800</pubDate><guid>https://o5o.me/post/cpp_msvc_unit_test/</guid><description>我认为, 在开发时, 单元测试的编写时间要早于或等于功能代码的编写时间.
+第一个测试 假如你现在有一个项目, 名为 HelloCpp, 你期望的是, 该项目编译运行后在命令行打印一行文字你好, 世界., 项目代码如下:
+main.py
+1 2 3 4 5 6 7 8 #include &amp;lt;iostream&amp;gt; int main() { std::cout &amp;lt;&amp;lt; &amp;#34;Hello, World.\n&amp;#34;; return 0; } 代码很简单, 可以很明显发现代码的运行结果和我们的期望不符, 会在终端打印文字Hello, World.而不是你好, 世界.. 但我们现在假装没能肉眼发现这个错误. 接下来通过单元测试来发现它.
+Visual Studio 菜单栏, File - New - Project, 打开 Create a new project 窗口, 选择Native Unit Test Project, 点击Next.
+自由设定Project name, 我这里设的是HelloCppUnitTest; 把Solution由Create new solution改为Add to solution; 点击Create.
+创建好后, 在解决方案里就能发现多出来一个项目, 就是你刚才创建的单元测试项目.</description></item></channel></rss>
